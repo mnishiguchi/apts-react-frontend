@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import logo 　　　　　　　　　 from './logo.svg';
 
+// Images
+import logo_svg from './logo.svg';
+
+// Styles
 import './Logo.css';
 
 class Logo extends Component {
@@ -8,8 +11,8 @@ class Logo extends Component {
     return (
       <div className="Logo">
         <img
-          src={logo}
-          className="App-logo"
+          src={logo_svg}
+          className="AppHeader-logo"
           alt="logo"
         />
       </div>
