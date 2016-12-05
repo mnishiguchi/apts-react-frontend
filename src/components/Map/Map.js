@@ -110,6 +110,8 @@ class Map extends Component {
     let markers = [];
     for (let listing of listings) {
 
+        if (!listing) continue;
+
         const markerHTML = `
           <h4>${listing.marketing_name}</h4>
           <p>${this._fullAddress(listing)}</p>
@@ -149,22 +151,25 @@ class Map extends Component {
   _setupMarkers = (listings) => {
     console.log(`Map::_setupMarkers`)
 
+    // // Listings
+    // https://www.mapbox.com/mapbox-gl-js/example/multiple-geometries/
     this._map.addSource("listings", {
-        "type": "geojson",
-        "data": {
-            "type"    : "FeatureCollection",
-            "features": this._createMarkers(listings),
-        }
+      "type": "geojson",
+      "data": {
+        "type"    : "FeatureCollection",
+        "features": this._createMarkers(listings),
+      }
     });
     this._map.addLayer({
-        "id"    : "listings",
-        "type"  : "symbol",
-        "source": "listings",
-        "layout": {
-            "icon-image"        : "{icon}-15",
-            "icon-allow-overlap": true
-        }
+      "id"    : "listings",
+      "type"  : "symbol",
+      "source": "listings",
+      "layout": {
+        "icon-image"        : "{icon}-15",
+        "icon-allow-overlap": true
+      }
     });
+
 
     // Create a popup, but don't add it to the map yet.
     // https://www.mapbox.com/mapbox-gl-js/example/popup-on-hover/
@@ -173,10 +178,9 @@ class Map extends Component {
         closeOnClick: false
     });
 
-    // Show popup on click.
+    // Show popup on mousemove.
     // https://www.mapbox.com/mapbox-gl-js/example/popup-on-hover/
     this._map.on('mousemove', event => {
-      console.log(event.point);
       const features = this._map.queryRenderedFeatures(event.point, {
         layers: [ "listings" ]
       });

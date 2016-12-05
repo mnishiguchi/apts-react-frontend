@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import _       from 'lodash';
-import request from 'axios';
+import request              from 'axios';
+import _                    from 'lodash';
+import { EventEmitter }     from 'fbemitter';
+import NotificationSystem   from 'react-notification-system';
 
 // Components
 import AppHeader    from './components/AppHeader/AppHeader';
@@ -26,23 +28,64 @@ class App extends Component {
     super(props);
 
     // Initial state
+    // We want to render the app based on listings and selectedItem.
     this.state = {
       listings          : [],
+      hoveredItem       : null,
       fetchAllItemsError: null,
       latitude          : this.props.latitude,
       longitude         : this.props.longitude,
       zoom              : this.props.zoom,
     }
-    // TODO: selectedItem
-    // We want to render the app based on listings and selectedItem.
+
+    this._notificationSystem = null;
 
     _.bindAll(this, '_fetchAllItems');
   }
 
+
+  // ---
+  // lifecycle hooks
+  // ---
+
+
+  // https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
+  // http://qiita.com/mizchi/items/6a3500e598ec36746509
+  componentWillMount() {
+    // Create a emitter.
+    this.emitter = new EventEmitter;
+
+    // Register and listen for our custom events that will be emitted by children.
+    this.emitter.addListener( 'ListingItem:click', payload => {
+      console.log( 'ListingItem:click' );
+      this._addNotification( payload.item.marketing_name );
+    });
+    this.emitter.addListener( 'ListingItem:mouseOver', payload => {
+      console.log( 'ListingItem:mouseOver' );
+      this.setState({ hoveredItem: payload.item });
+    });
+  }
+
   render() {
+    const notificationStyles = {
+      NotificationItem: { // Override the notification item
+        DefaultStyle: { // Applied to every notification, regardless of the notification level
+          zIndex: 10,
+          fontSize: '20px',
+          background: 'rgba(22, 82, 124, 0.8)',
+          color: 'rgb(202,178,161)'
+        }
+      }
+    };
+
     return (
       <div className="App">
         <AppHeader />
+
+        <NotificationSystem
+          ref="notificationSystem"
+          style={notificationStyles}
+        />
 
         <LngLatForm
           latitude={this.state.latitude}
@@ -60,10 +103,14 @@ class App extends Component {
               longitude={this.state.longitude}
               zoom={this.state.zoom}
               listings={this.state.listings}
+              emitter={this.emitter}
             />
           </div>
           <div className="flexible">
-            <ListingTable listings={this.state.listings} />
+            <ListingTable
+              listings={this.state.listings}
+              emitter={this.emitter}
+            />
           </div>
         </section>
       </div>
@@ -72,6 +119,44 @@ class App extends Component {
 
   componentDidMount() {
     this._fetchAllItems();
+
+    // Set up the notification system.
+    this._notificationSystem = this.refs.notificationSystem;
+  }
+
+  componentWillUnmount() {
+    this.emitter.removeAllListeners();
+  }
+
+
+  // ---
+  // public methods
+  // ---
+
+
+  onChangeLatitude = (latitude) => {
+    this.setState({ latitude: parseFloat(latitude) });
+  };
+
+  onChangeLongitude = (longitude) => {
+    this.setState({ longitude: parseFloat(longitude) });
+  };
+
+  onChangeZoom = (zoom) => {
+    this.setState({ zoom: parseFloat(zoom) });
+  };
+
+
+  // ---
+  // private methods
+  // ---
+
+
+  _addNotification( message ) {
+    this._notificationSystem.addNotification({
+      message: message,
+      level:   'success'
+    });
   }
 
   // Make a GET request to our Rails server.
@@ -90,18 +175,6 @@ class App extends Component {
         })
     );
   }
-
-  onChangeLatitude = (latitude) => {
-    this.setState({ latitude: parseFloat(latitude) });
-  };
-
-  onChangeLongitude = (longitude) => {
-    this.setState({ longitude: parseFloat(longitude) });
-  };
-
-  onChangeZoom = (zoom) => {
-    this.setState({ zoom: parseFloat(zoom) });
-  };
 
 } // end class
 
