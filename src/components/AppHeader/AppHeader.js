@@ -11,6 +11,10 @@ import Nav          from 'react-bootstrap/lib/Nav';
 import Navbar       from 'react-bootstrap/lib/Navbar';
 import NavItem      from 'react-bootstrap/lib/NavItem';
 
+// https://github.com/danawoodman/react-fontawesome/blob/master/api.md
+import FontAwesome  from 'react-fontawesome';
+
+
 // Styles
 import './AppHeader.css';
 
@@ -33,7 +37,9 @@ class AppHeader extends Component {
                 <FormControl type="text" placeholder="Search" />
               </FormGroup>
               {' '}
-              <Button className="hidden-xs" type="submit">Submit</Button>
+              <Button className="hidden-xs" type="submit">
+                <i className="fa fa-search" aria-hidden="true"></i>
+              </Button>
             </Navbar.Form>
             <Nav pullRight>
               <NavItem eventKey={1} href="#search">Search</NavItem>
