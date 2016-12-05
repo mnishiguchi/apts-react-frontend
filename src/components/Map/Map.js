@@ -109,13 +109,13 @@ class Map extends Component {
         markers.push({
             "type": "Feature",
             "properties": {
-                "description": listing.description,
+                "description": listing.marketing_name,
                 "iconSize"   : [20, 20],
                 "icon"       : "circle"
             },
             "geometry": {
                 "type"       : "Point",
-                "coordinates": listing.lngLat
+                "coordinates": [ listing.longitude, listing.latitude ]
             }
         });
     }

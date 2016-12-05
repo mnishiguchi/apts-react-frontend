@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import _       from 'lodash';
+import request from 'axios';
 
 // Components
 import AppHeader    from './components/AppHeader/AppHeader';
@@ -13,25 +15,9 @@ import './App.css';
 const PROP_TYPES = {
 };
 const DEFAULT_PROPS = {
-  latitude  : 38.957575,
-  longitude : -77.356746,
+  latitude  : 38.85,
+  longitude : -77.2,
   zoom      : 9,
-  listings  : [
-                {
-                  lngLat: [-77.356746, 38.957575],
-                  description: `
-                  <h4>Property 1</h4>
-                  <p>Lorem ipsum.</p>
-                  `
-                },
-                {
-                  lngLat: [-77.321264, 38.943057],
-                  description: `
-                  <h4>Property 2</h4>
-                  <p>Lorem ipsum.</p>
-                  `
-                }
-              ]
 };
 
 class App extends Component {
@@ -41,20 +27,17 @@ class App extends Component {
 
     // Initial state
     this.state = {
-      latitude : this.props.latitude,
-      longitude: this.props.longitude,
-      zoom     : this.props.zoom,
-      listings : this.props.listings,
+      listings          : [],
+      fetchAllItemsError: null,
+      latitude          : this.props.latitude,
+      longitude         : this.props.longitude,
+      zoom              : this.props.zoom,
     }
+    // TODO: selectedItem
+    // We want to render the app based on listings and selectedItem.
+
+    _.bindAll(this, '_fetchAllItems');
   }
-
-  onChangeLatitude = (latitude) => {
-    this.setState({ latitude: parseFloat(latitude) });
-  };
-
-  onChangeLongitude = (longitude) => {
-    this.setState({ longitude: parseFloat(longitude) });
-  };
 
   render() {
     return (
@@ -77,14 +60,44 @@ class App extends Component {
             />
           </div>
           <div className="flexible">
-            <ListingTable />
+            <ListingTable listings={this.state.listings} />
           </div>
         </section>
 
       </div>
     );
   }
-}
+
+  componentDidMount() {
+    this._fetchAllItems();
+  }
+
+  // Make a GET request to our Rails server.
+  _fetchAllItems() {
+    const propertiesUrl = "http://apts-api.herokuapp.com/properties.json";
+    return (
+      request
+        .get(propertiesUrl, { responseType: 'json' })
+        .then(res => {
+          console.log(res);
+          this.setState({ listings: res.data })
+        })
+        .catch(error => {
+          console.log(error);
+          this.setState({ fetchAllItemsError: error })
+        })
+    );
+  }
+
+  onChangeLatitude = (latitude) => {
+    this.setState({ latitude: parseFloat(latitude) });
+  };
+
+  onChangeLongitude = (longitude) => {
+    this.setState({ longitude: parseFloat(longitude) });
+  };
+
+} // end class
 
 App.propTypes = PROP_TYPES;
 App.defaultProps = DEFAULT_PROPS;

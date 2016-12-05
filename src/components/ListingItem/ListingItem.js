@@ -6,11 +6,21 @@ import './ListingItem.css';
 // Stateless function
 // https://facebook.github.io/react/docs/components-and-props.html
 const ListingItem = (props) => {
+
+	const { item } = props;
+	
+	const fullAddress = [
+		item.street,
+		item.city,
+		item.state,
+		item.zip,
+	].join(' ');
+
 	return (
 		<tr className="ListingItem">
-			<td>Table cell</td>
-			<td>Table cell</td>
-			<td>Table cell</td>
+			<td>{item.marketing_name}</td>
+			<td>{fullAddress}</td>
+			<td>{item.contact_phone}</td>
 		</tr>
 	);
 }

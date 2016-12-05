@@ -12,24 +12,29 @@ import './ListingTable.css';
 // Stateless function
 // https://facebook.github.io/react/docs/components-and-props.html
 const ListingTable = (props) => {
+
+  const itemNodes = props.listings.map( item =>
+    <ListingItem
+      item={item}
+      key={item.id}
+    />
+  );
+
   return (
     <div className="ListingTable">
       <div>
         <h4>ListingTable</h4>
         <Table responsive>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Rent</th>
-          </tr>
-        </thead>
-        <tbody>
-          <ListingItem />
-          <ListingItem />
-          <ListingItem />
-          <ListingItem />
-        </tbody>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            {itemNodes}
+          </tbody>
         </Table>
       </div>
     </div>
