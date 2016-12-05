@@ -58,10 +58,13 @@ class App extends Component {
     // Register and listen for our custom events that will be emitted by children.
     this.emitter.addListener( 'ListingItem:click', payload => {
       console.log( 'ListingItem:click' );
-      this._addNotification( payload.item.marketing_name );
+
+      this._addNotification( `Clicked: ${payload.item.marketing_name}` );
     });
     this.emitter.addListener( 'ListingItem:mouseOver', payload => {
       console.log( 'ListingItem:mouseOver' );
+
+      this._addNotification( `Hovered: ${payload.item.marketing_name}` );
       this.setState({ hoveredItem: payload.item });
     });
   }
@@ -70,10 +73,10 @@ class App extends Component {
     const notificationStyles = {
       NotificationItem: { // Override the notification item
         DefaultStyle: { // Applied to every notification, regardless of the notification level
-          zIndex: 10,
-          fontSize: '20px',
+          zIndex    : 10,
+          fontSize  : '20px',
           background: 'rgba(22, 82, 124, 0.8)',
-          color: 'rgb(202,178,161)'
+          color     : 'rgb(202,178,161)'
         }
       }
     };
@@ -103,6 +106,7 @@ class App extends Component {
               longitude={this.state.longitude}
               zoom={this.state.zoom}
               listings={this.state.listings}
+              hoveredItem={this.state.hoveredItem}
               emitter={this.emitter}
             />
           </div>

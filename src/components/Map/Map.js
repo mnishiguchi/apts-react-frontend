@@ -78,14 +78,20 @@ class Map extends Component {
 
   componentWillReceiveProps(newProps) {
     this.setState({
-      width: this.props.width,
-      height: this.props.height
+      width   : this.props.width,
+      height  : this.props.height,
+      listings: [
+        ...this.props.listings,
+        Object.assign({}, this.props.hoveredItem, {hovered: "hovered"})
+      ]
     });
   }
 
   componentDidUpdate() {
     console.log(`Map::componentDidUpdate`);
     console.log(this.props.zoom);
+    console.log(this.state.listings);
+
     this._updateCenter([this.props.longitude, this.props.latitude], {
       zoom: this.props.zoom
     });
