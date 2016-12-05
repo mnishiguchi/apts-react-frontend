@@ -128,7 +128,8 @@ class Map extends Component {
             "properties": {
                 "description": markerHTML,
                 "iconSize"   : [20, 20],
-                "icon"       : "circle"
+                "icon"       : "circle",
+                "hello"      : (listing.state === "DC") ? "hovered" : "default"
             },
             "geometry": {
                 "type"       : "Point",
@@ -168,14 +169,37 @@ class Map extends Component {
     });
     this._map.addLayer({
       "id"    : "listings",
-      "type"  : "symbol",
+      "type"  : "circle",
       "source": "listings",
-      "layout": {
-        "icon-image"        : "{icon}-15",
-        "icon-allow-overlap": true
+      'paint': {
+          // make circles larger as the user zooms from z12 to z22
+          'circle-radius': {
+              'base': 1.75,
+              'stops': [
+                [12, 5], [22, 180]
+              ]
+          },
+          // color circles by property, using data-driven styles
+          'circle-color': {
+              property: 'hello',
+              type    : 'categorical',
+              stops   : [
+                ['default', '#fbb03b'],
+                ['hovered', '#e55e5e'],
+              ]
+          }
       }
     });
 
+    // this._map.addLayer({
+    //   "id"    : "listings",
+    //   "type"  : "symbol",
+    //   "source": "listings",
+    //   "layout": {
+    //     "icon-image"        : "{icon}-15",
+    //     "icon-allow-overlap": true
+    //   }
+    // });
 
     // Create a popup, but don't add it to the map yet.
     // https://www.mapbox.com/mapbox-gl-js/example/popup-on-hover/
