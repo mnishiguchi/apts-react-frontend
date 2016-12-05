@@ -44,14 +44,17 @@ class App extends Component {
       <div className="App">
         <AppHeader />
 
+        <LngLatForm
+          latitude={this.state.latitude}
+          longitude={this.state.longitude}
+          zoom={this.state.zoom}
+          onChangeLongitude={this.onChangeLongitude}
+          onChangeLatitude={this.onChangeLatitude}
+          onChangeZoom={this.onChangeZoom}
+        />
+
         <section className="grid">
           <div className="flexible">
-            <LngLatForm
-              latitude={this.state.latitude}
-              longitude={this.state.longitude}
-              onChangeLongitude={this.onChangeLongitude}
-              onChangeLatitude={this.onChangeLatitude}
-            />
             <Map
               latitude={this.state.latitude}
               longitude={this.state.longitude}
@@ -63,7 +66,6 @@ class App extends Component {
             <ListingTable listings={this.state.listings} />
           </div>
         </section>
-
       </div>
     );
   }
@@ -95,6 +97,10 @@ class App extends Component {
 
   onChangeLongitude = (longitude) => {
     this.setState({ longitude: parseFloat(longitude) });
+  };
+
+  onChangeZoom = (zoom) => {
+    this.setState({ zoom: parseFloat(zoom) });
   };
 
 } // end class

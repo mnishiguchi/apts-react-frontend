@@ -29,6 +29,17 @@ const LngLatForm = (props) => {
         value={props.longitude}
         onChange={event => props.onChangeLongitude(event.target.value)}
       />
+      {" "}
+      <label htmlFor="zoom">
+        Zoom:
+      </label>
+      <input
+        id="zoom"
+        type="number"
+        step="1"
+        value={props.zoom}
+        onChange={event => props.onChangeZoom(event.target.value)}
+      />
     </form>
   );
 }

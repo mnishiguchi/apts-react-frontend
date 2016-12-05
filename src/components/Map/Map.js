@@ -85,7 +85,10 @@ class Map extends Component {
 
   componentDidUpdate() {
     console.log(`Map::componentDidUpdate`);
-    this._updateCenter([this.props.longitude, this.props.latitude]);
+    console.log(this.props.zoom);
+    this._updateCenter([this.props.longitude, this.props.latitude], {
+      zoom: this.props.zoom
+    });
   }
 
   componentWillUnmount() {
@@ -106,10 +109,16 @@ class Map extends Component {
 
     let markers = [];
     for (let listing of listings) {
+
+        const markerHTML = `
+          <h4>${listing.marketing_name}</h4>
+          <p>${this._fullAddress(listing)}</p>
+        `;
+
         markers.push({
             "type": "Feature",
             "properties": {
-                "description": listing.marketing_name,
+                "description": markerHTML,
                 "iconSize"   : [20, 20],
                 "icon"       : "circle"
             },
@@ -126,6 +135,15 @@ class Map extends Component {
 
   _getMap() {
     return this._map;
+  }
+
+  _fullAddress(listing) {
+    return [
+      listing.street,
+      listing.city,
+      listing.state,
+      listing.zip,
+    ].join(' ');
   }
 
   _setupMarkers = (listings) => {
@@ -157,6 +175,11 @@ class Map extends Component {
       console.log(`clicked marker: ${markers}`);
 
       if (markers.length) {
+        // const markerHTML = `
+        //   <h4>${markers[0].properties.description}</h4>
+        //   <p>${markers[0].geometry.coordinates}</p>
+        // `;
+
         new mapboxgl.Popup()
           .setLngLat(markers[0].geometry.coordinates)
           .setHTML(markers[0].properties.description)
@@ -167,12 +190,13 @@ class Map extends Component {
 
   /**
    * Moves the center of the map to the specified lngLat.
-   * @param  {Array<Float>} initialCenterLngLat
+   * @param  {Array<Float>} longitude and latitude of the map center
+   * @param  {Object} opts  https://www.mapbox.com/mapbox-gl-js/api/#Map
    */
-  _updateCenter = (lngLat) => {
+  _updateCenter = (lngLat, opts) => {
       console.log("Map::_updateCenter");
       console.log(lngLat);
-      this._map.panTo(lngLat);
+      this._map.panTo(lngLat, opts);
   }
 } // end class
 
