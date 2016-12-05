@@ -166,25 +166,34 @@ class Map extends Component {
         }
     });
 
+    // Create a popup, but don't add it to the map yet.
+    // https://www.mapbox.com/mapbox-gl-js/example/popup-on-hover/
+    this._popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+    });
+
     // Show popup on click.
-    this._map.on('click', event => {
+    // https://www.mapbox.com/mapbox-gl-js/example/popup-on-hover/
+    this._map.on('mousemove', event => {
       console.log(event.point);
-      const markers = this._map.queryRenderedFeatures(event.point, {
+      const features = this._map.queryRenderedFeatures(event.point, {
         layers: [ "listings" ]
       });
-      console.log(`clicked marker: ${markers}`);
 
-      if (markers.length) {
-        // const markerHTML = `
-        //   <h4>${markers[0].properties.description}</h4>
-        //   <p>${markers[0].geometry.coordinates}</p>
-        // `;
+      this._map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
 
-        new mapboxgl.Popup()
-          .setLngLat(markers[0].geometry.coordinates)
-          .setHTML(markers[0].properties.description)
-          .addTo(this._map);
+      if (!features.length) {
+          this._popup.remove();
+          return;
       }
+
+      const marker = features[0];
+
+      this._popup
+        .setLngLat(marker.geometry.coordinates)
+        .setHTML(marker.properties.description)
+        .addTo(this._map);
     });
   }
 
