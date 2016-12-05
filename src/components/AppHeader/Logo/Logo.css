@@ -1,10 +1,10 @@
-.AppHeader-logo {
-  animation: AppHeader-logo-spin infinite 20s linear;
-  height: 40px;
-  margin-top: -10px;
+.Logo {
+  animation: Logo-spin infinite 20s linear;
+  height: 45px;
+  margin-top: -12px;
 }
 
-@keyframes AppHeader-logo-spin {
+@keyframes Logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }

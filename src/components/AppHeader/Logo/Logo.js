@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Images
-import logo_svg from './logo.svg';
+import logo_src from './mn_logo.png';
 
 // Styles
 import './Logo.css';
@@ -10,13 +10,11 @@ import './Logo.css';
 // https://facebook.github.io/react/docs/components-and-props.html
 const Logo = (props) => {
   return (
-    <div className="Logo">
-      <img
-        src={logo_svg}
-        className="AppHeader-logo"
-        alt="logo"
-      />
-    </div>
+    <img
+      src={logo_src}
+      className="Logo"
+      alt="logo"
+    />
   );
 }
 

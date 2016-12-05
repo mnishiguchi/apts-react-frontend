@@ -11,10 +11,6 @@ import Nav          from 'react-bootstrap/lib/Nav';
 import Navbar       from 'react-bootstrap/lib/Navbar';
 import NavItem      from 'react-bootstrap/lib/NavItem';
 
-// https://github.com/danawoodman/react-fontawesome/blob/master/api.md
-import FontAwesome  from 'react-fontawesome';
-
-
 // Styles
 import './AppHeader.css';
 

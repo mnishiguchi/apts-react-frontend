@@ -77,10 +77,6 @@ class Map extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this._updateStateFromProps(this.props, newProps);
-    this._updateMapViewport(this.props, newProps);
-    this._updateMapStyle(this.props, newProps);
-    // Save width/height so that we can check them in componentDidUpdate
     this.setState({
       width: this.props.width,
       height: this.props.height
@@ -89,6 +85,7 @@ class Map extends Component {
 
   componentDidUpdate() {
     console.log(`Map::componentDidUpdate`);
+    this._updateCenter([this.props.longitude, this.props.latitude]);
   }
 
   componentWillUnmount() {
@@ -166,6 +163,16 @@ class Map extends Component {
           .addTo(this._map);
       }
     });
+  }
+
+  /**
+   * Moves the center of the map to the specified lngLat.
+   * @param  {Array<Float>} initialCenterLngLat
+   */
+  _updateCenter = (lngLat) => {
+      console.log("Map::_updateCenter");
+      console.log(lngLat);
+      this._map.panTo(lngLat);
   }
 } // end class
 
