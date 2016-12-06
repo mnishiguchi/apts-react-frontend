@@ -30,7 +30,13 @@ const ListingTable = (props) => {
   return (
     <div className="ListingTable">
       <div>
-        <h4>ListingTable</h4>
+        <h4>
+          Active item: &nbsp;
+          <small>
+            {(props.hoveredItem) ? props.hoveredItem.marketing_name : '(hover the list)'}
+          </small>
+        </h4>
+
         <Table responsive>
           <thead>
             <tr>

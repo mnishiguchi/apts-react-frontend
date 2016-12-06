@@ -64,7 +64,7 @@ class App extends Component {
     this.emitter.addListener( 'ListingItem:mouseOver', payload => {
       console.log( 'ListingItem:mouseOver' );
 
-      this._addNotification( `Hovered: ${payload.item.marketing_name}` );
+      // this._addNotification( `Hovered: ${payload.item.marketing_name}` );
       this.setState({ hoveredItem: payload.item });
     });
   }
@@ -113,6 +113,7 @@ class App extends Component {
           <div className="flexible">
             <ListingTable
               listings={this.state.listings}
+              hoveredItem={this.state.hoveredItem}
               emitter={this.emitter}
             />
           </div>
@@ -122,13 +123,20 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log(`App::componentDidMount`);
+
     this._fetchAllItems();
 
     // Set up the notification system.
     this._notificationSystem = this.refs.notificationSystem;
   }
 
+  componentWillUpdate() {
+    console.log(`App::componentWillUpdate`);
+  }
+
   componentWillUnmount() {
+    console.log(`App::componentWillUnmount`);
     this.emitter.removeAllListeners();
   }
 

@@ -17,8 +17,8 @@ const PROP_TYPES = {
 };
 const DEFAULT_PROPS = {
   accessToken: 'pk.eyJ1IjoicG1pbGxlcmsiLCJhIjoiY2lyM3VjMzNsMDFkZHR4bHdxOWs1amt1MiJ9.nc1fPKTYXlgC1zVoYS2Oag',
-  width     : "100%",
-  height    : "100vh",
+  width      : "100%",
+  height     : "100vh",
 };
 
 class Map extends Component {
@@ -60,7 +60,7 @@ class Map extends Component {
 
     mapboxgl.accessToken = this.props.accessToken;
 
-    // Create a map instance based on the specified initialCenter.
+    // Create a map instance based on props.
     const map = new mapboxgl.Map({
       container: this.refs.mapboxMap,
       style    : 'mapbox://styles/mapbox/light-v9',
@@ -77,20 +77,32 @@ class Map extends Component {
   }
 
   componentWillReceiveProps(newProps) {
+    console.log(`Map::componentWillReceiveProps`);
+    console.log(newProps);
+
     this.setState({
       width   : this.props.width,
       height  : this.props.height,
-      listings: [
-        ...this.props.listings,
-        Object.assign({}, this.props.hoveredItem, {hovered: "hovered"})
-      ]
     });
+  }
+
+  componentWillUpdate() {
+    console.log(`Map::componentWillUpdate`);
   }
 
   componentDidUpdate() {
     console.log(`Map::componentDidUpdate`);
-    console.log(this.props.zoom);
-    console.log(this.state.listings);
+    // console.log(this.props);
+    // console.log(this.props.listings);
+
+    // // NOTE: This will re-draw all the markers, which is not ideal...
+    // this._setupMarkers(this.props.listings);
+
+    console.log(this._map)
+
+    // // Query all rendered features from a single layer
+    // var features = this._map.queryRenderedFeatures({
+    //   layers: ["listings"] });
 
     this._updateCenter([this.props.longitude, this.props.latitude], {
       zoom: this.props.zoom
@@ -123,13 +135,15 @@ class Map extends Component {
           <p>${this._fullAddress(listing)}</p>
         `;
 
+        console.log(this.props.hoveredItem === listing)
+
         markers.push({
             "type": "Feature",
             "properties": {
-                "description": markerHTML,
-                "iconSize"   : [20, 20],
-                "icon"       : "circle",
-                "hello"      : (listing.state === "DC") ? "hovered" : "default"
+                "description"  : markerHTML,
+                "iconSize"     : [20, 20],
+                "icon"         : "circle",
+                "mnMarkerType" : (this.props.hoveredItem === listing) ? "hovered" : "default"
             },
             "geometry": {
                 "type"       : "Point",
@@ -142,10 +156,6 @@ class Map extends Component {
     return markers;
   }
 
-  _getMap() {
-    return this._map;
-  }
-
   _fullAddress(listing) {
     return [
       listing.street,
@@ -155,8 +165,16 @@ class Map extends Component {
     ].join(' ');
   }
 
+  _getMap() {
+    return this._map;
+  }
+
   _setupMarkers = (listings) => {
     console.log(`Map::_setupMarkers`)
+
+    if (this._map.getSource("listings")) {
+      this._map.removeSource("listings")
+    }
 
     // // Listings
     // https://www.mapbox.com/mapbox-gl-js/example/multiple-geometries/
@@ -169,22 +187,23 @@ class Map extends Component {
     });
     this._map.addLayer({
       "id"    : "listings",
-      "type"  : "circle",
       "source": "listings",
+      "type"  : "circle",
       'paint': {
           // make circles larger as the user zooms from z12 to z22
           'circle-radius': {
               'base': 1.75,
               'stops': [
-                [12, 5], [22, 180]
+                [12, 5],
+                [22, 180]
               ]
           },
           // color circles by property, using data-driven styles
           'circle-color': {
-              property: 'hello',
+              property: 'mnMarkerType',
               type    : 'categorical',
               stops   : [
-                ['default', '#fbb03b'],
+                ['default', '#666666'],
                 ['hovered', '#e55e5e'],
               ]
           }
@@ -211,24 +230,33 @@ class Map extends Component {
     // Show popup on mousemove.
     // https://www.mapbox.com/mapbox-gl-js/example/popup-on-hover/
     this._map.on('mousemove', event => {
-      const features = this._map.queryRenderedFeatures(event.point, {
-        layers: [ "listings" ]
-      });
-
-      this._map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
-
-      if (!features.length) {
-          this._popup.remove();
-          return;
-      }
-
-      const marker = features[0];
-
-      this._popup
-        .setLngLat(marker.geometry.coordinates)
-        .setHTML(marker.properties.description)
-        .addTo(this._map);
+      this._showPopupAtPoint(event.point);
     });
+  }
+
+  /**
+   * Calling this with zero arguments, or with only a parameters argument is
+   * equivalent to passing a bounding box encompassing the entire map viewport.
+   * https://www.mapbox.com/mapbox-gl-js/api/#Map#queryRenderedFeatures
+   */
+  _showPopupAtPoint = (point) => {
+    const features = this._map.queryRenderedFeatures(point, {
+      layers: [ "listings" ]
+    });
+
+    this._map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+
+    if (!features.length) {
+        this._popup.remove();
+        return;
+    }
+
+    const marker = features[0];
+
+    this._popup
+      .setLngLat(marker.geometry.coordinates)
+      .setHTML(marker.properties.description)
+      .addTo(this._map);
   }
 
   /**
