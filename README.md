@@ -21,6 +21,7 @@ Visit [localhost:3000](localhost:3000)
 - [ReactTraining/react-router](https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md)
 - [Airbnb React/JSX Style Guide](https://github.com/airbnb/javascript/tree/master/react)
 - [https://react-bootstrap.github.io/](https://react-bootstrap.github.io/)
+- [https://github.com/facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app)
 
 ---
 

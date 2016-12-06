@@ -101,7 +101,7 @@ class SearchPage extends Component {
           style={notificationStyles}
         />
 
-      <div className="alert alert-info" style={{'margin':0}}>
+        <div className="alert alert-info" style={{'margin':0}}>
           <div>
             <strong>
               Active item: &nbsp;
@@ -120,7 +120,6 @@ class SearchPage extends Component {
             onChangeZoom={this.onChangeZoom}
             />
         </div>
-
 
         <section className="grid">
           <div className="flexible">
@@ -195,13 +194,17 @@ class SearchPage extends Component {
   }
 
   // Make a GET request to our Rails server.
-  _fetchItems(url) {
+  _fetchItems = (url) => {
     return (
       request
         .get(url, { responseType: 'json' })
         .then(res => {
           console.log(res);
-          this.setState({ listings: res.data })
+
+          // NOTE: for now, if the fetched data is empty, we use hardcoded json instead.
+          const listings = (res.data.length > 0) ? res.data : defaultListings;
+
+          this.setState({ listings: listings })
         })
         .catch(error => {
           console.log(error);
@@ -213,18 +216,18 @@ class SearchPage extends Component {
     );
   }
 
-  _fetchAllItems() {
+  _fetchAllItems = () => {
     const url = "http://apts-api.herokuapp.com/properties.json";
     this._fetchItems(url)
   }
 
   // Make a GET request to our Rails server.
-  _fetchItemsByKeyword(q) {
+  _fetchItemsByKeyword = (q) => {
     const url = `http://apts-api.herokuapp.com/properties.json?q=${q}`;
     this._fetchItems(url)
   }
 
-  _listenForChildren() {
+  _listenForChildren = () => {
     this.emitter.addListener( 'ListingItem:mouseOver', payload => {
       // console.log( 'ListingItem:mouseOver' );
 

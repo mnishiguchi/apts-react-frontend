@@ -59,15 +59,15 @@ class Map extends Component {
 
     // Create a map instance based on props.
     this._map = this._createMap()
-
-    this._map.on('load', () => {
-      this._setupMarkers(this.props.listings);
-    });
   }
 
   componentWillReceiveProps(newProps) {
     console.log(`Map::componentWillReceiveProps`);
     console.log(newProps);
+
+    this._map.on('load', () => {
+      this._setupMarkers(this.props.listings);
+    });
 
     this.setState({
       width  : this.props.width,
