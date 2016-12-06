@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import DetailModal from './DetailModal/DetailModal';
 
 // Styles
 import './ListingItem.css';
@@ -22,9 +23,9 @@ const ListingItem = (props) => {
 		item.zip,
 	].join(' ');
 
-	const onClick = (event) => {
-		props.emitter.emit( 'ListingItem:click', {item: item} );
-	};
+	// const onClick = (event) => {
+	// 	props.emitter.emit( 'ListingItem:click', {item: item} );
+	// };
 
 	const onMouseOver = (event) => {
 		props.emitter.emit( 'ListingItem:mouseOver', {item: item} );
@@ -34,12 +35,20 @@ const ListingItem = (props) => {
 	return (
 		<tr
 			className="ListingItem"
-			onClick={onClick}
 			onMouseOver={onMouseOver}
 		>
-			<td>{item.marketing_name}</td>
-			<td>{fullAddress}</td>
-			<td>{item.contact_phone}</td>
+			<td>
+        {item.marketing_name}
+      </td>
+			<td>
+        {fullAddress}
+      </td>
+			<td>
+        <DetailModal
+          text={'details'}
+          item={item}
+          />
+			</td>
 		</tr>
 	);
 }

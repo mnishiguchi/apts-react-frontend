@@ -36,6 +36,7 @@ class App extends Component {
       latitude          : this.props.latitude,
       longitude         : this.props.longitude,
       zoom              : this.props.zoom,
+      // showDetail        : false,
     }
 
     this._notificationSystem = null;
@@ -45,7 +46,7 @@ class App extends Component {
 
 
   // ---
-  // lifecycle hooks
+  // LIFECYCLE HOOKS
   // ---
 
 
@@ -56,17 +57,7 @@ class App extends Component {
     this.emitter = new EventEmitter;
 
     // Register and listen for our custom events that will be emitted by children.
-    this.emitter.addListener( 'ListingItem:click', payload => {
-      console.log( 'ListingItem:click' );
-
-      this._addNotification( `Clicked: ${payload.item.marketing_name}` );
-    });
-    this.emitter.addListener( 'ListingItem:mouseOver', payload => {
-      console.log( 'ListingItem:mouseOver' );
-
-      // this._addNotification( `Hovered: ${payload.item.marketing_name}` );
-      this.setState({ hoveredItem: payload.item });
-    });
+    this._listenForChildren();
   }
 
   render() {
@@ -90,14 +81,26 @@ class App extends Component {
           style={notificationStyles}
         />
 
-        <LngLatForm
-          latitude={this.state.latitude}
-          longitude={this.state.longitude}
-          zoom={this.state.zoom}
-          onChangeLongitude={this.onChangeLongitude}
-          onChangeLatitude={this.onChangeLatitude}
-          onChangeZoom={this.onChangeZoom}
-        />
+      <div className="alert alert-info" style={{'margin':0}}>
+          <div>
+            <strong>
+              Active item: &nbsp;
+            </strong>
+            <span className="text-muted">
+              {(this.state.hoveredItem) ? this.state.hoveredItem.marketing_name : '(hover the list)'}
+            </span>
+          </div>
+
+          <LngLatForm
+            latitude={this.state.latitude}
+            longitude={this.state.longitude}
+            zoom={this.state.zoom}
+            onChangeLongitude={this.onChangeLongitude}
+            onChangeLatitude={this.onChangeLatitude}
+            onChangeZoom={this.onChangeZoom}
+            />
+        </div>
+
 
         <section className="grid">
           <div className="flexible">
@@ -142,7 +145,7 @@ class App extends Component {
 
 
   // ---
-  // public methods
+  // PUBLIC METHODS
   // ---
 
 
@@ -160,7 +163,7 @@ class App extends Component {
 
 
   // ---
-  // private methods
+  // PRIVATE METHODS
   // ---
 
 
@@ -172,11 +175,10 @@ class App extends Component {
   }
 
   // Make a GET request to our Rails server.
-  _fetchAllItems() {
-    const propertiesUrl = "http://apts-api.herokuapp.com/properties.json";
+  _fetchItems(url) {
     return (
       request
-        .get(propertiesUrl, { responseType: 'json' })
+        .get(url, { responseType: 'json' })
         .then(res => {
           console.log(res);
           this.setState({ listings: res.data })
@@ -186,6 +188,42 @@ class App extends Component {
           this.setState({ fetchAllItemsError: error })
         })
     );
+  }
+
+  _fetchAllItems() {
+    const url = "http://apts-api.herokuapp.com/properties.json";
+    this._fetchItems(url)
+  }
+
+  // Make a GET request to our Rails server.
+  _fetchItemsByKeyword(q) {
+    const url = `http://apts-api.herokuapp.com/properties.json?q=${q}`;
+    this._fetchItems(url)
+  }
+
+  _listenForChildren() {
+    // this.emitter.addListener( 'DetailScreen:open', payload => {
+    //   console.log( 'DetailScreen:open' );
+    //   this.setState({ showDetail: true });
+    //
+    //   this._addNotification( 'DetailScreen:open' );
+    // });
+    // this.emitter.addListener( 'DetailScreen:close', payload => {
+    //   console.log( 'DetailScreen:close' );
+    //
+    //   this._addNotification( 'DetailScreen:close' );
+    // });
+    // this.emitter.addListener( 'ListingItem:click', payload => {
+    //   console.log( 'ListingItem:click' );
+    //
+    //   this._addNotification( `Clicked: ${payload.item.marketing_name}` );
+    // });
+    this.emitter.addListener( 'ListingItem:mouseOver', payload => {
+      // console.log( 'ListingItem:mouseOver' );
+
+      // this._addNotification( `Hovered: ${payload.item.marketing_name}` );
+      this.setState({ hoveredItem: payload.item });
+    });
   }
 
 } // end class

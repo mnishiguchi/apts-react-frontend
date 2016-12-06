@@ -1,1 +1,8 @@
-
+button,
+.btn,
+.modal-content,
+.form-control,
+.navbar,
+.alert {
+  border-radius: 0;
+}

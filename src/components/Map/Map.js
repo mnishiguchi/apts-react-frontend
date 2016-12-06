@@ -135,8 +135,6 @@ class Map extends Component {
           <p>${this._fullAddress(listing)}</p>
         `;
 
-        console.log(this.props.hoveredItem === listing)
-
         markers.push({
             "type": "Feature",
             "properties": {

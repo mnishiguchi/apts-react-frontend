@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react';
 import Table       from 'react-bootstrap/lib/Table';
 
 // Components
-import ListingItem from '../ListingItem/ListingItem';
+import ListingItem from './ListingItem/ListingItem';
 
 // Styles
 import './ListingTable.css';
@@ -29,27 +29,11 @@ const ListingTable = (props) => {
 
   return (
     <div className="ListingTable">
-      <div>
-        <h4>
-          Active item: &nbsp;
-          <small>
-            {(props.hoveredItem) ? props.hoveredItem.marketing_name : '(hover the list)'}
-          </small>
-        </h4>
-
-        <Table responsive>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Phone</th>
-            </tr>
-          </thead>
-          <tbody>
-            {itemNodes}
-          </tbody>
-        </Table>
-      </div>
+      <Table responsive>
+        <tbody>
+          {itemNodes}
+        </tbody>
+      </Table>
     </div>
   );
 }
