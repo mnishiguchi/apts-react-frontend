@@ -4,12 +4,6 @@ import DetailModal from './DetailModal/DetailModal';
 // Styles
 import './ListingItem.css';
 
-// https://facebook.github.io/react/docs/reusable-components.html
-// https://github.com/airbnb/javascript/tree/master/react#ordering
-const propTypes = {
-  emitter: PropTypes.object.isRequired
-};
-
 // Stateless function
 // https://facebook.github.io/react/docs/components-and-props.html
 const ListingItem = (props) => {
@@ -52,5 +46,11 @@ const ListingItem = (props) => {
 		</tr>
 	);
 }
+
+// https://facebook.github.io/react/docs/reusable-components.html
+// https://github.com/airbnb/javascript/tree/master/react#ordering
+ListingItem.propTypes = {
+  emitter: PropTypes.object.isRequired
+};
 
 export default ListingItem;

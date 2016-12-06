@@ -9,12 +9,6 @@ import ListingItem from './ListingItem/ListingItem';
 // Styles
 import './ListingTable.css';
 
-// https://facebook.github.io/react/docs/reusable-components.html
-// https://github.com/airbnb/javascript/tree/master/react#ordering
-const propTypes = {
-  emitter: PropTypes.object.isRequired
-};
-
 // Stateless function
 // https://facebook.github.io/react/docs/components-and-props.html
 const ListingTable = (props) => {
@@ -37,5 +31,11 @@ const ListingTable = (props) => {
     </div>
   );
 }
+
+// https://facebook.github.io/react/docs/reusable-components.html
+// https://github.com/airbnb/javascript/tree/master/react#ordering
+ListingTable.propTypes = {
+  emitter: PropTypes.object.isRequired
+};
 
 export default ListingTable;

@@ -8,9 +8,7 @@ import NotificationSystem   from 'react-notification-system';
 import Button       from 'react-bootstrap/lib/Button';
 import FormGroup    from 'react-bootstrap/lib/FormGroup';
 import FormControl  from 'react-bootstrap/lib/FormControl';
-import Nav          from 'react-bootstrap/lib/Nav';
 import Navbar       from 'react-bootstrap/lib/Navbar';
-import NavItem      from 'react-bootstrap/lib/NavItem';
 
 // Components
 import AppHeader    from '../../layout/AppHeader/AppHeader';
@@ -66,7 +64,7 @@ class SearchPage extends Component {
   // http://qiita.com/mizchi/items/6a3500e598ec36746509
   componentWillMount() {
     // Create a emitter.
-    this.emitter = new EventEmitter;
+    this.emitter = new EventEmitter();
 
     // Register and listen for our custom events that will be emitted by children.
     this._listenForChildren();

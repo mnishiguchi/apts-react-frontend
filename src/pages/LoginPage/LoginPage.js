@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Components
 import AppHeader    from '../../layout/AppHeader/AppHeader';
@@ -10,7 +10,7 @@ import './LoginPage.css';
 // https://facebook.github.io/react/docs/components-and-props.html
 const HelpPage = (props) => {
 
-	const { item } = props;
+	// const { item } = props;
 
   return (
     <div className="HelpPage">

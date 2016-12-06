@@ -1,16 +1,11 @@
-import React, { Component } from 'react';
-import { Router, Route, IndexRoute, Link } from  'react-router';
+import React from 'react';
+import { Link } from  'react-router';
 
 // Components
 import Logo from './Logo/Logo';
 
 // https://react-bootstrap.github.io/components.html#navigation
-import Button       from 'react-bootstrap/lib/Button';
-import FormGroup    from 'react-bootstrap/lib/FormGroup';
-import FormControl  from 'react-bootstrap/lib/FormControl';
-import Nav          from 'react-bootstrap/lib/Nav';
 import Navbar       from 'react-bootstrap/lib/Navbar';
-import NavItem      from 'react-bootstrap/lib/NavItem';
 
 // Styles
 import './AppHeader.css';

@@ -1,7 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, Link, browserHistory } from  'react-router';
-
-import MainLayout from  './layout/MainLayout/MainLayout';
+import { Router, Route, browserHistory } from 'react-router';
 
 // Pages
 import HomePage   from  './pages/HomePage/HomePage';

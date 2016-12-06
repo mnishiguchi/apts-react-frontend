@@ -1,25 +1,13 @@
 import React, { Component } from 'react';
 
-// Styles
-import './Map.css';
-
 // NPM:    https://www.npmjs.com/package/mapbox-gl
 // Github: https://github.com/mapbox/mapbox-gl-js
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 
-function noop() {}
+// Styles
+import './Map.css';
 
-// https://facebook.github.io/react/docs/typechecking-with-proptypes.html
-const PROP_TYPES = {
-  latitude  : React.PropTypes.number.isRequired,
-  longitude : React.PropTypes.number.isRequired,
-  zoom      : React.PropTypes.number.isRequired,
-};
-const DEFAULT_PROPS = {
-  accessToken: 'pk.eyJ1IjoicG1pbGxlcmsiLCJhIjoiY2lyM3VjMzNsMDFkZHR4bHdxOWs1amt1MiJ9.nc1fPKTYXlgC1zVoYS2Oag',
-  width      : "100%",
-  height     : "100vh",
-};
+function noop() {}
 
 class Map extends Component {
 
@@ -31,11 +19,16 @@ class Map extends Component {
       isSupported: mapboxgl.supported(),
     }
 
+    // If mapbox is not supported, do nothing.
     if (!this.state.isSupported) {
       this.componentDidMount         = noop;
       this.componentWillReceiveProps = noop;
       this.componentDidUpdate        = noop;
     }
+
+    // Store references.
+    this._map   = null;
+    this._popup = null;
   }
 
   render() {
@@ -55,25 +48,21 @@ class Map extends Component {
     );
   }
 
+
+  // ---
+  // LIFECYCLE HOOKS
+  // ---
+
+
   componentDidMount() {
     console.log(`Map::componentDidMount`);
 
-    mapboxgl.accessToken = this.props.accessToken;
-
     // Create a map instance based on props.
-    const map = new mapboxgl.Map({
-      container: this.refs.mapboxMap,
-      style    : 'mapbox://styles/mapbox/light-v9',
-      center   : [ this.props.longitude, this.props.latitude ],
-      zoom     : this.props.zoom,
-    });
+    this._map = this._createMap()
 
-    map.on('load', () => {
+    this._map.on('load', () => {
       this._setupMarkers(this.props.listings);
     });
-
-    // Store the reference to the map instance.
-    this._map = map;
   }
 
   componentWillReceiveProps(newProps) {
@@ -81,8 +70,8 @@ class Map extends Component {
     console.log(newProps);
 
     this.setState({
-      width   : this.props.width,
-      height  : this.props.height,
+      width  : this.props.width,
+      height : this.props.height,
     });
   }
 
@@ -98,9 +87,8 @@ class Map extends Component {
     // // NOTE: This will re-draw all the markers, which is not ideal...
     // this._setupMarkers(this.props.listings);
 
-    console.log(this._map)
-
     // // Query all rendered features from a single layer
+    // // NOTE: For some reason, "listings" layer does not exist.
     // var features = this._map.queryRenderedFeatures({
     //   layers: ["listings"] });
 
@@ -115,6 +103,23 @@ class Map extends Component {
     if (this._map) {
       this._map.remove();
     }
+  }
+
+
+  // ---
+  // PRIVATE METHODS
+  // ---
+
+
+  _createMap = () => {
+    mapboxgl.accessToken = this.props.accessToken;
+
+    return new mapboxgl.Map({
+      container: this.refs.mapboxMap,
+      style    : 'mapbox://styles/mapbox/light-v9',
+      center   : [ this.props.longitude, this.props.latitude ],
+      zoom     : this.props.zoom,
+    });
   }
 
   /**
@@ -135,6 +140,10 @@ class Map extends Component {
           <p>${this._fullAddress(listing)}</p>
         `;
 
+        const coordinates = [ listing.longitude, listing.latitude ];
+
+        // console.log(coordinates);
+
         markers.push({
             "type": "Feature",
             "properties": {
@@ -145,7 +154,7 @@ class Map extends Component {
             },
             "geometry": {
                 "type"       : "Point",
-                "coordinates": [ listing.longitude, listing.latitude ]
+                "coordinates": coordinates
             }
         });
     }
@@ -154,7 +163,7 @@ class Map extends Component {
     return markers;
   }
 
-  _fullAddress(listing) {
+  _fullAddress = (listing) => {
     return [
       listing.street,
       listing.city,
@@ -163,7 +172,7 @@ class Map extends Component {
     ].join(' ');
   }
 
-  _getMap() {
+  _getMap = () => {
     return this._map;
   }
 
@@ -269,7 +278,17 @@ class Map extends Component {
   }
 } // end class
 
-Map.propTypes = PROP_TYPES;
-Map.defaultProps = DEFAULT_PROPS;
+
+// https://facebook.github.io/react/docs/typechecking-with-proptypes.html
+Map.propTypes = {
+  latitude  : React.PropTypes.number.isRequired,
+  longitude : React.PropTypes.number.isRequired,
+  zoom      : React.PropTypes.number.isRequired,
+};
+Map.defaultProps = {
+  accessToken: 'pk.eyJ1IjoicG1pbGxlcmsiLCJhIjoiY2lyM3VjMzNsMDFkZHR4bHdxOWs1amt1MiJ9.nc1fPKTYXlgC1zVoYS2Oag',
+  width      : "100%",
+  height     : "100vh",
+};
 
 export default Map;

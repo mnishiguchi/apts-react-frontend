@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Button           from 'react-bootstrap/lib/Button';
 import FormControl      from 'react-bootstrap/lib/FormControl';
@@ -13,7 +13,7 @@ import './HomePage.css';
 // https://facebook.github.io/react/docs/components-and-props.html
 const HomePage = (props) => {
 
-	const { item } = props;
+	// const { item } = props;
 
 	const jumbotronStyle = {
 		backgroundImage: "url('http://lorempixel.com/1000/600/city/')",

@@ -49,7 +49,11 @@ class DetailModal extends Component {
           </Modal.Header>
           <Modal.Body>
             <div style={{'background':'#555', width:'100%', 'height':'280px'}}>
-              <img src="http://lorempixel.com/g/400/200/city/" width="100%" />
+              <img
+                role="presentation"
+                src="http://lorempixel.com/g/400/200/city/"
+                width="100%"
+              />
             </div>
             <h4>Address</h4>
             <p>
