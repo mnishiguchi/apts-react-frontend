@@ -26,7 +26,7 @@ const AppHeader = (props) => {
         </Navbar.Header>
 
         <Navbar.Collapse>
-          <SearchBar />
+          <SearchBar {...props} />
 
           {props.children}
 

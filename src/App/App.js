@@ -79,7 +79,7 @@ class App extends Component {
           style={notificationStyles}
         />
 
-        <AppHeader />
+      <AppHeader emitter={this.emitter} />
         <main>
           {React.cloneElement(this.props.children, propsForChildren)}
         </main>
@@ -152,6 +152,7 @@ class App extends Component {
         })
         .catch(error => {
           console.log(error);
+          console.log(defaultListings);
           this.setState({
             listings          : defaultListings,
             fetchAllItemsError: error,
@@ -177,6 +178,15 @@ class App extends Component {
 
       // this._addNotification( `Hovered: ${payload.item.marketing_name}` );
       this.setState({ hoveredItem: payload.item });
+    });
+
+
+    this.emitter.addListener( 'SearchBar:submit', payload => {
+      // console.log( 'SearchBar:submit' );
+
+      this._addNotification( `Submit search for "${payload.q}"` );
+
+      // TODO: Actually hit the app server for searching...
     });
   }
 

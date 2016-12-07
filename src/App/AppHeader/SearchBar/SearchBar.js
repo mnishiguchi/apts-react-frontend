@@ -37,11 +37,20 @@ class SearchBar extends Component {
           />
         </div>
         {' '}
-        <button className="hidden-xs btn btn-default" type="submit">
+        <button
+          className="hidden-xs btn btn-default"
+          type="submit"
+          onClick={(e) => this._onSubmit(e)}
+        >
           <i className="fa fa-search" aria-hidden="true"></i>
         </button>
       </div>
     );
+  }
+
+  _onSubmit = (event) => {
+    // console.log('Emitting SearchBar:submit')
+    this.props.emitter.emit( 'SearchBar:submit', {q: this.state.q} );
   }
 }
 
