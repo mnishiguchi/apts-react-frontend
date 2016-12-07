@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import AppHeader    from '../../layout/AppHeader/AppHeader';
+// import AppHeader    from '../../layout/AppHeader/AppHeader';
 
 // Styles
 import './SignupPage.css';

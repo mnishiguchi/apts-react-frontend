@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
+// Layout
 import MainLayout from  './layout/MainLayout/MainLayout';
 
 // Pages
@@ -16,14 +17,14 @@ const App = (props) => {
   return (
     <Router history={browserHistory}>
       <Route path="/" component={MainLayout} >
-        <IndexRoute component={HomePage} />
+        <IndexRoute          component={HomePage} />
         <Route path="search" component={SearchPage} />
-        <Route path="login" component={LoginPage} />
+        <Route path="login"  component={LoginPage} />
         <Route path="signup" component={SignupPage} />
-        <Route path="help" component={HelpPage} />
+        <Route path="help"   component={HelpPage} />
       </Route>
     </Router>
   );
-} // end class
+} // end App
 
 export default App;

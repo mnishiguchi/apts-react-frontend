@@ -4,7 +4,7 @@ import Button           from 'react-bootstrap/lib/Button';
 import FormControl      from 'react-bootstrap/lib/FormControl';
 
 // Components
-import AppHeader    from '../../layout/AppHeader/AppHeader';
+// import AppHeader    from '../../layout/AppHeader/AppHeader';
 
 // Styles
 import './HomePage.css';

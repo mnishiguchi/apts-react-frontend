@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from  'react-router';
 
 // Components
-import Logo from './Logo/Logo';
+import Logo    from './Logo/Logo';
+import NavLink from './NavLink/NavLink';
 
 // https://react-bootstrap.github.io/components.html#navigation
 import Navbar       from 'react-bootstrap/lib/Navbar';
@@ -41,16 +42,16 @@ const AppHeader = (props) => {
 
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <Link to="/search" activeClassName="active">Search</Link>
+              <NavLink to="/search">Search</NavLink>
             </li>
             <li>
-              <Link to="/login" activeClassName="active">Log in</Link>
+              <NavLink to="/login">Log in</NavLink>
             </li>
             <li>
-              <Link to="/signup" activeClassName="active">Join</Link>
+              <NavLink to="/signup">Join</NavLink>
             </li>
             <li>
-              <Link to="/help" activeClassName="active">Help</Link>
+              <NavLink to="/help">Help</NavLink>
             </li>
           </ul>
         </Navbar.Collapse>
