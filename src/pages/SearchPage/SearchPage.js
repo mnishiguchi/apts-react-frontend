@@ -4,12 +4,6 @@ import _                    from 'lodash';
 import { EventEmitter }     from 'fbemitter';
 import NotificationSystem   from 'react-notification-system';
 
-// https://react-bootstrap.github.io/components.html#navigation
-import Button       from 'react-bootstrap/lib/Button';
-import FormGroup    from 'react-bootstrap/lib/FormGroup';
-import FormControl  from 'react-bootstrap/lib/FormControl';
-import Navbar       from 'react-bootstrap/lib/Navbar';
-
 // Components
 import AppHeader    from '../../layout/AppHeader/AppHeader';
 import LngLatForm   from '../../components/LngLatForm/LngLatForm';
@@ -84,18 +78,6 @@ class SearchPage extends Component {
 
     return (
       <div className="SearchPage">
-        <AppHeader>
-          <Navbar.Form pullLeft>
-            <FormGroup>
-              <FormControl type="text" placeholder="Search" />
-            </FormGroup>
-            {' '}
-            <Button className="hidden-xs" type="submit">
-              <i className="fa fa-search" aria-hidden="true"></i>
-            </Button>
-          </Navbar.Form>
-        </AppHeader>
-
         <NotificationSystem
           ref="notificationSystem"
           style={notificationStyles}

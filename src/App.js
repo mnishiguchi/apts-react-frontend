@@ -1,5 +1,7 @@
 import React from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+
+import MainLayout from  './layout/MainLayout/MainLayout';
 
 // Pages
 import HomePage   from  './pages/HomePage/HomePage';
@@ -13,11 +15,13 @@ import HelpPage   from  './pages/HelpPage/HelpPage';
 const App = (props) => {
   return (
     <Router history={browserHistory}>
-      <Route path="/" component={HomePage} />
-      <Route path="search" component={SearchPage} />
-      <Route path="login" component={LoginPage} />
-      <Route path="signup" component={SignupPage} />
-      <Route path="help" component={HelpPage} />
+      <Route path="/" component={MainLayout} >
+        <IndexRoute component={HomePage} />
+        <Route path="search" component={SearchPage} />
+        <Route path="login" component={LoginPage} />
+        <Route path="signup" component={SignupPage} />
+        <Route path="help" component={HelpPage} />
+      </Route>
     </Router>
   );
 } // end class

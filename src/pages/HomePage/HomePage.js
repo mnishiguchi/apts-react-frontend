@@ -23,8 +23,6 @@ const HomePage = (props) => {
 
   return (
     <div className="HomePage">
-			<AppHeader />
-
 			<div className="jumbotron" style={jumbotronStyle} >
 				<div className="container" style={{width: '65vw'}}>
 					<h2>Welcome to my website!!!</h2>

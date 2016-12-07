@@ -14,8 +14,6 @@ const HelpPage = (props) => {
 
   return (
     <div className="HelpPage">
-			<AppHeader />
-
 			<div className="container">
 				<h2>Login page</h2>
 				<p>

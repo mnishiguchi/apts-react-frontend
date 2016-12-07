@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Components
+import AppHeader    from '../../layout/AppHeader/AppHeader';
+
 // Styles
 import './MainLayout.css';
 
@@ -8,6 +11,7 @@ import './MainLayout.css';
 const MainLayout = (props) => {
   return (
     <div className="MainLayout">
+      <AppHeader />
       <main>
         {props.children}
       </main>

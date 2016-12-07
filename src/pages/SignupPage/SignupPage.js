@@ -14,8 +14,6 @@ const SignupPage = (props) => {
 
   return (
     <div className="SignupPage">
-			<AppHeader />
-
 			<div className="container">
 				<h2>Signup page</h2>
 				<p>
