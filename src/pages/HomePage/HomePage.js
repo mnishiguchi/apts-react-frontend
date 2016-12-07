@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory }  from 'react-router';
 
 import Button           from 'react-bootstrap/lib/Button';
 import FormControl      from 'react-bootstrap/lib/FormControl';
@@ -27,7 +28,7 @@ const HomePage = (props) => {
 				<div className="container" style={{width: '65vw'}}>
 					<h2>Welcome to my website!!!</h2>
 					<br />
-					<form>
+					<form onSubmit={(e) => { browserHistory.push('/search'); }}>
 						<FormControl
 							type="text"
 							placeholder="City, Address, Zip"

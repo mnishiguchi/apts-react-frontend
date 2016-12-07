@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { browserHistory }  from 'react-router';
+
 import request              from 'axios';
 import _                    from 'lodash';
 import { EventEmitter }     from 'fbemitter';
@@ -11,7 +13,7 @@ import AppFooter  from './AppFooter/AppFooter';
 // Styles
 import './App.css';
 
-// data
+// Data
 import defaultListings from '../default_listings.json';
 
 class App extends Component {
@@ -32,23 +34,7 @@ class App extends Component {
 
     this._notificationSystem = null;
 
-    _.bindAll(this, '_fetchAllItems');
-  }
-
-
-  // ---
-  // LIFECYCLE HOOKS
-  // ---
-
-
-  // https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
-  // http://qiita.com/mizchi/items/6a3500e598ec36746509
-  componentWillMount() {
-    // Create a emitter.
-    this.emitter = new EventEmitter();
-
-    // Register and listen for our custom events that will be emitted by children.
-    this._listenForChildren();
+    _.bindAll(this, '_fetchAllItems', '_fetchItemsByKeyword');
   }
 
   render() {
@@ -86,6 +72,22 @@ class App extends Component {
         <AppFooter />
       </div>
     );
+  }
+
+
+  // ---
+  // LIFECYCLE HOOKS
+  // ---
+
+
+  // https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
+  // http://qiita.com/mizchi/items/6a3500e598ec36746509
+  componentWillMount() {
+    // Create a emitter.
+    this.emitter = new EventEmitter();
+
+    // Register and listen for our custom events that will be emitted by children.
+    this._listenForChildren();
   }
 
   componentDidMount() {
@@ -152,7 +154,6 @@ class App extends Component {
         })
         .catch(error => {
           console.log(error);
-          console.log(defaultListings);
           this.setState({
             listings          : defaultListings,
             fetchAllItemsError: error,
@@ -169,6 +170,7 @@ class App extends Component {
   // Make a GET request to our Rails server.
   _fetchItemsByKeyword = (q) => {
     const url = `http://apts-api.herokuapp.com/properties.json?q=${q}`;
+    console.log(url)
     this._fetchItems(url)
   }
 
@@ -180,13 +182,16 @@ class App extends Component {
       this.setState({ hoveredItem: payload.item });
     });
 
-
     this.emitter.addListener( 'SearchBar:submit', payload => {
       // console.log( 'SearchBar:submit' );
 
       this._addNotification( `Submit search for "${payload.q}"` );
 
       // TODO: Actually hit the app server for searching...
+      this._fetchItemsByKeyword(payload.q);
+
+      // Redirect to the search page.
+      browserHistory.push('/search');
     });
   }
 

@@ -11,10 +11,6 @@ class SearchBar extends Component {
     }
   }
 
-  updateQ = (q) => {
-    this.setState({ q });
-  };
-
   render() {
     const searchTermNode = (q) => (q.length > 0) ?
       <p style={{color: "#aaa", fontSize: "1rem", padding: 0, margin: 0}}>
@@ -33,7 +29,7 @@ class SearchBar extends Component {
             type="text"
             placeholder="Search"
             value={this.state.q}
-            onChange={(e) => this.updateQ(e.target.value)}
+            onChange={(e) => this._updateQ(e.target.value)}
           />
         </div>
         {' '}
@@ -47,6 +43,16 @@ class SearchBar extends Component {
       </div>
     );
   }
+
+
+  // ---
+  // PRIVATE METHODS
+  // ---
+
+
+  _updateQ = (q) => {
+    this.setState({ q });
+  };
 
   _onSubmit = (event) => {
     // console.log('Emitting SearchBar:submit')

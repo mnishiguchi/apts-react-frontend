@@ -9,6 +9,7 @@ import Button      from 'react-bootstrap/lib/Button';
 import './DetailModal.css';
 
 class DetailModal extends Component {
+  
   constructor(props) {
     super(props);
 
@@ -64,7 +65,7 @@ class DetailModal extends Component {
     );
   }
 
-  
+
   // ---
   // PRIVATE METHODS
   // ---
