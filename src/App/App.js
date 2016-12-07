@@ -1,17 +1,17 @@
 import React from 'react';
 
 // Components
-import AppHeader    from '../../layout/AppHeader/AppHeader';
-import AppFooter    from '../../layout/AppFooter/AppFooter';
+import AppHeader  from './AppHeader/AppHeader';
+import AppFooter  from './AppFooter/AppFooter';
 
 // Styles
-import './MainLayout.css';
+import './App.css';
 
 // Stateless function
 // https://facebook.github.io/react/docs/components-and-props.html
-const MainLayout = (props) => {
+const App = (props) => {
   return (
-    <div className="MainLayout">
+    <div className="App">
       <AppHeader />
       <main>
         {props.children}
@@ -19,6 +19,6 @@ const MainLayout = (props) => {
       <AppFooter />
     </div>
   );
-} // end class
+} // end App
 
-export default MainLayout;
+export default App;
