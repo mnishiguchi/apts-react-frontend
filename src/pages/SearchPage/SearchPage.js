@@ -5,7 +5,7 @@ import { EventEmitter }     from 'fbemitter';
 import NotificationSystem   from 'react-notification-system';
 
 // Components
-import LngLatForm   from '../../components/LngLatForm/LngLatForm';
+import MapControl   from '../../components/MapControl/MapControl';
 import Map          from '../../components/Map/Map';
 import ListingTable from '../../components/ListingTable/ListingTable';
 
@@ -39,7 +39,6 @@ class SearchPage extends Component {
       latitude          : this.props.latitude,
       longitude         : this.props.longitude,
       zoom              : this.props.zoom,
-      // showDetail        : false,
     }
 
     this._notificationSystem = null;
@@ -84,15 +83,18 @@ class SearchPage extends Component {
 
         <div className="alert alert-info" style={{'margin':0}}>
           <div>
-            <strong>
-              Active item: &nbsp;
-            </strong>
+            <strong>Listing count:</strong>{' '}
+            <span className="text-muted">
+              {this.state.listings.length}
+            </span>
+            {' / '}
+            <strong>Hovered item:</strong>{' '}
             <span className="text-muted">
               {(this.state.hoveredItem) ? this.state.hoveredItem.marketing_name : '(hover the list)'}
             </span>
           </div>
 
-          <LngLatForm
+          <MapControl
             latitude={this.state.latitude}
             longitude={this.state.longitude}
             zoom={this.state.zoom}

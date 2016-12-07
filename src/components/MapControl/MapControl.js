@@ -1,13 +1,13 @@
 import React from 'react';
 
 // Styles
-import './LngLatForm.css';
+import './MapControl.css';
 
 // Stateless function
 // https://facebook.github.io/react/docs/components-and-props.html
-const LngLatForm = (props) => {
+const MapControl = (props) => {
   return (
-    <form className="LngLatForm">
+    <form className="MapControl">
       <label htmlFor="latitude">
         Latitude:
       </label>
@@ -18,7 +18,7 @@ const LngLatForm = (props) => {
         value={props.latitude}
         onChange={event => props.onChangeLatitude(event.target.value)}
       />
-      {" "}
+      {' / '}
       <label htmlFor="longitude">
         Longitude:
       </label>
@@ -29,7 +29,7 @@ const LngLatForm = (props) => {
         value={props.longitude}
         onChange={event => props.onChangeLongitude(event.target.value)}
       />
-      {" "}
+      {' / '}
       <label htmlFor="zoom">
         Zoom:
       </label>
@@ -44,4 +44,4 @@ const LngLatForm = (props) => {
   );
 }
 
-export default LngLatForm;
+export default MapControl;
