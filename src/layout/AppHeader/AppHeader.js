@@ -2,14 +2,12 @@ import React from 'react';
 import { Link } from  'react-router';
 
 // Components
-import Logo    from './Logo/Logo';
-import NavLink from './NavLink/NavLink';
+import Logo      from './Logo/Logo';
+import NavLink   from './NavLink/NavLink';
+import SearchBar from './SearchBar/SearchBar';
 
 // https://react-bootstrap.github.io/components.html#navigation
 import Navbar       from 'react-bootstrap/lib/Navbar';
-import Button       from 'react-bootstrap/lib/Button';
-import FormGroup    from 'react-bootstrap/lib/FormGroup';
-import FormControl  from 'react-bootstrap/lib/FormControl';
 
 // Styles
 import './AppHeader.css';
@@ -26,17 +24,9 @@ const AppHeader = (props) => {
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
-        <Navbar.Collapse>
 
-          <Navbar.Form pullLeft>
-            <FormGroup>
-              <FormControl type="text" placeholder="Search" />
-            </FormGroup>
-            {' '}
-            <Button className="hidden-xs" type="submit">
-              <i className="fa fa-search" aria-hidden="true"></i>
-            </Button>
-          </Navbar.Form>
+        <Navbar.Collapse>
+          <SearchBar />
 
           {props.children}
 

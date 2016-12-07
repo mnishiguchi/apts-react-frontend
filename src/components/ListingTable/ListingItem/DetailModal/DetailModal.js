@@ -21,14 +21,6 @@ class DetailModal extends Component {
     _.bindAll(this, '_openModal', '_closeModal');
   }
 
-  _closeModal() {
-    this.setState({ showModal: false });
-  }
-
-  _openModal() {
-    this.setState({ showModal: true });
-  }
-
   render() {
     return (
       <div className="DetailModal">
@@ -55,7 +47,6 @@ class DetailModal extends Component {
                 width="100%"
               />
             </div>
-            <h4>Address</h4>
             <p>
               {[
                 this.props.item.street,
@@ -71,6 +62,20 @@ class DetailModal extends Component {
         </Modal>
       </div>
     );
+  }
+
+  
+  // ---
+  // PRIVATE METHODS
+  // ---
+
+
+  _closeModal = () => {
+    this.setState({ showModal: false });
+  }
+
+  _openModal = () => {
+    this.setState({ showModal: true });
   }
 
 } // end class
