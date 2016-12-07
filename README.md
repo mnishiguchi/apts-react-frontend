@@ -32,3 +32,6 @@ Visit [localhost:3000](localhost:3000)
 ```
 browserHistory.push('/some/path');
 ```
+
+#### How to pass props to {this.props.children}
+- [How to pass props to {this.props.children}](http://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children)

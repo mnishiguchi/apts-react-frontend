@@ -17,8 +17,8 @@ class SearchBar extends Component {
 
   render() {
     const searchTermNode = (q) => (q.length > 0) ?
-      <p style={{color: "salmon", fontSize: "1rem", padding: 0, margin: 0}}>
-        You are searching for <em>{q}</em>...
+      <p style={{color: "#aaa", fontSize: "1rem", padding: 0, margin: 0}}>
+        You are searching for <em style={{color: "#fff"}}>{q}</em>...
       </p> : null
 
     return (

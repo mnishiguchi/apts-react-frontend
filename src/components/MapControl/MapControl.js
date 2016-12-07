@@ -8,6 +8,17 @@ import './MapControl.css';
 const MapControl = (props) => {
   return (
     <form className="MapControl">
+      <div>
+        <strong>Listing count:</strong>{' '}
+        <span className="text-muted">
+          {props.listings.length}
+        </span>
+        {' / '}
+        <strong>Hovered item:</strong>{' '}
+        <span className="text-muted">
+          {(props.hoveredItem) ? props.hoveredItem.marketing_name : '(hover the list)'}
+        </span>
+      </div>
       <label htmlFor="latitude">
         Latitude:
       </label>
