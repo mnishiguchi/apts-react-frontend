@@ -5,7 +5,6 @@ import { EventEmitter }     from 'fbemitter';
 import NotificationSystem   from 'react-notification-system';
 
 // Components
-import AppHeader    from '../../layout/AppHeader/AppHeader';
 import LngLatForm   from '../../components/LngLatForm/LngLatForm';
 import Map          from '../../components/Map/Map';
 import ListingTable from '../../components/ListingTable/ListingTable';

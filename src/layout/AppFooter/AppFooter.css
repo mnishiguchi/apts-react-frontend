@@ -1,0 +1,24 @@
+footer {
+  font-family: $heading-font-family;
+  vertical-align: middle;
+  padding: 4rem 0;
+  color: #999;
+  background: #222;
+}
+footer .container {
+
+}
+footer .contact-info {
+  display: inline-block;
+  padding: 0 5px;
+}
+
+footer a {
+  color:inherit;
+  margin: 0 .5rem;
+  color: #abc;
+}
+footer a:hover {
+  text-decoration: none;
+  color: white;
+}

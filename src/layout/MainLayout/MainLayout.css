@@ -9,3 +9,7 @@ body {
   margin: auto;
   padding: 0;
 }
+
+main {
+  min-height: 82vh;
+}

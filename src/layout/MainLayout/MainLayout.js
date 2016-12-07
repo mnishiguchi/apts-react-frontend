@@ -2,6 +2,7 @@ import React from 'react';
 
 // Components
 import AppHeader    from '../../layout/AppHeader/AppHeader';
+import AppFooter    from '../../layout/AppFooter/AppFooter';
 
 // Styles
 import './MainLayout.css';
@@ -15,6 +16,7 @@ const MainLayout = (props) => {
       <main>
         {props.children}
       </main>
+      <AppFooter />
     </div>
   );
 } // end class
