@@ -58,6 +58,6 @@ class SearchBar extends Component {
     // console.log('Emitting SearchBar:submit')
     this.props.emitter.emit( 'SearchBar:submit', {q: this.state.q} );
   }
-}
+} // end class
 
 export default SearchBar;

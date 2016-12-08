@@ -27,8 +27,9 @@ class Map extends Component {
     }
 
     // Store references.
-    this._map   = null;
-    this._popup = null;
+    this._map    = null;
+    this._popup  = null;
+    this._source = null;
   }
 
   render() {
@@ -59,15 +60,16 @@ class Map extends Component {
 
     // Create a map instance based on props.
     this._map = this._createMap()
+
+    // Set up initial markers.
+    this._map.on('load', () => {
+      this._setupMarkers(this.props.listings);
+    });
   }
 
   componentWillReceiveProps(newProps) {
     console.log(`Map::componentWillReceiveProps`);
-    console.log(newProps);
-
-    this._map.on('load', () => {
-      this._setupMarkers(this.props.listings);
-    });
+    // console.log(newProps);
 
     this.setState({
       width  : this.props.width,
@@ -76,7 +78,7 @@ class Map extends Component {
   }
 
   componentWillUpdate() {
-    console.log(`Map::componentWillUpdate`);
+    // console.log(`Map::componentWillUpdate`);
   }
 
   componentDidUpdate() {
@@ -84,13 +86,7 @@ class Map extends Component {
     // console.log(this.props);
     // console.log(this.props.listings);
 
-    // // NOTE: This will re-draw all the markers, which is not ideal...
-    // this._setupMarkers(this.props.listings);
-
-    // // Query all rendered features from a single layer
-    // // NOTE: For some reason, "listings" layer does not exist.
-    // var features = this._map.queryRenderedFeatures({
-    //   layers: ["listings"] });
+    this._updateMarkers(this.props.listings);
 
     this._updateCenter([this.props.longitude, this.props.latitude], {
       zoom: this.props.zoom
@@ -130,37 +126,27 @@ class Map extends Component {
   _createMarkers = (listings) => {
     console.log(`Map::_createMarkers`)
 
-    let markers = [];
+    let jsonMarkers = [];
     for (let listing of listings) {
 
-        if (!listing) continue;
+      // Ignore if listing is blank.
+      if (!listing) continue;
 
-        const markerHTML = `
-          <h4>${listing.marketing_name}</h4>
-          <p>${this._fullAddress(listing)}</p>
-        `;
+      // If listing does not have a marker, create one.
+      if (!listing.marker) {
+        listing.marker = this._listingToMarker(listing);
+      }
 
-        const coordinates = [ listing.longitude, listing.latitude ];
+      // Update the mnMarkerType property.
+      const mnMarkerType = (this.props.hoveredItem === listing) ? "hovered" : "default";
+      listing.marker["properties"]["mnMarkerType"] = mnMarkerType;
 
-        // console.log(coordinates);
-
-        markers.push({
-            "type": "Feature",
-            "properties": {
-                "description"  : markerHTML,
-                "iconSize"     : [20, 20],
-                "icon"         : "circle",
-                "mnMarkerType" : (this.props.hoveredItem === listing) ? "hovered" : "default"
-            },
-            "geometry": {
-                "type"       : "Point",
-                "coordinates": coordinates
-            }
-        });
+      jsonMarkers.push(listing.marker)
     }
-    console.log(markers);
 
-    return markers;
+    // console.log(jsonMarkers);
+
+    return jsonMarkers;
   }
 
   _fullAddress = (listing) => {
@@ -176,6 +162,27 @@ class Map extends Component {
     return this._map;
   }
 
+  _listingToMarker = (listing) => {
+    const markerHTML = `
+      <h4>${listing.marketing_name}</h4>
+      <p>${this._fullAddress(listing)}</p>
+    `;
+
+    const coordinates = [ listing.longitude, listing.latitude ];
+    return {
+        "type": "Feature",
+        "properties": {
+            "description"  : markerHTML,
+            "iconSize"     : [20, 20],
+            "icon"         : "circle",
+        },
+        "geometry": {
+            "type"       : "Point",
+            "coordinates": coordinates
+        }
+    };
+  }
+
   _setupMarkers = (listings) => {
     console.log(`Map::_setupMarkers`)
 
@@ -183,7 +190,6 @@ class Map extends Component {
       this._map.removeSource("listings")
     }
 
-    // // Listings
     // https://www.mapbox.com/mapbox-gl-js/example/multiple-geometries/
     this._map.addSource("listings", {
       "type": "geojson",
@@ -230,8 +236,8 @@ class Map extends Component {
     // Create a popup, but don't add it to the map yet.
     // https://www.mapbox.com/mapbox-gl-js/example/popup-on-hover/
     this._popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: false
+      closeButton: false,
+      closeOnClick: false
     });
 
     // Show popup on mousemove.
@@ -276,6 +282,20 @@ class Map extends Component {
       console.log(lngLat);
       this._map.panTo(lngLat, opts);
   }
+
+  _updateMarkers = (listings) => {
+    console.log("Updating Markers");
+
+    // Do nothing if the listings source does not exist on the map.
+    if (!this._map.getSource("listings")) return;
+
+    // Update data on the source.
+    this._map.getSource("listings").setData({
+      "type"    : "FeatureCollection",
+      "features": this._createMarkers(listings),
+    });
+  }
+
 } // end class
 
 

@@ -2,37 +2,33 @@ import React, { PropTypes } from 'react';
 import DetailModal from './DetailModal/DetailModal';
 
 // Styles
-import './ListingItem.css';
+import './Listing.css';
 
 // Stateless function
 // https://facebook.github.io/react/docs/components-and-props.html
-const ListingItem = (props) => {
+const Listing = (props) => {
 
-	const { item } = props;
+	const { listing } = props;
 
 	const fullAddress = [
-		item.street,
-		item.city,
-		item.state,
-		item.zip,
+		listing.street,
+		listing.city,
+		listing.state,
+		listing.zip,
 	].join(' ');
 
-	// const onClick = (event) => {
-	// 	props.emitter.emit( 'ListingItem:click', {item: item} );
-	// };
-
 	const onMouseOver = (event) => {
-		props.emitter.emit( 'ListingItem:mouseOver', {item: item} );
+		props.emitter.emit( 'Listing:mouseOver', {listing} );
 	};
 
 	// https://facebook.github.io/react/docs/events.html#mouse-events
 	return (
 		<tr
-			className="ListingItem"
+			className="Listing"
 			onMouseOver={onMouseOver}
 		>
 			<td>
-        {item.marketing_name}
+        {listing.marketing_name}
       </td>
 			<td>
         {fullAddress}
@@ -40,7 +36,7 @@ const ListingItem = (props) => {
 			<td>
         <DetailModal
           text={'details'}
-          item={item}
+          item={listing}
           />
 			</td>
 		</tr>
@@ -49,8 +45,8 @@ const ListingItem = (props) => {
 
 // https://facebook.github.io/react/docs/reusable-components.html
 // https://github.com/airbnb/javascript/tree/master/react#ordering
-ListingItem.propTypes = {
+Listing.propTypes = {
   emitter: PropTypes.object.isRequired
 };
 
-export default ListingItem;
+export default Listing;

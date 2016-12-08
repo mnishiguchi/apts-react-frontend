@@ -101,6 +101,7 @@ class App extends Component {
 
   componentWillUpdate() {
     console.log(`App::componentWillUpdate`);
+    console.log(this.state)
   }
 
   componentWillUnmount() {
@@ -132,7 +133,7 @@ class App extends Component {
   // ---
 
 
-  _addNotification( message ) {
+  _addNotification = ( message ) => {
     this._notificationSystem.addNotification({
       message: message,
       level:   'success'
@@ -157,13 +158,14 @@ class App extends Component {
           this.setState({
             listings          : defaultListings,
             fetchAllItemsError: error,
-           })
+          })
         })
     );
   }
 
   _fetchAllItems = () => {
     const url = "https://apts-app.herokuapp.com/properties.json";
+    console.log(url)
     this._fetchItems(url)
   }
 
@@ -175,11 +177,12 @@ class App extends Component {
   }
 
   _listenForChildren = () => {
-    this.emitter.addListener( 'ListingItem:mouseOver', payload => {
-      // console.log( 'ListingItem:mouseOver' );
+    this.emitter.addListener( 'Listing:mouseOver', payload => {
+      // console.log( 'Listing:mouseOver' );
 
       // this._addNotification( `Hovered: ${payload.item.marketing_name}` );
-      this.setState({ hoveredItem: payload.item });
+      console.log(payload.listing.marker);
+      this.setState({ hoveredItem: payload.listing });
     });
 
     this.emitter.addListener( 'SearchBar:submit', payload => {
@@ -187,7 +190,6 @@ class App extends Component {
 
       this._addNotification( `Submit search for "${payload.q}"` );
 
-      // TODO: Actually hit the app server for searching...
       this._fetchItemsByKeyword(payload.q);
 
       // Redirect to the search page.

@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react';
 import Table       from 'react-bootstrap/lib/Table';
 
 // Components
-import ListingItem from './ListingItem/ListingItem';
+import Listing from './Listing/Listing';
 
 // Styles
 import './ListingTable.css';
@@ -13,10 +13,10 @@ import './ListingTable.css';
 // https://facebook.github.io/react/docs/components-and-props.html
 const ListingTable = (props) => {
 
-  const itemNodes = props.listings.map( item =>
-    <ListingItem
-      item={item}
-      key={item.id}
+  const itemNodes = props.listings.map( listing =>
+    <Listing
+      listing={listing}
+      key={listing.id}
       emitter={props.emitter}
     />
   );
