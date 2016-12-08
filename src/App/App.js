@@ -169,7 +169,7 @@ class App extends Component {
 
   // Make a GET request to our Rails server.
   _fetchItemsByKeyword = (q) => {
-    const url = `http://apts-api.herokuapp.com/properties.json?q=${q}`;
+    const url = `http://apts-app.herokuapp.com/properties.json?q=${q}`;
     console.log(url)
     this._fetchItems(url)
   }
