@@ -172,9 +172,10 @@ class Map extends Component {
     return {
         "type": "Feature",
         "properties": {
-            "description"  : markerHTML,
-            "iconSize"     : [20, 20],
-            "icon"         : "circle",
+            "description" : markerHTML,
+            "iconSize"    : [20, 20],
+            "icon"        : "circle",
+            "listing"     : {...listing},  // Add a copy of listing
         },
         "geometry": {
             "type"       : "Point",
@@ -259,12 +260,21 @@ class Map extends Component {
 
     this._map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
 
+    // If any feature exists on the specified point, just remove the displayed popuup
+    // and do nothing else.
     if (!features.length) {
-        this._popup.remove();
-        return;
+      this._popup.remove();
+      return;
     }
 
+    // Get the best feature for the marker.
     const marker = features[0];
+
+    // Notify App with 'Map:popup' event.
+    // console.log(marker['properties']['listing']);
+    this.props.emitter.emit( 'Map:popup', {
+      listing: marker['properties']['listing']
+    });
 
     this._popup
       .setLngLat(marker.geometry.coordinates)

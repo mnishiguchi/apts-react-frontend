@@ -16,7 +16,7 @@ const MapControl = (props) => {
         {' / '}
         <strong>Hovered item:</strong>{' '}
         <span className="text-muted">
-          {(props.hoveredItem) ? props.hoveredItem.marketing_name : '(hover the list)'}
+          {(props.hoveredItem) ? props.hoveredItem.marketing_name : '(hover a list item or map marker)'}
         </span>
       </div>
       <label htmlFor="latitude">

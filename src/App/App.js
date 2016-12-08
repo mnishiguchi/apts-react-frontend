@@ -27,9 +27,9 @@ class App extends Component {
       listings          : [],
       hoveredItem       : null,
       fetchAllItemsError: null,
-      latitude          : this.props.latitude,
-      longitude         : this.props.longitude,
-      zoom              : this.props.zoom,
+      latitude          : 38.85, // Will be updated with search result
+      longitude         : -77.2, // Will be updated with search result
+      zoom              : 9,
     }
 
     this._notificationSystem = null;
@@ -151,7 +151,11 @@ class App extends Component {
           // NOTE: for now, if the fetched data is empty, we use hardcoded json instead.
           const listings = (res.data.length > 0) ? res.data : defaultListings;
 
-          this.setState({ listings: listings })
+          this.setState({
+            listings:  listings,
+            longitude: listings[0].longitude,
+            latitude:  listings[0].latitude,
+          })
         })
         .catch(error => {
           console.log(error);
@@ -178,17 +182,16 @@ class App extends Component {
 
   _listenForChildren = () => {
     this.emitter.addListener( 'Listing:mouseOver', payload => {
-      // console.log( 'Listing:mouseOver' );
-
-      // this._addNotification( `Hovered: ${payload.item.marketing_name}` );
-      console.log(payload.listing.marker);
       this.setState({ hoveredItem: payload.listing });
     });
 
-    this.emitter.addListener( 'SearchBar:submit', payload => {
-      // console.log( 'SearchBar:submit' );
+    this.emitter.addListener( 'Map:popup', payload => {
+      const listing = JSON.parse(payload.listing);
+      this.setState({ hoveredItem: listing });
+    });
 
-      this._addNotification( `Submit search for "${payload.q}"` );
+    this.emitter.addListener( 'SearchBar:submit', payload => {
+      // this._addNotification( `Submit search for "${payload.q}"` );
 
       this._fetchItemsByKeyword(payload.q);
 
@@ -201,11 +204,6 @@ class App extends Component {
 
 // https://facebook.github.io/react/docs/typechecking-with-proptypes.html
 App.propTypes = {};
-App.defaultProps = {
-  latitude  : 38.85,
-  longitude : -77.2,
-  zoom      : 9,
-  listings  : defaultListings,
-};
+App.defaultProps = {};
 
 export default App;

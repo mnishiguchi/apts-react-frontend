@@ -18,7 +18,7 @@ const Listing = (props) => {
 	].join(' ');
 
 	const onMouseOver = (event) => {
-		props.emitter.emit( 'Listing:mouseOver', {listing} );
+		props.emitter.emit( 'Listing:mouseOver', { listing: listing } );
 	};
 
 	// https://facebook.github.io/react/docs/events.html#mouse-events
