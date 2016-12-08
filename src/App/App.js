@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { browserHistory }  from 'react-router';
 
-import request              from 'axios';
-import _                    from 'lodash';
-import { EventEmitter }     from 'fbemitter';
-import NotificationSystem   from 'react-notification-system';
+import request             from 'axios';
+import _                   from 'lodash';
+import { EventEmitter }    from 'fbemitter';
+import NotificationSystem  from 'react-notification-system';
 
 // Components
 import AppHeader  from './AppHeader/AppHeader';
@@ -34,7 +34,7 @@ class App extends Component {
 
     this._notificationSystem = null;
 
-    _.bindAll(this, '_fetchAllItems', '_fetchItemsByKeyword');
+    // _.bindAll(this, '_fetchAllItems', '_fetchItemsByKeyword');
   }
 
   render() {
@@ -163,13 +163,13 @@ class App extends Component {
   }
 
   _fetchAllItems = () => {
-    const url = "http://apts-api.herokuapp.com/properties.json";
+    const url = "https://apts-api.herokuapp.com/properties.json";
     this._fetchItems(url)
   }
 
   // Make a GET request to our Rails server.
   _fetchItemsByKeyword = (q) => {
-    const url = `http://apts-api.herokuapp.com/properties.json?q=${q}`;
+    const url = `https://apts-app.herokuapp.com/properties.json?q=${q}`;
     console.log(url)
     this._fetchItems(url)
   }

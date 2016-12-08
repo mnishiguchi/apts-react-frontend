@@ -4,9 +4,6 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
 import App      from './App/App';
 
-// // Layouts
-// import MainLayout from './layout/MainLayout/MainLayout';
-
 // Pages
 import HomePage   from './pages/HomePage/HomePage';
 import SearchPage from './pages/SearchPage/SearchPage';
