@@ -26,7 +26,7 @@ const MapControl = (props) => {
         id="latitude"
         type="number"
         step="0.01"
-        value={props.latitude}
+        value={props.center[1]}
         onChange={event => props.onChangeLatitude(event.target.value)}
       />
       {' / '}
@@ -37,7 +37,7 @@ const MapControl = (props) => {
         id="longitude"
         type="number"
         step="0.01"
-        value={props.longitude}
+        value={props.center[0]}
         onChange={event => props.onChangeLongitude(event.target.value)}
       />
       {' / '}

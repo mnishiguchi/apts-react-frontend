@@ -66,22 +66,14 @@ class Map extends Component {
       this._setupMarkers(this.props.listings);
     });
 
-    // Detect zoom changes.
+    // Detect zoom.
     this._map.on('zoomend', (event) => {
-      this.props.emitter.emit( 'Map:move', {
-        zoom     : this._map.getZoom(),
-        longitude: this._map.getCenter()['lng'],
-        latitude : this._map.getCenter()['lat'],
-      });
+      this.props.emitter.emit( 'Map:move', this._getMapData() );
     });
 
-    // Detect zoom changes.
+    // Detect drag.
     this._map.on('dragend', (event) => {
-      this.props.emitter.emit( 'Map:move', {
-        zoom     : this._map.getZoom(),
-        longitude: this._map.getCenter()['lng'],
-        latitude : this._map.getCenter()['lat'],
-      });
+      this.props.emitter.emit( 'Map:move', this._getMapData() );
     });
   }
 
@@ -101,14 +93,9 @@ class Map extends Component {
 
   componentDidUpdate() {
     console.log(`Map::componentDidUpdate`);
-    // console.log(this.props);
-    // console.log(this.props.listings);
 
     this._updateMarkers(this.props.listings);
-
-    this._updateCenter([this.props.longitude, this.props.latitude], {
-      zoom: this.props.zoom
-    });
+    this._updateCenter(this.props.center, { zoom: this.props.zoom });
   }
 
   componentWillUnmount() {
@@ -131,7 +118,7 @@ class Map extends Component {
     return new mapboxgl.Map({
       container: this.refs.mapboxMap,
       style    : 'mapbox://styles/mapbox/light-v9',
-      center   : [ this.props.longitude, this.props.latitude ],
+      center   : this.props.center,
       zoom     : this.props.zoom,
     });
   }
@@ -180,6 +167,17 @@ class Map extends Component {
     return this._map;
   }
 
+  /**
+   * Prepares an object of map data that App component wants to know about.
+   */
+  _getMapData = () => {
+    return {
+      bounds : this._map.getBounds(),
+      center : [ this._map.getCenter().lng, this._map.getCenter().lat ],
+      zoom   : this._map.getZoom(),
+    };
+  }
+
   _listingToMarker = (listing) => {
     const markerHTML = `
       <h4>${listing.marketing_name}</h4>
@@ -224,11 +222,8 @@ class Map extends Component {
       'paint': {
           // make circles larger as the user zooms from z12 to z22
           'circle-radius': {
-              'base': 1.75,
-              'stops': [
-                [12, 5],
-                [22, 180]
-              ]
+              'base' : 1.75,
+              'stops': [ [12, 5], [22, 180] ]
           },
           // color circles by property, using data-driven styles
           'circle-color': {
@@ -241,16 +236,6 @@ class Map extends Component {
           }
       }
     });
-
-    // this._map.addLayer({
-    //   "id"    : "listings",
-    //   "type"  : "symbol",
-    //   "source": "listings",
-    //   "layout": {
-    //     "icon-image"        : "{icon}-15",
-    //     "icon-allow-overlap": true
-    //   }
-    // });
 
     // Create a popup, but don't add it to the map yet.
     // https://www.mapbox.com/mapbox-gl-js/example/popup-on-hover/
@@ -291,7 +276,7 @@ class Map extends Component {
     // Notify App with 'Map:popup' event.
     // console.log(marker['properties']['listing']);
     this.props.emitter.emit( 'Map:popup', {
-      listing: marker['properties']['listing']
+      listing: JSON.parse(marker['properties']['listing'])
     });
 
     this._popup
@@ -305,10 +290,10 @@ class Map extends Component {
    * @param  {Array<Float>} longitude and latitude of the map center
    * @param  {Object} opts  https://www.mapbox.com/mapbox-gl-js/api/#Map
    */
-  _updateCenter = (lngLat, opts) => {
+  _updateCenter = (newCenter, opts) => {
       console.log("Map::_updateCenter");
-      console.log(lngLat);
-      this._map.panTo(lngLat, opts);
+      console.log(newCenter);
+      this._map.panTo(newCenter, opts);
   }
 
   _updateMarkers = (listings) => {
@@ -329,9 +314,9 @@ class Map extends Component {
 
 // https://facebook.github.io/react/docs/typechecking-with-proptypes.html
 Map.propTypes = {
-  latitude  : React.PropTypes.number.isRequired,
-  longitude : React.PropTypes.number.isRequired,
-  zoom      : React.PropTypes.number.isRequired,
+  bounds : React.PropTypes.array.isRequired,
+  center : React.PropTypes.array.isRequired,
+  zoom   : React.PropTypes.number.isRequired,
 };
 Map.defaultProps = {
   accessToken: 'pk.eyJ1IjoicG1pbGxlcmsiLCJhIjoiY2lyM3VjMzNsMDFkZHR4bHdxOWs1amt1MiJ9.nc1fPKTYXlgC1zVoYS2Oag',

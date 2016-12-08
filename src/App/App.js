@@ -26,10 +26,10 @@ class App extends Component {
     this.state = {
       listings          : [],
       hoveredItem       : null,
-      fetchAllItemsError: null,
-      latitude          : 38.85, // Will be updated with search result
-      longitude         : -77.2, // Will be updated with search result
+      center            : [-77.2, 38.85], // Will be updated with search result
+      bounds            : [],             // Will be updated with search result
       zoom              : 9,
+      fetchAllItemsError: null,
     }
 
     this._notificationSystem = null;
@@ -116,11 +116,11 @@ class App extends Component {
 
 
   onChangeLatitude = (latitude) => {
-    this.setState({ latitude: parseFloat(latitude) });
+    this.setState({ center: [ this.state.center[0], parseFloat(latitude) ] });
   };
 
   onChangeLongitude = (longitude) => {
-    this.setState({ longitude: parseFloat(longitude) });
+    this.setState({ center: [ parseFloat(longitude), this.state.center[1] ] });
   };
 
   onChangeZoom = (zoom) => {
@@ -153,8 +153,7 @@ class App extends Component {
 
           this.setState({
             listings:  listings,
-            longitude: listings[0].longitude,
-            latitude:  listings[0].latitude,
+            center:    [ listings[0].longitude, listings[0].latitude ],
           })
         })
         .catch(error => {
@@ -186,15 +185,14 @@ class App extends Component {
     });
 
     this.emitter.addListener( 'Map:popup', payload => {
-      const listing = JSON.parse(payload.listing);
-      this.setState({ hoveredItem: listing });
+      this.setState({ hoveredItem: payload.listing });
     });
 
     this.emitter.addListener( 'Map:move', payload => {
       this.setState({
-        zoom     : payload.zoom,
-        longitude: payload.longitude,
-        latitude : payload.latitude,
+        bounds : payload.bounds,
+        center : payload.center,
+        zoom   : payload.zoom,
       });
     });
 
