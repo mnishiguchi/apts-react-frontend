@@ -65,6 +65,24 @@ class Map extends Component {
     this._map.on('load', () => {
       this._setupMarkers(this.props.listings);
     });
+
+    // Detect zoom changes.
+    this._map.on('zoomend', (event) => {
+      this.props.emitter.emit( 'Map:move', {
+        zoom     : this._map.getZoom(),
+        longitude: this._map.getCenter()['lng'],
+        latitude : this._map.getCenter()['lat'],
+      });
+    });
+
+    // Detect zoom changes.
+    this._map.on('dragend', (event) => {
+      this.props.emitter.emit( 'Map:move', {
+        zoom     : this._map.getZoom(),
+        longitude: this._map.getCenter()['lng'],
+        latitude : this._map.getCenter()['lat'],
+      });
+    });
   }
 
   componentWillReceiveProps(newProps) {

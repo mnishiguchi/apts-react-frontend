@@ -190,6 +190,14 @@ class App extends Component {
       this.setState({ hoveredItem: listing });
     });
 
+    this.emitter.addListener( 'Map:move', payload => {
+      this.setState({
+        zoom     : payload.zoom,
+        longitude: payload.longitude,
+        latitude : payload.latitude,
+      });
+    });
+
     this.emitter.addListener( 'SearchBar:submit', payload => {
       // this._addNotification( `Submit search for "${payload.q}"` );
 
