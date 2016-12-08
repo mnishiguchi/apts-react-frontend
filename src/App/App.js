@@ -163,7 +163,7 @@ class App extends Component {
   }
 
   _fetchAllItems = () => {
-    const url = "https://apts-api.herokuapp.com/properties.json";
+    const url = "https://apts-app.herokuapp.com/properties.json";
     this._fetchItems(url)
   }
 
