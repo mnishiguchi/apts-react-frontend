@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory }  from 'react-router';
 import _                    from 'lodash';
 
 // https://react-bootstrap.github.io/components.html#modals
@@ -9,7 +10,7 @@ import Button      from 'react-bootstrap/lib/Button';
 import './DetailModal.css';
 
 class DetailModal extends Component {
-  
+
   constructor(props) {
     super(props);
 
@@ -59,6 +60,7 @@ class DetailModal extends Component {
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this._closeModal}>Close</Button>
+            <Button onClick={this._redirectToListingPage}>More details</Button>
           </Modal.Footer>
         </Modal>
       </div>
@@ -74,6 +76,8 @@ class DetailModal extends Component {
   _closeModal = () => {
     this.setState({ showModal: false });
   }
+
+  _redirectToListingPage = (e) => browserHistory.push(`/listings/${this.props.item.id}`)
 
   _openModal = () => {
     this.setState({ showModal: true });

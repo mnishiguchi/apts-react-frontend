@@ -35,12 +35,6 @@ const AppHeader = (props) => {
               <NavLink to="/search">Search</NavLink>
             </li>
             <li>
-              <NavLink to="/login">Log in</NavLink>
-            </li>
-            <li>
-              <NavLink to="/signup">Join</NavLink>
-            </li>
-            <li>
               <NavLink to="/help">Help</NavLink>
             </li>
           </ul>

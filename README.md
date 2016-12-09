@@ -30,6 +30,7 @@ Visit [localhost:3000](localhost:3000)
 #### Redirection
 
 ```
+import { browserHistory }  from 'react-router';
 browserHistory.push('/some/path');
 ```
 
