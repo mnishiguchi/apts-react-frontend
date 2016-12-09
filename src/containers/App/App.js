@@ -13,9 +13,11 @@ import AppFooter  from './AppFooter/AppFooter';
 // Styles
 import './App.css';
 
-// Data
-import defaultListings from '../default_listings.json';
+// Hardcoded data for develpment purposes.
+import defaultListings from '../../default_listings.json';
 
+// The root node of this app.
+// TODO: App will be a simple container and all the logic will be moved to redux.
 class App extends Component {
 
   constructor(props) {

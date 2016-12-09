@@ -2,24 +2,16 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
-import App      from './App/App';
+import App      from './containers/App/App';
 
-// Pages
-import HomePage   from './pages/HomePage/HomePage';
-import SearchPage from './pages/SearchPage/SearchPage';
-import LoginPage  from './pages/LoginPage/LoginPage';
-import SignupPage from './pages/SignupPage/SignupPage';
-import HelpPage   from './pages/HelpPage/HelpPage';
+import configRoutes                 from './routes';
+
+
+const store = {};
 
 ReactDOM.render(
   <Router history={browserHistory}>
-      <Route path="/" component={App} >
-          <IndexRoute component={HomePage} />
-          <Route path="search" component={SearchPage} />
-          <Route path="login"  component={LoginPage} />
-          <Route path="signup" component={SignupPage} />
-          <Route path="help"   component={HelpPage} />
-      </Route>
+      {configRoutes(store)}
   </Router>,
   document.getElementById('root')
 );
