@@ -20,7 +20,10 @@ class SearchPage extends Component {
   render() {
     return (
       <div className="SearchPage">
-        <div className="alert alert-info" style={{'margin':0}}>
+        <div
+          className="alert alert-info"
+          style={{'margin':0}}
+        >
           <MapControl {...this.props} />
         </div>
 

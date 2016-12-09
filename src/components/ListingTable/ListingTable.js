@@ -1,41 +1,52 @@
-import React, { PropTypes } from 'react';
+import React, { Component } from 'react';
 
 // https://react-bootstrap.github.io/components.html#table-responsive
 import Table       from 'react-bootstrap/lib/Table';
 
 // Components
-import Listing from './Listing/Listing';
+import Listing        from './Listing/Listing';
+import ListingPreview from './ListingPreview/ListingPreview';
 
 // Styles
 import './ListingTable.css';
 
-// Stateless function
-// https://facebook.github.io/react/docs/components-and-props.html
-const ListingTable = (props) => {
+class ListingTable extends Component {
 
-  const itemNodes = props.listings.map( listing =>
-    <Listing
-      listing={listing}
-      key={listing.id}
-      emitter={props.emitter}
-    />
-  );
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className="ListingTable">
-      <Table responsive>
-        <tbody>
-          {itemNodes}
-        </tbody>
-      </Table>
-    </div>
-  );
+    // Initial state
+    this.state = {}
+  }
+
+  render() {
+    // Unpack the props.
+    const { listings, emitter } = this.props;
+
+    const itemNodes = listings.map( listing =>
+      <Listing
+        listing={listing}
+        key={listing.id}
+        emitter={emitter}
+      />
+    );
+
+    return (
+      <div className="ListingTable">
+        <ListingPreview {...this.props} />
+
+        <Table responsive>
+          <tbody>
+            {itemNodes}
+          </tbody>
+        </Table>
+      </div>
+    );
+  };
+
+  componentDidUpdate() {
+    console.log(`ListingTable::componentDidUpdate`)
+  }
 }
-
-// https://facebook.github.io/react/docs/reusable-components.html
-// https://github.com/airbnb/javascript/tree/master/react#ordering
-ListingTable.propTypes = {
-  emitter: PropTypes.object.isRequired
-};
 
 export default ListingTable;

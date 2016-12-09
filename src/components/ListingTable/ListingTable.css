@@ -1,5 +1,7 @@
 .ListingTable {
   padding: 0 1.5rem;
+}
+.ListingTable .table-responsive {
   overflow-y: auto;
-  max-height: 100vh;
+  max-height: 85vh;
 }
