@@ -14,9 +14,9 @@ const MapControl = (props) => {
           {props.listings.length}
         </span>
         {' / '}
-        <strong>Hovered item:</strong>{' '}
+        <strong>Bounds:</strong>{' '}
         <span className="text-muted">
-          {(props.hoveredItem) ? props.hoveredItem.marketing_name : '(hover a list item or map marker)'}
+          {JSON.stringify(props.bounds)}
         </span>
       </div>
       <label htmlFor="latitude">

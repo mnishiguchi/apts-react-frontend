@@ -314,7 +314,7 @@ class Map extends Component {
 
 // https://facebook.github.io/react/docs/typechecking-with-proptypes.html
 Map.propTypes = {
-  bounds : React.PropTypes.array.isRequired,
+  bounds : React.PropTypes.object.isRequired,
   center : React.PropTypes.array.isRequired,
   zoom   : React.PropTypes.number.isRequired,
 };
