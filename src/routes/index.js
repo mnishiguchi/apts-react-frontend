@@ -4,7 +4,6 @@ import React                        from 'react';
 // The root node of this app.
 // TODO: App will be a simple container and all the logic will be moved to redux.
 import App        from '../containers/App/App';
-import MainLayout from '../layouts/MainLayout/MainLayout';
 
 // Pages
 import SearchPage          from '../containers/pages/SearchPage/SearchPage';
