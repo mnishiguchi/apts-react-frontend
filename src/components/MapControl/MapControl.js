@@ -26,7 +26,7 @@ const MapControl = (props) => {
         id="latitude"
         type="number"
         step="0.01"
-        value={props.center[1]}
+        value={Number(props.center[1]).toFixed(1)}
         onChange={event => props.onChangeLatitude(event.target.value)}
       />
       {' / '}
@@ -37,7 +37,7 @@ const MapControl = (props) => {
         id="longitude"
         type="number"
         step="0.01"
-        value={props.center[0]}
+        value={Number(props.center[0]).toFixed(1)}
         onChange={event => props.onChangeLongitude(event.target.value)}
       />
       {' / '}
@@ -48,7 +48,7 @@ const MapControl = (props) => {
         id="zoom"
         type="number"
         step="1"
-        value={props.zoom}
+        value={Number(props.zoom).toFixed(1)}
         onChange={event => props.onChangeZoom(event.target.value)}
       />
     </form>
