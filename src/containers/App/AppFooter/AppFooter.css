@@ -6,13 +6,12 @@ footer {
   background: #222;
 }
 footer .container {
-
+  padding: 0 1rem;
 }
 footer .contact-info {
   display: inline-block;
   padding: 0 5px;
 }
-
 footer a {
   color:inherit;
   margin: 0 .5rem;

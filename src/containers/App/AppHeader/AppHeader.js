@@ -7,7 +7,7 @@ import NavLink   from './NavLink/NavLink';
 import SearchBar from './SearchBar/SearchBar';
 
 // https://react-bootstrap.github.io/components.html#navigation
-import Navbar       from 'react-bootstrap/lib/Navbar';
+import Navbar     from 'react-bootstrap/lib/Navbar';
 
 // Styles
 import './AppHeader.css';
