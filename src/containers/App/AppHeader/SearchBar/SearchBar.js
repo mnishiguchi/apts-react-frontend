@@ -4,39 +4,28 @@ class SearchBar extends Component {
 
   constructor(props) {
     super(props);
-
-    // Initial state
-    this.state = {
-      q: "",
-    }
   }
 
+  // The ref Callback Attribute
+  // https://facebook.github.io/react/docs/refs-and-the-dom.html
+  // NOTE: The ref will not work with stateless functional component.
   render() {
-    const searchTermNode = (q) => (q.length > 0) ?
-      <p style={{color: "#aaa", fontSize: "1rem", padding: 0, margin: 0}}>
-        You are searching for <em style={{color: "#fff"}}>{q}</em>...
-      </p> : null
-
     return (
       <div className="navbar-form navbar-left">
-
-        {searchTermNode(this.state.q)}
-
         <div className="form-group">
           <input
             id="q"
             className="form-control"
             type="text"
             placeholder="Search"
-            value={this.state.q}
-            onChange={(e) => this._updateQ(e.target.value)}
+            ref={ input => { this.textInput = input; }}
           />
         </div>
         {' '}
         <button
           className="hidden-xs btn btn-default"
           type="submit"
-          onClick={(e) => this._onSubmit(e)}
+          onClick={(event) => this._onSubmit(event)}
         >
           <i className="fa fa-search" aria-hidden="true"></i>
         </button>
@@ -50,13 +39,8 @@ class SearchBar extends Component {
   // ---
 
 
-  _updateQ = (q) => {
-    this.setState({ q });
-  };
-
   _onSubmit = (event) => {
-    // console.log('Emitting SearchBar:submit')
-    this.props.emitter.emit( 'SearchBar:submit', {q: this.state.q} );
+    this.props.emitter.emit( 'SearchBar:submit', { q: this.textInput.value } );
   }
 } // end class
 
