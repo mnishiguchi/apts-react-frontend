@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import { browserHistory }  from 'react-router';
+import { connect }          from 'react-redux';
+import { browserHistory }   from 'react-router';
 
-import request             from 'axios';
-import _                   from 'lodash';
 import { EventEmitter }    from 'fbemitter';
 import NotificationSystem  from 'react-notification-system';
+
+import store   from '../../store';
+// import constants from '../../constants/listing'
+import listingActions from '../../actions/listing'
 
 // Components
 import AppHeader  from './AppHeader/AppHeader';
 import AppFooter  from './AppFooter/AppFooter';
 
 // Styles
-import './App.css';
+import './MainLayout.css';
 
 // Hardcoded data for develpment purposes.
 import defaultListings from '../../default_listings.json';
 
 // The root node of this app.
 // TODO: App will be a simple container and all the logic will be moved to redux.
-class App extends Component {
+class MainLayout extends Component {
 
   constructor(props) {
     super(props);
@@ -26,8 +29,8 @@ class App extends Component {
     // Initial state
     // We want to render the app based on listings and selectedItem.
     this.state = {
-      listings          : [],
-      currentListing    : null,
+      // listings          : [],
+      // currentListing    : null,
       center            : [-77.2, 38.85], // Will be updated with search result
       bounds            : [],             // Will be updated with search result
       zoom              : 2.5,
@@ -52,6 +55,7 @@ class App extends Component {
 
     // Props that we want to pass to children.
     const propsForChildren = {
+      ...this.props,
       ...this.state,
       emitter : this.emitter,
     }
@@ -64,7 +68,7 @@ class App extends Component {
           style={notificationStyles}
         />
 
-      <AppHeader emitter={this.emitter} />
+        <AppHeader emitter={this.emitter} />
         <main>
           {React.cloneElement(this.props.children, propsForChildren)}
         </main>
@@ -90,21 +94,17 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // console.log(`App::componentDidMount`);
-
-    this._fetchAllItems();
+    const { dispatch } = this.props;
+    dispatch(listingActions.fetchAll());
 
     // Set up the notification system.
     this._notificationSystem = this.refs.notificationSystem;
   }
 
   componentWillUpdate() {
-    // console.log(`App::componentWillUpdate`);
-    // console.log(this.state)
   }
 
   componentWillUnmount() {
-    // console.log(`App::componentWillUnmount`);
     this.emitter.removeAllListeners();
   }
 
@@ -119,45 +119,6 @@ class App extends Component {
       message: message,
       level:   'success'
     });
-  }
-
-  // Make a GET request to our Rails server.
-  _fetchItems = (url) => {
-    return (
-      request
-        .get(url, { responseType: 'json' })
-        .then(res => {
-          console.log(res);
-
-          // NOTE: for now, if the fetched data is empty, we use hardcoded json instead.
-          const listings = (res.data.length > 0) ? res.data : defaultListings;
-
-          this.setState({
-            listings:  listings,
-            center:    [ listings[0].longitude, listings[0].latitude ],
-          })
-        })
-        .catch(error => {
-          console.log(error);
-          this.setState({
-            listings          : defaultListings,
-            fetchAllItemsError: error,
-          })
-        })
-    );
-  }
-
-  _fetchAllItems = () => {
-    const url = "https://apts-app.herokuapp.com/properties.json";
-    console.log(url)
-    this._fetchItems(url)
-  }
-
-  // Make a GET request to our Rails server.
-  _fetchItemsByKeyword = (q) => {
-    const url = `https://apts-app.herokuapp.com/properties.json?q=${q}`;
-    console.log(url)
-    this._fetchItems(url)
   }
 
   /**
@@ -205,17 +166,25 @@ class App extends Component {
     });
 
     this.emitter.addListener( 'SearchBar:submit', payload => {
-      this._fetchItemsByKeyword(payload.q);
+      const { dispatch } = this.props;
+      dispatch(listingActions.fetchByKeyword(payload.q));
 
       // Redirect to the search page.
-      browserHistory.push('/search');
+      browserHistory.push('/');
     });
   }
 
 } // end class
 
 // https://facebook.github.io/react/docs/typechecking-with-proptypes.html
-App.propTypes = {};
-App.defaultProps = {};
+MainLayout.propTypes    = {};
+MainLayout.defaultProps = {};
 
-export default App;
+const mapStateToProps = function(store) {
+  return {
+    listings      : store.listing['listings'],
+    currentListing: store.listing['currentListing'],
+  };
+}
+
+export default connect(mapStateToProps)(MainLayout);

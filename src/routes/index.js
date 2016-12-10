@@ -2,8 +2,8 @@ import { IndexRoute, Route }        from 'react-router';
 import React                        from 'react';
 
 // The root node of this app.
-// TODO: App will be a simple container and all the logic will be moved to redux.
-import App          from '../containers/App/App';
+// TODO: MainLayout will be a simple container and all the logic will be moved to redux.
+import MainLayout   from '../containers/MainLayout/MainLayout';
 
 // Pages
 import SearchPage   from '../containers/pages/SearchPage/SearchPage';
@@ -12,7 +12,7 @@ import HelpPage     from '../containers/pages/HelpPage/HelpPage';
 
 export default function configRoutes(store) {
   return (
-    <Route path="/" component={App} >
+    <Route path="/" component={MainLayout} >
       <IndexRoute component={SearchPage} />
       <Route path="search"              component={SearchPage} />
       <Route path="listings/:listingId" component={ListingPage} />
