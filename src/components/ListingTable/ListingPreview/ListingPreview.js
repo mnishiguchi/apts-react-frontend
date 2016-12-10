@@ -1,30 +1,23 @@
 import React from 'react';
 
-// Styles
-// import './ListingPreview.css';
-
-// Stateless function
-// https://facebook.github.io/react/docs/components-and-props.html
 const ListingPreview = (props) => {
-
-  const { hoveredItem } = props;
+  const { currentListing } = props;
 
   // https://facebook.github.io/react/docs/events.html#mouse-events
   return (
-    (hoveredItem) ?
+    (currentListing) ?
       <div
         className="ListingPreview"
-        style={{position:'relative', top:0, left:0}}
-      >
+        style={{position:'relative', top:0, left:0}}>
         <div style={{'background':getRandomColor(), width:'100%', 'height':'140px', color:'white'}}>
-          {hoveredItem.marketing_name}
+          {currentListing.marketing_name}
         </div>
         <p>
           {[
-            hoveredItem.street,
-            hoveredItem.city,
-            hoveredItem.state,
-            hoveredItem.zip,
+            currentListing.street,
+            currentListing.city,
+            currentListing.state,
+            currentListing.zip,
           ].join(' ')}
         </p>
       </div> : <div style={{display:'none'}}></div>

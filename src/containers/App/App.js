@@ -27,16 +27,15 @@ class App extends Component {
     // We want to render the app based on listings and selectedItem.
     this.state = {
       listings          : [],
-      hoveredItem       : null,
+      currentListing    : null,
       center            : [-77.2, 38.85], // Will be updated with search result
       bounds            : {},             // Will be updated with search result
       zoom              : 2.5,
       fetchAllItemsError: null,
     }
 
+    // Usage: this._addNotification( `Submit search for "${payload.q}"` );
     this._notificationSystem = null;
-
-    // _.bindAll(this, '_fetchAllItems', '_fetchItemsByKeyword');
   }
 
   render() {
@@ -51,12 +50,10 @@ class App extends Component {
       }
     };
 
+    // Props that we want to pass to children.
     const propsForChildren = {
       ...this.state,
-      onChangeLongitude: this.onChangeLongitude,
-      onChangeLatitude : this.onChangeLatitude,
-      onChangeZoom     : this.onChangeZoom,
-      emitter          : this.emitter,
+      emitter : this.emitter,
     }
 
     // http://stackoverflow.com/a/35102287/3837223
@@ -93,7 +90,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(`App::componentDidMount`);
+    // console.log(`App::componentDidMount`);
 
     this._fetchAllItems();
 
@@ -102,32 +99,14 @@ class App extends Component {
   }
 
   componentWillUpdate() {
-    console.log(`App::componentWillUpdate`);
-    console.log(this.state)
+    // console.log(`App::componentWillUpdate`);
+    // console.log(this.state)
   }
 
   componentWillUnmount() {
-    console.log(`App::componentWillUnmount`);
+    // console.log(`App::componentWillUnmount`);
     this.emitter.removeAllListeners();
   }
-
-
-  // ---
-  // PUBLIC METHODS
-  // ---
-
-
-  onChangeLatitude = (latitude) => {
-    this.setState({ center: [ this.state.center[0], parseFloat(latitude) ] });
-  };
-
-  onChangeLongitude = (longitude) => {
-    this.setState({ center: [ parseFloat(longitude), this.state.center[1] ] });
-  };
-
-  onChangeZoom = (zoom) => {
-    this.setState({ zoom: parseFloat(zoom) });
-  };
 
 
   // ---
@@ -181,13 +160,40 @@ class App extends Component {
     this._fetchItems(url)
   }
 
+  /**
+   * Registers all the events that children will emit and listens for them.
+   */
   _listenForChildren = () => {
+    this.emitter.addListener( 'MapControl:longitude:change', payload => {
+      this.setState({
+        center: [ parseFloat(payload.longitude),
+                  this.state.center[1] ]
+      });
+    });
+
+    this.emitter.addListener( 'MapControl:latitude:change', payload => {
+      this.setState({
+        center: [ this.state.center[0],
+                  parseFloat(payload.latitude) ]
+      });
+    });
+
+    this.emitter.addListener( 'MapControl:zoom:change', payload => {
+      this.setState({
+        zoom: parseFloat(payload.zoom)
+      });
+    });
+
     this.emitter.addListener( 'Listing:mouseOver', payload => {
-      this.setState({ hoveredItem: payload.listing });
+      this.setState({
+        currentListing: payload.listing
+      });
     });
 
     this.emitter.addListener( 'Map:popup', payload => {
-      this.setState({ hoveredItem: payload.listing });
+      this.setState({
+        currentListing: payload.listing
+      });
     });
 
     this.emitter.addListener( 'Map:move', payload => {
@@ -199,8 +205,6 @@ class App extends Component {
     });
 
     this.emitter.addListener( 'SearchBar:submit', payload => {
-      // this._addNotification( `Submit search for "${payload.q}"` );
-
       this._fetchItemsByKeyword(payload.q);
 
       // Redirect to the search page.

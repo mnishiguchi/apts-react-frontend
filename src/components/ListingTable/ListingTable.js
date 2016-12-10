@@ -1,52 +1,38 @@
-import React, { Component } from 'react';
-
-// https://react-bootstrap.github.io/components.html#table-responsive
-import Table       from 'react-bootstrap/lib/Table';
+import React from 'react';
 
 // Components
 import Listing        from './Listing/Listing';
 import ListingPreview from './ListingPreview/ListingPreview';
 
-// Styles
-import './ListingTable.css';
+const ListingTable = (props) => {
+  const { listings, emitter } = props;
 
-class ListingTable extends Component {
+  const itemNodes = listings.map( listing =>
+    <Listing
+      listing={listing}
+      key={listing.id}
+      emitter={emitter}
+    />
+  );
 
-  constructor(props) {
-    super(props);
+  return (
+    <div
+      className="ListingTable"
+      style={{padding: '0 1.5rem'}}>
 
-    // Initial state
-    this.state = {}
-  }
+      <ListingPreview {...props} />
 
-  render() {
-    // Unpack the props.
-    const { listings, emitter } = this.props;
-
-    const itemNodes = listings.map( listing =>
-      <Listing
-        listing={listing}
-        key={listing.id}
-        emitter={emitter}
-      />
-    );
-
-    return (
-      <div className="ListingTable">
-        <ListingPreview {...this.props} />
-
-        <Table responsive>
+      <div
+        className="table-responsive"
+        style={{overflowY: 'auto', maxHeight: '70vh'}}>
+        <table className="table table-bordered">
           <tbody>
             {itemNodes}
           </tbody>
-        </Table>
+        </table>
       </div>
-    );
-  };
-
-  componentDidUpdate() {
-    console.log(`ListingTable::componentDidUpdate`)
-  }
+    </div>
+  );
 }
 
 export default ListingTable;

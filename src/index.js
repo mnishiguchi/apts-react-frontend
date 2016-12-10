@@ -1,11 +1,8 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 
-import App           from './containers/App/App';
-
-import configRoutes  from './routes';
-
+import configRoutes from './routes';
 
 const store = {};
 

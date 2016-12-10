@@ -1,6 +1,6 @@
 // import request from 'axios';
 //
-// const API = {
+// const api = {
 //   fetchAllListings,
 //   fetchListingsByKeyword
 // };

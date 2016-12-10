@@ -10,7 +10,7 @@ class ListingPage extends Component {
     super(props);
 
     this.state = {
-      listing: props.hoveredItem || this._getListingById(this.props.listingId),
+      listing: props.currentListing || this._getListingById(this.props.listingId),
     }
   }
 

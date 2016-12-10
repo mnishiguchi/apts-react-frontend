@@ -3,8 +3,6 @@ import React from 'react';
 // Styles
 import './AppFooter.css';
 
-// Stateless function
-// https://facebook.github.io/react/docs/components-and-props.html
 const AppFooter = (props) => {
   return (
     <footer className="AppFooter">

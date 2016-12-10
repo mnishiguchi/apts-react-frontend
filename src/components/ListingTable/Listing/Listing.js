@@ -4,10 +4,7 @@ import DetailModal from './DetailModal/DetailModal';
 // Styles
 import './Listing.css';
 
-// Stateless function
-// https://facebook.github.io/react/docs/components-and-props.html
 const Listing = (props) => {
-
 	const { listing } = props;
 
 	const fullAddress = [
@@ -36,7 +33,7 @@ const Listing = (props) => {
 			<td>
         <DetailModal
           text={'details'}
-          item={listing}
+          listing={listing}
           />
 			</td>
 		</tr>

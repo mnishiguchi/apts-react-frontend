@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from  'react-router';
 
 // Components
 import Logo      from './Logo/Logo';
@@ -12,15 +11,13 @@ import Navbar     from 'react-bootstrap/lib/Navbar';
 // Styles
 import './AppHeader.css';
 
-// Stateless function
-// https://facebook.github.io/react/docs/components-and-props.html
 const AppHeader = (props) => {
   return (
     <div className="AppHeader">
       <Navbar bsStyle="inverse">
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/" activeClassName="active"><Logo /></Link>
+            <NavLink to="/"><Logo /></NavLink>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

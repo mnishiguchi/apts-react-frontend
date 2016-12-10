@@ -15,8 +15,7 @@ const SearchPage = (props) => {
     <div className="SearchPage">
       <div
         className="alert alert-info"
-        style={{'margin':0}}
-      >
+        style={{'margin':0}}>
         <MapControl {...props} />
       </div>
 
@@ -30,7 +29,7 @@ const SearchPage = (props) => {
       </section>
     </div>
   );
-} // end class
+} // end component
 
 
 // https://facebook.github.io/react/docs/typechecking-with-proptypes.html

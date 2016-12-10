@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { browserHistory }  from 'react-router';
-import _                    from 'lodash';
 
 // https://react-bootstrap.github.io/components.html#modals
 import Modal       from 'react-bootstrap/lib/Modal';
@@ -18,18 +17,15 @@ class DetailModal extends Component {
     this.state = {
       showModal: false,
     }
-
-    // Bind functions to `this`.
-    _.bindAll(this, '_openModal', '_closeModal');
   }
 
   render() {
+    const { listing, text } = this.props;
+    
     return (
       <div className="DetailModal">
-        <Button
-          onClick={this._openModal}
-        >
-          {(this.props.text) ? this.props.text : "open modal"}
+        <Button onClick={this._openModal} >
+          {(text) ? text : "open modal"}
         </Button>
 
         <Modal
@@ -38,7 +34,7 @@ class DetailModal extends Component {
         >
           <Modal.Header closeButton>
             <Modal.Title>
-              {this.props.item.marketing_name}
+              {listing.marketing_name}
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -51,10 +47,10 @@ class DetailModal extends Component {
             </div>
             <p>
               {[
-                this.props.item.street,
-                this.props.item.city,
-                this.props.item.state,
-                this.props.item.zip,
+                listing.street,
+                listing.city,
+                listing.state,
+                listing.zip,
               ].join(' ')}
             </p>
           </Modal.Body>
@@ -77,10 +73,12 @@ class DetailModal extends Component {
     this.setState({ showModal: false });
   }
 
-  _redirectToListingPage = (e) => browserHistory.push(`/listings/${this.props.item.id}`)
-
   _openModal = () => {
     this.setState({ showModal: true });
+  }
+
+  _redirectToListingPage = (e) => {
+    browserHistory.push(`/listings/${this.props.listing.id}`);
   }
 
 } // end class

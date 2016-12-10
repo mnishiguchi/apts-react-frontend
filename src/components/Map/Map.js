@@ -143,7 +143,7 @@ class Map extends Component {
       }
 
       // Update the mnMarkerType property.
-      const mnMarkerType = (this.props.hoveredItem === listing) ? "hovered" : "default";
+      const mnMarkerType = (this.props.currentListing === listing) ? "hovered" : "default";
       listing.marker["properties"]["mnMarkerType"] = mnMarkerType;
 
       jsonMarkers.push(listing.marker)
