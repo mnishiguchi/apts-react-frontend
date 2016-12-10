@@ -27,7 +27,7 @@ const MapControl = (props) => {
       <input
         id="longitude"
         type="number"
-        step="0.05"
+        step="0.5"
         value={Number(center[0]).toFixed(1)}
         onChange={event => {
           emitter.emit( 'MapControl:longitude:change', { longitude: event.target.value } );
@@ -40,7 +40,7 @@ const MapControl = (props) => {
       <input
         id="latitude"
         type="number"
-        step="0.05"
+        step="0.5"
         value={Number(center[1]).toFixed(1)}
         onChange={event => {
           emitter.emit( 'MapControl:latitude:change', { latitude: event.target.value } );
@@ -53,7 +53,7 @@ const MapControl = (props) => {
       <input
         id="zoom"
         type="number"
-        step="1"
+        step="0.5"
         value={Number(zoom).toFixed(1)}
         onChange={event => {
           emitter.emit( 'MapControl:zoom:change', { zoom: event.target.value } );

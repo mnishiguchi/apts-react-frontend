@@ -149,9 +149,24 @@ class Map extends Component {
       jsonMarkers.push(listing.marker)
     }
 
-    // console.log(jsonMarkers);
-
     return jsonMarkers;
+  }
+
+  /**
+   * Formats the bounds.
+   * @param  {Object<Object>} bounds the result of calling map.getBounds().
+   * @return {Array<Array>}
+   */
+  _formatBounds = (bounds) => {
+    const sw = [
+      Number(bounds['_sw']['lng']).toFixed(3),
+      Number(bounds['_sw']['lat']).toFixed(3),
+    ];
+    const ne = [
+      Number(bounds['_sw']['lng']).toFixed(3),
+      Number(bounds['_sw']['lat']).toFixed(3),
+    ];
+    return [sw, ne];
   }
 
   _fullAddress = (listing) => {
@@ -172,7 +187,7 @@ class Map extends Component {
    */
   _getMapData = () => {
     return {
-      bounds : this._map.getBounds(),
+      bounds : this._formatBounds(this._map.getBounds()),
       center : [ this._map.getCenter().lng, this._map.getCenter().lat ],
       zoom   : this._map.getZoom(),
     };
@@ -314,7 +329,7 @@ class Map extends Component {
 
 // https://facebook.github.io/react/docs/typechecking-with-proptypes.html
 Map.propTypes = {
-  bounds : React.PropTypes.object.isRequired,
+  bounds : React.PropTypes.array.isRequired,
   center : React.PropTypes.array.isRequired,
   zoom   : React.PropTypes.number.isRequired,
 };

@@ -29,7 +29,7 @@ class App extends Component {
       listings          : [],
       currentListing    : null,
       center            : [-77.2, 38.85], // Will be updated with search result
-      bounds            : {},             // Will be updated with search result
+      bounds            : [],             // Will be updated with search result
       zoom              : 2.5,
       fetchAllItemsError: null,
     }
