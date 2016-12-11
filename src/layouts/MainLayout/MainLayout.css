@@ -1,3 +1,16 @@
+main {
+  min-height: 82vh;
+}
+
+button,
+.btn,
+.modal-content,
+.form-control,
+.navbar,
+.alert {
+  border-radius: 0;
+}
+
 footer {
   font-family: $heading-font-family;
   vertical-align: middle;

@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 import { browserHistory }   from 'react-router';
 
-import { EventEmitter }    from 'fbemitter';
 import NotificationSystem  from 'react-notification-system';
 
 import listingActions from '../../actions/listing'
 
 // Components
-import AppHeader  from '../AppHeader/AppHeader';
-import AppFooter  from './AppFooter/AppFooter';
+import AppHeader  from '../../containers/AppHeader/AppHeader';
 
 // Styles
 import './MainLayout.css';
@@ -64,10 +62,21 @@ class MainLayout extends Component {
         />
 
         <AppHeader emitter={this.emitter} />
+
         <main>
           {React.cloneElement(this.props.children, propsForChildren)}
         </main>
-        <AppFooter />
+
+        <footer className="AppFooter">
+          <div className="container">
+            <div className="contact-info">
+              Masatoshi Nishiguchi &middot;
+              <a href="http://www.mnishiguchi.com/">
+                mnishiguchi.com
+              </a>
+            </div>
+          </div>
+        </footer>
       </div>
     );
   }
@@ -81,11 +90,6 @@ class MainLayout extends Component {
   // https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
   // http://qiita.com/mizchi/items/6a3500e598ec36746509
   componentWillMount() {
-    // Create a emitter.
-    this.emitter = new EventEmitter();
-
-    // Register and listen for our custom events that will be emitted by children.
-    this._listenForChildren();
   }
 
   componentDidMount() {
@@ -112,52 +116,6 @@ class MainLayout extends Component {
       level:   'success'
     });
   }
-
-  /**
-   * Registers all the events that children will emit and listens for them.
-   */
-  _listenForChildren = () => {
-    // this.emitter.addListener( 'MapControl:longitude:change', payload => {
-    //   this.setState({
-    //     center: [ parseFloat(payload.longitude),
-    //               this.state.center[1] ]
-    //   });
-    // });
-    //
-    // this.emitter.addListener( 'MapControl:latitude:change', payload => {
-    //   this.setState({
-    //     center: [ this.state.center[0],
-    //               parseFloat(payload.latitude) ]
-    //   });
-    // });
-    //
-    // this.emitter.addListener( 'MapControl:zoom:change', payload => {
-    //   this.setState({
-    //     zoom: parseFloat(payload.zoom)
-    //   });
-    // });
-
-    // this.emitter.addListener( 'Listing:mouseOver', payload => {
-    //   this.setState({
-    //     currentListing: payload.listing
-    //   });
-    // });
-
-    this.emitter.addListener( 'Map:popup', payload => {
-      this.setState({
-        currentListing: payload.listing
-      });
-    });
-
-    this.emitter.addListener( 'Map:move', payload => {
-      this.setState({
-        bounds : payload.bounds,
-        center : payload.center,
-        zoom   : payload.zoom,
-      });
-    });
-  }
-
 } // end class
 
 // https://facebook.github.io/react/docs/typechecking-with-proptypes.html

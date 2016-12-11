@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import Map          from '../../../components/Map/Map';
+import Map          from '../../../containers/Map/Map';
 import ListingTable from '../../../containers/ListingTable/ListingTable';
 import MapControl   from '../../../containers/MapControl/MapControl';
 

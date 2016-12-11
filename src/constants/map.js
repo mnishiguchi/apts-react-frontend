@@ -1,4 +1,5 @@
 const constants = {
+  UPDATE           : 'UPDATE',
   UPDATE_BOUNDS    : 'UPDATE_BOUNDS',
   UPDATE_CENTER    : 'UPDATE_CENTER',
   UPDATE_LATITUDE  : 'UPDATE_LATITUDE',

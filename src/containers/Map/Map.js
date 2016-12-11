@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect }    from 'react-redux';
 
-// import listingActions from '../../actions/listing'
+import listingActions from '../../actions/listing'
 import mapActions     from '../../actions/map'
 
 // NPM:    https://www.npmjs.com/package/mapbox-gl
@@ -18,7 +18,6 @@ class Map extends Component {
   constructor(props) {
     super(props);
 
-    // Initial state
     this.state = {
       isSupported: mapboxgl.supported(),
     }
@@ -43,14 +42,7 @@ class Map extends Component {
       position: 'relative',
     };
 
-    return (
-      <div
-        className="mapboxMap"
-        ref="mapboxMap"
-        style={mapStyle}
-      >
-      </div>
-    );
+    return (<div className="mapboxMap" ref="mapboxMap" style={mapStyle}></div>);
   }
 
 
@@ -60,8 +52,6 @@ class Map extends Component {
 
 
   componentDidMount() {
-    console.log(`Map::componentDidMount`);
-
     // Create a map instance based on props.
     this._map = this._createMap()
 
@@ -72,19 +62,20 @@ class Map extends Component {
 
     // Detect zoom.
     this._map.on('zoomend', (event) => {
-      this.props.emitter.emit( 'Map:move', this._getMapData() );
+      this.props.dispatch(
+        mapActions.update(this._getMapData())
+      );
     });
 
     // Detect drag.
     this._map.on('dragend', (event) => {
-      this.props.emitter.emit( 'Map:move', this._getMapData() );
+      this.props.dispatch(
+        mapActions.update(this._getMapData())
+      );
     });
   }
 
   componentWillReceiveProps(newProps) {
-    console.log(`Map::componentWillReceiveProps`);
-    // console.log(newProps);
-
     this.setState({
       width  : this.props.width,
       height : this.props.height,
@@ -92,19 +83,14 @@ class Map extends Component {
   }
 
   componentWillUpdate() {
-    // console.log(`Map::componentWillUpdate`);
   }
 
   componentDidUpdate() {
-    console.log(`Map::componentDidUpdate`);
-
     this._updateMarkers(this.props.listings);
     this._updateCenter(this.props.center, { zoom: this.props.zoom });
   }
 
   componentWillUnmount() {
-    console.log(`Map::componentWillUnmount`);
-
     if (this._map) {
       this._map.remove();
     }
@@ -133,8 +119,6 @@ class Map extends Component {
    * @return {Array<Object>} an array of markerpoint hashes
    */
   _createMarkers = (listings) => {
-    console.log(`Map::_createMarkers`)
-
     let jsonMarkers = [];
     for (let listing of listings) {
 
@@ -182,10 +166,6 @@ class Map extends Component {
     ].join(' ');
   }
 
-  _getMap = () => {
-    return this._map;
-  }
-
   /**
    * Prepares an object of map data that App component wants to know about.
    */
@@ -220,8 +200,6 @@ class Map extends Component {
   }
 
   _setupMarkers = (listings) => {
-    console.log(`Map::_setupMarkers`)
-
     if (this._map.getSource("listings")) {
       this._map.removeSource("listings")
     }
@@ -292,11 +270,10 @@ class Map extends Component {
     // Get the best feature for the marker.
     const marker = features[0];
 
-    // Notify App with 'Map:popup' event.
-    // console.log(marker['properties']['listing']);
-    this.props.emitter.emit( 'Map:popup', {
-      listing: JSON.parse(marker['properties']['listing'])
-    });
+    const currentListing = JSON.parse(marker['properties']['listing']);
+    this.props.dispatch(
+      listingActions.setCurrentListing(currentListing)
+    );
 
     this._popup
       .setLngLat(marker.geometry.coordinates)
@@ -310,14 +287,10 @@ class Map extends Component {
    * @param  {Object} opts  https://www.mapbox.com/mapbox-gl-js/api/#Map
    */
   _updateCenter = (newCenter, opts) => {
-      console.log("Map::_updateCenter");
-      console.log(newCenter);
-      this._map.panTo(newCenter, opts);
+    this._map.panTo(newCenter, opts);
   }
 
   _updateMarkers = (listings) => {
-    console.log("Updating Markers");
-
     // Do nothing if the listings source does not exist on the map.
     if (!this._map.getSource("listings")) return;
 

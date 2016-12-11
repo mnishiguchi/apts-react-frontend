@@ -1,14 +1,10 @@
 import { IndexRoute, Route }        from 'react-router';
 import React                        from 'react';
 
-// The root node of this app.
-// TODO: MainLayout will be a simple container and all the logic will be moved to redux.
-import MainLayout   from '../containers/MainLayout/MainLayout';
-
-// Views
-import SearchView   from '../containers/views/SearchView/SearchView';
-import ListingView  from '../containers/views/ListingView/ListingView';
-import HelpView     from '../containers/views/HelpView/HelpView';
+import MainLayout   from '../layouts/MainLayout/MainLayout';
+import SearchView   from '../layouts/views/SearchView/SearchView';
+import ListingView  from '../layouts/views/ListingView/ListingView';
+import HelpView     from '../layouts/views/HelpView/HelpView';
 
 export default function configRoutes(store) {
   return (

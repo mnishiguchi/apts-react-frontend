@@ -1,9 +1,9 @@
 import constants from '../constants/map';
 
 const initialState = {
-  bounds            : [],
-  center            : [-77.2, 38.85],
-  zoom              : 12,
+  bounds : [],
+  center : [-77.2, 38.85],
+  zoom   : 12,
 };
 
 function mapReducer(state = initialState, action = {}) {

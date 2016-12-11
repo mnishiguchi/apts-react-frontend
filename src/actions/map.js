@@ -2,6 +2,16 @@ import constants from '../constants/map';
 
 const mapActions = {
 
+  update: ({bounds, center, zoom}) => {
+    return dispatch => {
+      dispatch({
+        type: constants.UPDATE,
+        bounds,
+        center,
+        zoom,
+      });
+    };
+  },
   updateBounds: (bounds) => {
     return dispatch => {
       dispatch({
