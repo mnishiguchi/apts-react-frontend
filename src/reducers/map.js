@@ -16,7 +16,14 @@ function mapReducer(state = initialState, action = {}) {
     zoom
   } = action;
 
-  switch (action.type) {
+  switch (type) {
+    case constants.UPDATE:
+      return {
+        ...state,
+        bounds,
+        center,
+        zoom
+      };
     case constants.UPDATE_BOUNDS:
       return {
         ...state,

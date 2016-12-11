@@ -1,8 +1,4 @@
-// import React          from 'react';
-// import { connect }    from 'react-redux';
-//
-// // import listingActions from '../../actions/listing'
-// import mapActions     from '../../actions/map'
+// import React from 'react';
 //
 // // Styles
 // import './MapControl.css';
@@ -13,10 +9,11 @@
 //     bounds,
 //     center,
 //     zoom,
-//     dispatch
+//     emitter
 //   } = props;
 //
 //   return (
+//     (listings && listings.length > 0) ?
 //     <form className="MapControl">
 //       <div>
 //         <strong>Listing count:</strong>{' '}
@@ -35,10 +32,10 @@
 //       <input
 //         id="longitude"
 //         type="number"
-//         step="0.5"
+//         step="0.05"
 //         value={Number(center[0]).toFixed(1)}
 //         onChange={event => {
-//           dispatch(mapActions.updateLongitude( event.target.value ));
+//           emitter.emit( 'MapControl:longitude:change', { longitude: event.target.value } );
 //         }}
 //       />
 //       {' / '}
@@ -48,10 +45,10 @@
 //       <input
 //         id="latitude"
 //         type="number"
-//         step="0.5"
+//         step="0.05"
 //         value={Number(center[1]).toFixed(1)}
 //         onChange={event => {
-//           dispatch(mapActions.updateLatitude( event.target.value ));
+//           emitter.emit( 'MapControl:latitude:change', { latitude: event.target.value } );
 //         }}
 //       />
 //       {' / '}
@@ -61,24 +58,14 @@
 //       <input
 //         id="zoom"
 //         type="number"
-//         step="0.5"
+//         step="1"
 //         value={Number(zoom).toFixed(1)}
 //         onChange={event => {
-//           dispatch(mapActions.updateZoom( event.target.value ));
+//           emitter.emit( 'MapControl:zoom:change', { zoom: event.target.value } );
 //         }}
 //       />
-//     </form>
+//     </form> : <div style={{display:'none'}}></div>
 //   );
 // }
 //
-// const mapStateToProps = function(store) {
-//   return {
-//     listings      : store.listing['listings'],
-//     currentListing: store.listing['currentListing'],
-//     bounds        : store.map['bounds'],
-//     center        : store.map['center'],
-//     zoom          : store.map['zoom'],
-//   };
-// }
-//
-// export default connect(mapStateToProps)(MapControl);
+// export default MapControl;

@@ -5,39 +5,38 @@ import DetailModal from './DetailModal/DetailModal';
 import './Listing.css';
 
 const Listing = (props) => {
-	const { listing } = props;
+  const { listing } = props;
 
-	const fullAddress = [
-		listing.street,
-		listing.city,
-		listing.state,
-		listing.zip,
-	].join(' ');
+  const fullAddress = [
+    listing.street,
+    listing.city,
+    listing.state,
+    listing.zip,
+  ].join(' ');
 
-	const onMouseOver = (event) => {
-		props.emitter.emit( 'Listing:mouseOver', {listing} );
-	};
+  const onMouseOver = (event) => {
+    props.emitter.emit( 'Listing:mouseOver', {listing} );
+  };
 
-	// https://facebook.github.io/react/docs/events.html#mouse-events
-	return (
-		<tr
-			className="Listing"
-			onMouseOver={onMouseOver}
-		>
-			<td>
+  return (
+    <tr
+      className="Listing"
+      onMouseOver={onMouseOver}
+    >
+      <td>
         {listing.marketing_name}
       </td>
-			<td>
+      <td>
         {fullAddress}
       </td>
-			<td>
+      <td>
         <DetailModal
           text={'details'}
           listing={listing}
           />
-			</td>
-		</tr>
-	);
+      </td>
+    </tr>
+  );
 }
 
 // https://facebook.github.io/react/docs/reusable-components.html

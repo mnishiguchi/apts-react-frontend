@@ -1,6 +1,6 @@
 import React, { PropTypes }       from 'react';
 import { Provider }               from 'react-redux';
-import { Router, RoutingContent } from 'react-router';
+import { Router }                 from 'react-router';
 import invariant                  from 'invariant';
 import configRoutes               from '../routes';
 

@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import { connect }    from 'react-redux';
-
-import listingActions from '../../actions/listing'
-import mapActions     from '../../actions/map'
 
 // NPM:    https://www.npmjs.com/package/mapbox-gl
 // Github: https://github.com/mapbox/mapbox-gl-js
@@ -18,6 +14,7 @@ class Map extends Component {
   constructor(props) {
     super(props);
 
+    // Initial state
     this.state = {
       isSupported: mapboxgl.supported(),
     }
@@ -42,7 +39,14 @@ class Map extends Component {
       position: 'relative',
     };
 
-    return (<div className="mapboxMap" ref="mapboxMap" style={mapStyle}></div>);
+    return (
+      <div
+        className="mapboxMap"
+        ref="mapboxMap"
+        style={mapStyle}
+      >
+      </div>
+    );
   }
 
 
@@ -62,16 +66,12 @@ class Map extends Component {
 
     // Detect zoom.
     this._map.on('zoomend', (event) => {
-      this.props.dispatch(
-        mapActions.update(this._getMapData())
-      );
+      this.props.emitter.emit( 'Map:move', this._getMapData() );
     });
 
     // Detect drag.
     this._map.on('dragend', (event) => {
-      this.props.dispatch(
-        mapActions.update(this._getMapData())
-      );
+      this.props.emitter.emit( 'Map:move', this._getMapData() );
     });
   }
 
@@ -169,13 +169,13 @@ class Map extends Component {
   /**
    * Prepares an object of map data that App component wants to know about.
    */
-  _getMapData = () => {
-    return {
-      bounds : this._formatBounds(this._map.getBounds()),
-      center : [ this._map.getCenter().lng, this._map.getCenter().lat ],
-      zoom   : this._map.getZoom(),
-    };
-  }
+   _getMapData = () => {
+     return {
+       bounds : this._formatBounds(this._map.getBounds()),
+       center : [ this._map.getCenter().lng, this._map.getCenter().lat ],
+       zoom   : this._map.getZoom(),
+     };
+   }
 
   _listingToMarker = (listing) => {
     const markerHTML = `
@@ -270,10 +270,11 @@ class Map extends Component {
     // Get the best feature for the marker.
     const marker = features[0];
 
-    const currentListing = JSON.parse(marker['properties']['listing']);
-    this.props.dispatch(
-      listingActions.setCurrentListing(currentListing)
-    );
+    // Notify App with 'Map:popup' event.
+    // console.log(marker['properties']['listing']);
+    this.props.emitter.emit( 'Map:popup', {
+      listing: JSON.parse(marker['properties']['listing'])
+    });
 
     this._popup
       .setLngLat(marker.geometry.coordinates)
@@ -316,14 +317,4 @@ Map.defaultProps = {
   height     : "100vh",
 };
 
-const mapStateToProps = function(store) {
-  return {
-    listings      : store.listing['listings'],
-    currentListing: store.listing['currentListing'],
-    bounds        : store.map['bounds'],
-    center        : store.map['center'],
-    zoom          : store.map['zoom'],
-  };
-}
-
-export default connect(mapStateToProps)(Map);
+export default Map;

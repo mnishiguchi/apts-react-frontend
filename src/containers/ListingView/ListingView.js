@@ -15,6 +15,7 @@ class ListingView extends Component {
   }
 
   _getListingById = (id) => {
+    if (! this.props.listings) { return null; }
     return this.props.listings.filter(listing => id === this.props.listing.id)[0];
   }
 

@@ -9,7 +9,7 @@ const logger = createLogger();
 export default function configureStore(initialState) {
   return createStore(
     reducers,
-    initialState,
+    // initialState, // TODO
     applyMiddleware( thunk, logger )
   );
 }
