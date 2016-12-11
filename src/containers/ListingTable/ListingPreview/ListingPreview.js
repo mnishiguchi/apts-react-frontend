@@ -3,7 +3,6 @@ import React from 'react';
 const ListingPreview = (props) => {
   const { currentListing } = props;
 
-  // https://facebook.github.io/react/docs/events.html#mouse-events
   return (
     (currentListing) ?
       <div

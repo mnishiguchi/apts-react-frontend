@@ -138,11 +138,11 @@ class MainLayout extends Component {
       });
     });
 
-    this.emitter.addListener( 'Listing:mouseOver', payload => {
-      this.setState({
-        currentListing: payload.listing
-      });
-    });
+    // this.emitter.addListener( 'Listing:mouseOver', payload => {
+    //   this.setState({
+    //     currentListing: payload.listing
+    //   });
+    // });
 
     this.emitter.addListener( 'Map:popup', payload => {
       this.setState({

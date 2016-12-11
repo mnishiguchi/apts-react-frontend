@@ -16,7 +16,7 @@ function listingReducer(state = initialState, action = {}) {
       return {
         ...state,
         listings      : listings,
-        currentListing: {},
+        currentListing: null,
         fetchError    : null,
         isFetching    : false,
       };

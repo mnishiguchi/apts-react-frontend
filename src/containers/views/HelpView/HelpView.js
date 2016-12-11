@@ -1,13 +1,13 @@
 import React from 'react';
 
 // Styles
-import './HelpPage.css';
+import './HelpView.css';
 
 // Stateless function
 // https://facebook.github.io/react/docs/components-and-props.html
-const HelpPage = (props) => {
+const HelpView = (props) => {
   return (
-    <div className="HelpPage">
+    <div className="HelpView">
       <div className="container">
         <h2>Help page</h2>
         <p>
@@ -18,4 +18,4 @@ const HelpPage = (props) => {
   );
 } // end class
 
-export default HelpPage;
+export default HelpView;

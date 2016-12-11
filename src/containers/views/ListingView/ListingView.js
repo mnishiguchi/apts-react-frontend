@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { browserHistory, Link }  from 'react-router';
 
 // Styles
-import './ListingPage.css';
+import './ListingView.css';
 
-class ListingPage extends Component {
+class ListingView extends Component {
 
   constructor(props) {
     super(props);
@@ -29,7 +29,7 @@ class ListingPage extends Component {
 
   render() {
     return (
-      <div className="ListingPage">
+      <div className="ListingView">
         <div className="container">
           <div style={{maxWidth:'1000px', 'height':'auto', overflow:'hidden'}}>
             <img
@@ -64,4 +64,4 @@ class ListingPage extends Component {
   }
 } // end class
 
-export default ListingPage;
+export default ListingView;
