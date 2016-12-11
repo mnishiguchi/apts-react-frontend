@@ -5,12 +5,11 @@ import { browserHistory }   from 'react-router';
 import { EventEmitter }    from 'fbemitter';
 import NotificationSystem  from 'react-notification-system';
 
-import store   from '../../store';
-// import constants from '../../constants/listing'
+import store          from '../../store';
 import listingActions from '../../actions/listing'
 
 // Components
-import AppHeader  from './AppHeader/AppHeader';
+import AppHeader  from '../AppHeader/AppHeader';
 import AppFooter  from './AppFooter/AppFooter';
 
 // Styles
@@ -29,12 +28,9 @@ class MainLayout extends Component {
     // Initial state
     // We want to render the app based on listings and selectedItem.
     this.state = {
-      // listings          : [],
-      // currentListing    : null,
-      center            : [-77.2, 38.85], // Will be updated with search result
-      bounds            : [],             // Will be updated with search result
-      zoom              : 2.5,
-      fetchAllItemsError: null,
+      center : [-77.2, 38.85], // Will be updated with search result
+      bounds : [], // Will be updated with search result
+      zoom   : 2.5,
     }
 
     // Usage: this._addNotification( `Submit search for "${payload.q}"` );
@@ -101,9 +97,6 @@ class MainLayout extends Component {
     this._notificationSystem = this.refs.notificationSystem;
   }
 
-  componentWillUpdate() {
-  }
-
   componentWillUnmount() {
     this.emitter.removeAllListeners();
   }
@@ -163,14 +156,6 @@ class MainLayout extends Component {
         center : payload.center,
         zoom   : payload.zoom,
       });
-    });
-
-    this.emitter.addListener( 'SearchBar:submit', payload => {
-      const { dispatch } = this.props;
-      dispatch(listingActions.fetchByKeyword(payload.q));
-
-      // Redirect to the search page.
-      browserHistory.push('/');
     });
   }
 
