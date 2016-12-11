@@ -8,7 +8,12 @@ const initialState = {
 };
 
 function listingReducer(state = initialState, action = {}) {
-  const { type, listing, listings, error } = action;
+  const {
+    type,
+    listing,
+    listings,
+    error
+  } = action;
 
   switch (type) {
 

@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect }    from 'react-redux';
+
+// import listingActions from '../../actions/listing'
+import mapActions     from '../../actions/map'
 
 // NPM:    https://www.npmjs.com/package/mapbox-gl
 // Github: https://github.com/mapbox/mapbox-gl-js
@@ -339,4 +343,14 @@ Map.defaultProps = {
   height     : "100vh",
 };
 
-export default Map;
+const mapStateToProps = function(store) {
+  return {
+    listings      : store.listing['listings'],
+    currentListing: store.listing['currentListing'],
+    bounds        : store.map['bounds'],
+    center        : store.map['center'],
+    zoom          : store.map['zoom'],
+  };
+}
+
+export default connect(mapStateToProps)(Map);

@@ -5,7 +5,6 @@ import { browserHistory }   from 'react-router';
 import { EventEmitter }    from 'fbemitter';
 import NotificationSystem  from 'react-notification-system';
 
-import store          from '../../store';
 import listingActions from '../../actions/listing'
 
 // Components
@@ -28,9 +27,9 @@ class MainLayout extends Component {
     // Initial state
     // We want to render the app based on listings and selectedItem.
     this.state = {
-      center : [-77.2, 38.85], // Will be updated with search result
-      bounds : [], // Will be updated with search result
-      zoom   : 2.5,
+      // center : [-77.2, 38.85], // Will be updated with search result
+      // bounds : [], // Will be updated with search result
+      // zoom   : 2.5,
     }
 
     // Usage: this._addNotification( `Submit search for "${payload.q}"` );
@@ -118,25 +117,25 @@ class MainLayout extends Component {
    * Registers all the events that children will emit and listens for them.
    */
   _listenForChildren = () => {
-    this.emitter.addListener( 'MapControl:longitude:change', payload => {
-      this.setState({
-        center: [ parseFloat(payload.longitude),
-                  this.state.center[1] ]
-      });
-    });
-
-    this.emitter.addListener( 'MapControl:latitude:change', payload => {
-      this.setState({
-        center: [ this.state.center[0],
-                  parseFloat(payload.latitude) ]
-      });
-    });
-
-    this.emitter.addListener( 'MapControl:zoom:change', payload => {
-      this.setState({
-        zoom: parseFloat(payload.zoom)
-      });
-    });
+    // this.emitter.addListener( 'MapControl:longitude:change', payload => {
+    //   this.setState({
+    //     center: [ parseFloat(payload.longitude),
+    //               this.state.center[1] ]
+    //   });
+    // });
+    //
+    // this.emitter.addListener( 'MapControl:latitude:change', payload => {
+    //   this.setState({
+    //     center: [ this.state.center[0],
+    //               parseFloat(payload.latitude) ]
+    //   });
+    // });
+    //
+    // this.emitter.addListener( 'MapControl:zoom:change', payload => {
+    //   this.setState({
+    //     zoom: parseFloat(payload.zoom)
+    //   });
+    // });
 
     // this.emitter.addListener( 'Listing:mouseOver', payload => {
     //   this.setState({
@@ -169,6 +168,9 @@ const mapStateToProps = function(store) {
   return {
     listings      : store.listing['listings'],
     currentListing: store.listing['currentListing'],
+    bounds        : store.map['bounds'],
+    center        : store.map['center'],
+    zoom          : store.map['zoom'],
   };
 }
 

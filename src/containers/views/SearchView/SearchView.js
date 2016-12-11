@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Components
-import MapControl   from '../../../components/MapControl/MapControl';
 import Map          from '../../../components/Map/Map';
 import ListingTable from '../../../containers/ListingTable/ListingTable';
+import MapControl   from '../../../containers/MapControl/MapControl';
 
 // Styles
 import './SearchView.css';
@@ -13,12 +13,6 @@ import './SearchView.css';
 const SearchView = (props) => {
   return (
     <div className="SearchView">
-      <div
-        className="alert alert-info"
-        style={{'margin':0}}>
-        <MapControl {...props} />
-      </div>
-
       <section className="grid">
         <div className="flexible">
           <Map {...props} />
@@ -30,7 +24,6 @@ const SearchView = (props) => {
     </div>
   );
 } // end component
-
 
 // https://facebook.github.io/react/docs/typechecking-with-proptypes.html
 SearchView.propTypes = {};

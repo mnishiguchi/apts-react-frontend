@@ -1,5 +1,9 @@
 const constants = {
-  UPDATE_MAP: 'UPDATE_MAP',
+  UPDATE_BOUNDS    : 'UPDATE_BOUNDS',
+  UPDATE_CENTER    : 'UPDATE_CENTER',
+  UPDATE_LATITUDE  : 'UPDATE_LATITUDE',
+  UPDATE_LONGITUDE : 'UPDATE_LONGITUDE',
+  UPDATE_ZOOM      : 'UPDATE_ZOOM',
 };
 
 export default constants;

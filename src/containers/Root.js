@@ -25,4 +25,5 @@ const Root = ({ routerHistory, store }) => {
 }
 
 Root.propTypes = propTypes;
+
 export default Root;
