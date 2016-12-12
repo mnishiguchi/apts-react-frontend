@@ -9,9 +9,9 @@ import HelpView     from '../containers/HelpView/HelpView';
 export default function configRoutes(store) {
   return (
     <Route path="/" component={MainLayout} >
-      <IndexRoute                       component={SearchView} />
-      <Route path="listings/:listingId" component={ListingView} />
-      <Route path="help"                component={HelpView} />
+      <IndexRoute                component={SearchView} />
+      <Route path="listings/:id" component={ListingView} />
+      <Route path="help"         component={HelpView} />
     </Route>
   );
 }

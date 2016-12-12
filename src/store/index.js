@@ -10,6 +10,9 @@ export default function configureStore(initialState) {
   return createStore(
     reducers,
     // initialState, // TODO
-    applyMiddleware( thunk, logger )
+    applyMiddleware(
+      thunk,
+      logger 
+    )
   );
 }

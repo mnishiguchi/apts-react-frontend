@@ -33,6 +33,28 @@ const listingActions = {
       );
     };
   },
+  fetchById: () => {
+    return (dispatch) => {
+      dispatch({
+        type: constants.SET_IS_FETCHING,
+      });
+      return (
+        api.fetchLisingById()
+          .then(res =>
+            dispatch({
+              type:     constants.FETCH_BY_ID_DONE,
+              listings: res.data,
+            })
+          )
+          .catch(error =>
+            dispatch({
+              type: constants.FETCH_BY_ID_FAIL,
+              error,
+            })
+          )
+      );
+    };
+  },
   fetchByKeyword: (q) => {
     return (dispatch) => {
       dispatch({

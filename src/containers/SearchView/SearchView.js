@@ -87,7 +87,9 @@ class SearchView extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
 
-    dispatch(actions.listing.fetchAll());
+    dispatch(
+      actions.listing.fetchAll()
+    );
   }
 
   componentWillUnmount() {
