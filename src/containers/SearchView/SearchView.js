@@ -88,7 +88,7 @@ class SearchView extends Component {
     const { dispatch } = this.props;
 
     dispatch(
-      actions.listing.fetchAll()
+      actions.listing.fetchAllListings()
     );
   }
 
@@ -105,9 +105,9 @@ const mapStateToProps = function(store) {
   return {
     listings      : store.listing['listings'],
     currentListing: store.listing['currentListing'],
-    bounds        : store.map['bounds'],
-    center        : store.map['center'],
-    zoom          : store.map['zoom'],
+    bounds        : store.listing['bounds'],
+    center        : store.listing['center'],
+    zoom          : store.listing['zoom'],
   };
 }
 

@@ -1,11 +1,11 @@
-import constants from '../constants/map';
+import constants from '../constants';
 
 const mapActions = {
 
   update: ({bounds, center, zoom}) => {
     return dispatch => {
       dispatch({
-        type: constants.UPDATE,
+        type: constants.UPDATE_MAP,
         bounds,
         center,
         zoom,
@@ -15,7 +15,7 @@ const mapActions = {
   updateBounds: (bounds) => {
     return dispatch => {
       dispatch({
-        type: constants.UPDATE_BOUNDS,
+        type: constants.UPDATE_MAP_BOUNDS,
         bounds,
       });
     };
@@ -23,7 +23,7 @@ const mapActions = {
   updateCenter: (center) => {
     return dispatch => {
       dispatch({
-        type: constants.UPDATE_CENTER,
+        type: constants.UPDATE_MAP_CENTER,
         center,
       });
     };
@@ -31,7 +31,7 @@ const mapActions = {
   updateLatitude: (latitude) => {
     return dispatch => {
       dispatch({
-        type: constants.UPDATE_LATITUDE,
+        type: constants.UPDATE_MAP_LATITUDE,
         latitude,
       });
     };
@@ -39,7 +39,7 @@ const mapActions = {
   updateLongitude: (longitude) => {
     return dispatch => {
       dispatch({
-        type: constants.UPDATE_LONGITUDE,
+        type: constants.UPDATE_MAP_LONGITUDE,
         longitude,
       });
     };
@@ -47,7 +47,7 @@ const mapActions = {
   updateZoom: (zoom) => {
     return dispatch => {
       dispatch({
-        type: constants.UPDATE_ZOOM,
+        type: constants.UPDATE_MAP_ZOOM,
         zoom,
       });
     };

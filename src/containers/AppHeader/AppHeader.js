@@ -72,7 +72,7 @@ class AppHeader extends Component {
     this.emitter.addListener( 'SearchBar:submit', payload => {
       const { dispatch } = this.props;
 
-      dispatch(listingActions.fetchByKeyword(payload.q));
+      dispatch(listingActions.fetchListingsByKeyword(payload.q));
 
       // Redirect to the search page.
       browserHistory.push('/');

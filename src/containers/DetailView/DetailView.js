@@ -5,9 +5,9 @@ import { browserHistory, Link }  from 'react-router';
 import actions from '../../actions'
 
 // Styles
-import './ListingView.css';
+import './DetailView.css';
 
-class ListingView extends Component {
+class DetailView extends Component {
 
   constructor(props) {
     super(props);
@@ -17,7 +17,7 @@ class ListingView extends Component {
 
   render() {
     return (
-      <div className="ListingView">
+      <div className="DetailView">
         <div style={{ background:"#666", height:"300px", width:"100%" }}>
         </div>
         <br />
@@ -59,7 +59,7 @@ class ListingView extends Component {
     // Load the listing if it has not already.
     if ( !this._listing ) {
       dispatch(
-        actions.listing.fetchById(this.props.params['id'])
+        actions.listing.fetchListingById(this.props.params['id'])
       );
     }
   }
@@ -82,7 +82,7 @@ class ListingView extends Component {
 
   _getListingById = (id) => {
     if (!this.props.listings.length) { return null; }
-    
+
     const listing = this.props.listings.filter(listing => {
       id === listing.id
     })[0];
@@ -104,4 +104,4 @@ const mapDispatchToProps = null;
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ListingView);
+)(DetailView);
