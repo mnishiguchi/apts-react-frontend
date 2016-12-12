@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import AppHeader  from '../../containers/AppHeader/AppHeader';
+import AppHeader  from '../../components/AppHeader/AppHeader';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.css';
