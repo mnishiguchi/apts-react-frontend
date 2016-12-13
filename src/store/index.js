@@ -4,10 +4,7 @@ import createLogger                     from 'redux-logger';
 
 import reducers from '../reducers';
 
-const logger = createLogger();
-  level:     'info',
-  collapsed: true,
-});
+const logger = createLogger({ level: 'info', collapsed: true });
 
 export default function configureStore(initialState) {
   return createStore(

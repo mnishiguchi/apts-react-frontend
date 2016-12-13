@@ -11,6 +11,4 @@ export default combineReducers({
   // Automatically set routing changes into the state
   routing: routerReducer,
   listing,
-  // map,
-  // search,
 });
