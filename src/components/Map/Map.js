@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 
 // Styles
+import 'mapbox-gl/dist/mapbox-gl.css';
 import './Map.css';
 
 function noop() {}
@@ -82,18 +83,18 @@ class Map extends Component {
     });
   }
 
-  componentWillUpdate() {
-  }
+  componentWillUpdate() {}
 
   componentDidUpdate() {
-    this._updateMarkers(this.props.listings);
-    this._updateCenter(this.props.center, { zoom: this.props.zoom });
+    const { listings, currentListing, center, zoom } = this.props;
+
+    this._updateCenter(center, { zoom });
+    this._updateMarkers(listings);
+    this._showPopupForCurrentListing();
   }
 
   componentWillUnmount() {
-    if (this._map) {
-      this._map.remove();
-    }
+    if (this._map) { this._map.remove(); }
   }
 
 
@@ -279,6 +280,24 @@ class Map extends Component {
     this._popup
       .setLngLat(marker.geometry.coordinates)
       .setHTML(marker.properties.description)
+      .addTo(this._map);
+  }
+
+  _showPopupForCurrentListing = () => {
+    const { currentListing } = this.props;
+
+    if (this._popup) { this._popup.remove(); }
+
+    const markerHTML = `
+      <h4>${currentListing.marketing_name}</h4>
+      <p>${this._fullAddress(currentListing)}</p>
+    `;
+
+    // https://www.mapbox.com/mapbox-gl-js/api/#Popup
+    const markerHeight = 50, markerRadius = 10, linearOffset = 25;
+    this._popup = new mapboxgl.Popup()
+      .setLngLat([currentListing.longitude, currentListing.latitude])
+      .setHTML(markerHTML)
       .addTo(this._map);
   }
 

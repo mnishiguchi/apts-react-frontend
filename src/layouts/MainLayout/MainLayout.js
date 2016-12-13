@@ -5,7 +5,6 @@ import AppHeader  from '../../components/AppHeader/AppHeader';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.css';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import './MainLayout.css';
 
 const MainLayout = (props) =>  {
