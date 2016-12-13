@@ -4,7 +4,7 @@ import createLogger                     from 'redux-logger';
 
 import reducers from '../reducers';
 
-const logger = createLogger();
+const logger = createLogger({
   level:     'info',
   collapsed: true,
 });
