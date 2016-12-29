@@ -2,15 +2,25 @@ import React from 'react';
 
 const ListingPreview = (props) => {
   const { currentListing } = props;
+  const listingPreviewStyle = {
+    position  :'relative',
+    top       :0,
+    left      :0,
+    background:getRandomColor(),
+    width     :'100%',
+    height    :'auto',
+    color     :'white',
+    padding   : "1rem"
+  }
 
   return (
     (currentListing) ?
       <div
         className="ListingPreview"
-        style={{position:'relative', top:0, left:0}}>
-        <div style={{'background':getRandomColor(), width:'100%', 'height':'140px', color:'white'}}>
+        style={listingPreviewStyle}>
+        <p>
           {currentListing.marketing_name}
-        </div>
+        </p>
         <p>
           {[
             currentListing.street,

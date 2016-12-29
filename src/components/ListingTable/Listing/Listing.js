@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes as T } from 'react';
 import DetailModal from './DetailModal/DetailModal';
 
 // Styles
@@ -24,16 +24,12 @@ const Listing = (props) => {
       onMouseOver={onMouseOver}
     >
       <td>
-        {listing.marketing_name}
-      </td>
-      <td>
-        {fullAddress}
-      </td>
-      <td>
-        <DetailModal
-          text={'details'}
-          listing={listing}
-          />
+        <DetailModal listing={listing}>
+          {listing.marketing_name}
+        </DetailModal>
+        <p>
+          {fullAddress}
+        </p>
       </td>
     </tr>
   );
@@ -42,7 +38,7 @@ const Listing = (props) => {
 // https://facebook.github.io/react/docs/reusable-components.html
 // https://github.com/airbnb/javascript/tree/master/react#ordering
 Listing.propTypes = {
-  emitter: PropTypes.object.isRequired
+  emitter: T.object.isRequired
 };
 
 export default Listing;

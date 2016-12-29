@@ -21,12 +21,12 @@ class DetailModal extends Component {
 
   render() {
     const { listing, text } = this.props;
-    
+
     return (
       <div className="DetailModal">
-        <Button onClick={this._openModal} >
-          {(text) ? text : "open modal"}
-        </Button>
+        <a href="#" onClick={this._openModal} >
+          {(this.props.children) ? this.props.children : "open modal"}
+        </a>
 
         <Modal
           show={this.state.showModal}

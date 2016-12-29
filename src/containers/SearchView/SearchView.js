@@ -22,15 +22,15 @@ class SearchView extends Component {
       <div className="SearchView grid">
         <div className="flexible">
 
-          <Map
+          <ListingTable
             {...this.props}
             emitter={this.emitter}
-          />
+            />
 
         </div>
         <div className="flexible">
 
-          <ListingTable
+          <Map
             {...this.props}
             emitter={this.emitter}
           />
