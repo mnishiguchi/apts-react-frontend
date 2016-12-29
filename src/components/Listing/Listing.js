@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import Listing        from './Listing/Listing';
+import ListingItem    from './ListingItem/ListingItem';
 import ListingPreview from './ListingPreview/ListingPreview';
 
 const ListingTable = (props) => {
@@ -12,7 +12,7 @@ const ListingTable = (props) => {
   } = props;
 
   const listingNodes = listings.map( listing =>
-    <Listing
+    <ListingItem
       listing={listing}
       key={listing.id}
       emitter={emitter}

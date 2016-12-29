@@ -8,6 +8,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
+    "dotenv": "^2.0.0",
     "fbemitter": "^2.1.1",
     "invariant": "^2.2.2",
     "lodash": "^4.17.2",

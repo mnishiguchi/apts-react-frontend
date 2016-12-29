@@ -7,7 +7,7 @@ const initialState = {
   isFetching    : false,
   bounds        : [],
   center        : [-77.2, 38.85],
-  zoom          : 12,
+  zoom          : 8,
 };
 
 function listingReducer(state = initialState, action = {}) {
@@ -52,38 +52,38 @@ function listingReducer(state = initialState, action = {}) {
         ...state,
         currentListing: action.listing
       };
-      case constants.UPDATE_MAP:
-        return {
-          ...state,
-          bounds: action.bounds,
-          center: action.center,
-          zoom  : action.zoom,
-        };
-      case constants.UPDATE_MAP_BOUNDS:
-        return {
-          ...state,
-          bounds: action.bounds,
-        };
-      case constants.UPDATE_MAP_CENTER:
-        return {
-          ...state,
-          center: action.center,
-        };
-      case constants.UPDATE_MAP_LATITUDE:
-        return {
-          ...state,
-          center: [state.center[0], action.latitude]
-        };
-      case constants.UPDATE_MAP_LONGITUDE:
-        return {
-          ...state,
-          center: [action.longitude, state.center[1]],
-        };
-      case constants.UPDATE_MAP_ZOOM:
-        return {
-          ...state,
-          zoom: action.zoom,
-        };
+    case constants.UPDATE_MAP:
+      return {
+        ...state,
+        bounds: action.bounds,
+        center: action.center,
+        zoom  : action.zoom,
+      };
+    case constants.UPDATE_MAP_BOUNDS:
+      return {
+        ...state,
+        bounds: action.bounds,
+      };
+    case constants.UPDATE_MAP_CENTER:
+      return {
+        ...state,
+        center: action.center,
+      };
+    case constants.UPDATE_MAP_LATITUDE:
+      return {
+        ...state,
+        center: [state.center[0], action.latitude]
+      };
+    case constants.UPDATE_MAP_LONGITUDE:
+      return {
+        ...state,
+        center: [action.longitude, state.center[1]],
+      };
+    case constants.UPDATE_MAP_ZOOM:
+      return {
+        ...state,
+        zoom: action.zoom,
+      };
     default:
       return state;
   }

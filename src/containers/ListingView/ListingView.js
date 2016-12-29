@@ -5,11 +5,8 @@ import { EventEmitter }     from 'fbemitter';
 import actions from '../../actions'
 
 // Components
-import Map           from '../../components/Map/Map';
-import ListingTable  from '../../components/ListingTable/ListingTable';
-
-// Styles
-import './SearchView.css';
+import Map      from '../../components/Map/Map';
+import Listing  from '../../components/Listing/Listing';
 
 class SearchView extends Component {
 
@@ -19,16 +16,16 @@ class SearchView extends Component {
 
   render() {
     return (
-      <div className="SearchView grid">
-        <div className="flexible">
+      <div className="SearchView row">
+        <div className="col-sm-4" style={{ padding: 0 }}>
 
-          <ListingTable
+          <Listing
             {...this.props}
             emitter={this.emitter}
-            />
+          />
 
         </div>
-        <div className="flexible">
+        <div className="col-sm-8" style={{ padding: 0 }}>
 
           <Map
             {...this.props}
@@ -52,36 +49,23 @@ class SearchView extends Component {
     // Create a emitter for this container.
     this.emitter = new EventEmitter();
 
-    this.emitter.addListener( 'Map:popup', payload => {
+    this.emitter.addListener('MAP_MARKER_HOVERED', payload => {
       this.props.dispatch(
         actions.listing.setCurrentListing(payload.listing)
       );
     });
-    this.emitter.addListener( 'Map:move', payload => {
+
+    this.emitter.addListener('MAP_MOVED', payload => {
       this.props.dispatch(
         actions.map.update(payload)
       );
     });
-    this.emitter.addListener( 'Listing:mouseOver', payload => {
+
+    this.emitter.addListener('LISTING_ITEM_HOVERED', payload => {
       this.props.dispatch(
         actions.listing.setCurrentListing(payload.listing)
       );
     });
-    // this.emitter.addListener( 'MapControl:longitude:change', payload => {
-    //   this.props.dispatch(
-    //     actions.map.updateLongitude(payload.longitude)
-    //   );
-    // });
-    // this.emitter.addListener( 'MapControl:latitude:change', payload => {
-    //   this.props.dispatch(
-    //     actions.map.updateLongitude(payload.latitude)
-    //   );
-    // });
-    // this.emitter.addListener( 'MapControl:zoom:change', payload => {
-    //   this.props.dispatch(
-    //     actions.map.updateZoom(payload.zoom)
-    //   );
-    // });
   }
 
   componentDidMount() {
@@ -96,10 +80,6 @@ class SearchView extends Component {
     this.emitter.removeAllListeners();
   }
 } // end class
-
-// https://facebook.github.io/react/docs/typechecking-with-proptypes.html
-SearchView.propTypes    = {};
-SearchView.defaultProps = {};
 
 const mapStateToProps = function(store) {
   return {

@@ -1,10 +1,7 @@
 import React, { PropTypes as T } from 'react';
 import DetailModal from './DetailModal/DetailModal';
 
-// Styles
-import './Listing.css';
-
-const Listing = (props) => {
+const ListingItem = (props) => {
   const { listing } = props;
 
   const fullAddress = [
@@ -15,12 +12,12 @@ const Listing = (props) => {
   ].join(' ');
 
   const onMouseOver = (event) => {
-    props.emitter.emit( 'Listing:mouseOver', {listing} );
+    props.emitter.emit( 'LISTING_ITEM_HOVERED', {listing} );
   };
 
   return (
     <tr
-      className="Listing"
+      className="ListingItem"
       onMouseOver={onMouseOver}
     >
       <td>
@@ -37,8 +34,8 @@ const Listing = (props) => {
 
 // https://facebook.github.io/react/docs/reusable-components.html
 // https://github.com/airbnb/javascript/tree/master/react#ordering
-Listing.propTypes = {
+ListingItem.propTypes = {
   emitter: T.object.isRequired
 };
 
-export default Listing;
+export default ListingItem;

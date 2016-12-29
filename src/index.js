@@ -6,6 +6,8 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import configureStore           from './store';
 import Root                     from './containers/Root';
 
+require('dotenv').load({silent: true})
+
 const store   = configureStore(browserHistory);
 const history = syncHistoryWithStore(browserHistory, store);
 

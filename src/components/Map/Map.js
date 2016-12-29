@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes as T } from 'react';
 
 // NPM:    https://www.npmjs.com/package/mapbox-gl
 // Github: https://github.com/mapbox/mapbox-gl-js
@@ -10,7 +10,6 @@ import './Map.css';
 function noop() {}
 
 class Map extends Component {
-
   constructor(props) {
     super(props);
 
@@ -66,12 +65,14 @@ class Map extends Component {
 
     // Detect zoom.
     this._map.on('zoomend', (event) => {
-      this.props.emitter.emit( 'Map:move', this._getMapData() );
+      const payload = this._getMapData()
+      this.props.emitter.emit( 'MAP_MOVED', payload );
     });
 
     // Detect drag.
     this._map.on('dragend', (event) => {
-      this.props.emitter.emit( 'Map:move', this._getMapData() );
+      const payload = this._getMapData()
+      this.props.emitter.emit( 'MAP_MOVED', payload );
     });
   }
 
@@ -85,7 +86,7 @@ class Map extends Component {
   componentWillUpdate() {}
 
   componentDidUpdate() {
-    const { listings, currentListing, center, zoom } = this.props;
+    const { listings, center, zoom } = this.props;
 
     this._updateCenter(center, { zoom });
     this._updateMarkers(listings);
@@ -102,7 +103,23 @@ class Map extends Component {
   // ---
 
 
-  _createMap = () => {
+  _configureInfoWindowHTML(listing) {
+    return `
+      <h4>${listing.marketing_name}</h4>
+      <p>${fullAddress(listing)}</p>
+    `
+
+    function fullAddress(listing) {
+      return [
+        listing.street,
+        listing.city,
+        listing.state,
+        listing.zip,
+      ].join(' ');
+    }
+  }
+
+  _createMap() {
     mapboxgl.accessToken = this.props.accessToken;
 
     return new mapboxgl.Map({
@@ -118,7 +135,7 @@ class Map extends Component {
    * @param  {Array<Object>} listings an array of hashes with keys lngLat and description.
    * @return {Array<Object>} an array of markerpoint hashes
    */
-  _createMarkers = (listings) => {
+  _createMarkers(listings) {
     let jsonMarkers = [];
     for (let listing of listings) {
 
@@ -145,7 +162,7 @@ class Map extends Component {
    * @param  {Object<Object>} bounds the result of calling map.getBounds().
    * @return {Array<Array>}
    */
-  _formatBounds = (bounds) => {
+  _formatBounds(bounds) {
     const sw = [
       Number(bounds['_sw']['lng']).toFixed(3),
       Number(bounds['_sw']['lat']).toFixed(3),
@@ -157,19 +174,10 @@ class Map extends Component {
     return [sw, ne];
   }
 
-  _fullAddress = (listing) => {
-    return [
-      listing.street,
-      listing.city,
-      listing.state,
-      listing.zip,
-    ].join(' ');
-  }
-
   /**
    * Prepares an object of map data that App component wants to know about.
    */
-   _getMapData = () => {
+   _getMapData() {
      return {
        bounds : this._formatBounds(this._map.getBounds()),
        center : [ this._map.getCenter().lng, this._map.getCenter().lat ],
@@ -177,17 +185,14 @@ class Map extends Component {
      };
    }
 
-  _listingToMarker = (listing) => {
-    const markerHTML = `
-      <h4>${listing.marketing_name}</h4>
-      <p>${this._fullAddress(listing)}</p>
-    `;
+  _listingToMarker(listing) {
+    const infoWindowHTML = this._configureInfoWindowHTML(listing)
 
     const coordinates = [ listing.longitude, listing.latitude ];
     return {
         "type": "Feature",
         "properties": {
-            "description" : markerHTML,
+            "description" : infoWindowHTML,
             "iconSize"    : [20, 20],
             "icon"        : "circle",
             "listing"     : {...listing},  // Add a copy of listing
@@ -244,16 +249,11 @@ class Map extends Component {
     // Show popup on mousemove.
     // https://www.mapbox.com/mapbox-gl-js/example/popup-on-hover/
     this._map.on('mousemove', event => {
-      this._showPopupAtPoint(event.point);
+      this._updateCurrentListing(event.point);
     });
   }
 
-  /**
-   * Calling this with zero arguments, or with only a parameters argument is
-   * equivalent to passing a bounding box encompassing the entire map viewport.
-   * https://www.mapbox.com/mapbox-gl-js/api/#Map#queryRenderedFeatures
-   */
-  _showPopupAtPoint = (point) => {
+  _updateCurrentListing(point) {
     const features = this._map.queryRenderedFeatures(point, {
       layers: [ "listings" ]
     });
@@ -270,33 +270,24 @@ class Map extends Component {
     // Get the best feature for the marker.
     const marker = features[0];
 
-    // Notify App with 'Map:popup' event.
+    // Notify App with 'MAP_POPUP_OPEN' event.
     // console.log(marker['properties']['listing']);
-    this.props.emitter.emit( 'Map:popup', {
+    this.props.emitter.emit('MAP_MARKER_HOVERED', {
       listing: JSON.parse(marker['properties']['listing'])
     });
-
-    this._popup
-      .setLngLat(marker.geometry.coordinates)
-      .setHTML(marker.properties.description)
-      .addTo(this._map);
   }
 
-  _showPopupForCurrentListing = () => {
+  _showPopupForCurrentListing() {
     const { currentListing } = this.props;
 
     if (this._popup) { this._popup.remove(); }
 
-    const markerHTML = `
-      <h4>${currentListing.marketing_name}</h4>
-      <p>${this._fullAddress(currentListing)}</p>
-    `;
+    const infoWindowHTML = this._configureInfoWindowHTML(currentListing)
 
     // https://www.mapbox.com/mapbox-gl-js/api/#Popup
-    const markerHeight = 50, markerRadius = 10, linearOffset = 25;
     this._popup = new mapboxgl.Popup()
       .setLngLat([currentListing.longitude, currentListing.latitude])
-      .setHTML(markerHTML)
+      .setHTML(infoWindowHTML)
       .addTo(this._map);
   }
 
@@ -305,11 +296,11 @@ class Map extends Component {
    * @param  {Array<Float>} longitude and latitude of the map center
    * @param  {Object} opts  https://www.mapbox.com/mapbox-gl-js/api/#Map
    */
-  _updateCenter = (newCenter, opts) => {
+  _updateCenter(newCenter, opts) {
     this._map.panTo(newCenter, opts);
   }
 
-  _updateMarkers = (listings) => {
+  _updateMarkers(listings) {
     // Do nothing if the listings source does not exist on the map.
     if (!this._map.getSource("listings")) return;
 
@@ -325,12 +316,13 @@ class Map extends Component {
 
 // https://facebook.github.io/react/docs/typechecking-with-proptypes.html
 Map.propTypes = {
-  bounds : React.PropTypes.array.isRequired,
-  center : React.PropTypes.array.isRequired,
-  zoom   : React.PropTypes.number.isRequired,
+  bounds : T.array.isRequired,
+  center : T.array.isRequired,
+  zoom   : T.number.isRequired,
 };
+
 Map.defaultProps = {
-  accessToken: 'pk.eyJ1IjoicG1pbGxlcmsiLCJhIjoiY2lyM3VjMzNsMDFkZHR4bHdxOWs1amt1MiJ9.nc1fPKTYXlgC1zVoYS2Oag',
+  accessToken: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
   width      : "100%",
   height     : "100vh",
 };

@@ -13,19 +13,18 @@ class DetailModal extends Component {
   constructor(props) {
     super(props);
 
-    // Initial state
     this.state = {
       showModal: false,
     }
   }
 
   render() {
-    const { listing, text } = this.props;
+    const { listing, children } = this.props;
 
     return (
       <div className="DetailModal">
         <a href="#" onClick={this._openModal} >
-          {(this.props.children) ? this.props.children : "open modal"}
+          {(children) ? children : "open modal"}
         </a>
 
         <Modal
@@ -78,7 +77,7 @@ class DetailModal extends Component {
   }
 
   _redirectToListingPage = (e) => {
-    browserHistory.push(`/listings/${this.props.listing.id}`);
+    browserHistory.push(`/detail/${this.props.listing.id}`);
   }
 
 } // end class

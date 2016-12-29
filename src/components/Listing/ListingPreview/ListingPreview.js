@@ -8,9 +8,10 @@ const ListingPreview = (props) => {
     left      :0,
     background:getRandomColor(),
     width     :'100%',
-    height    :'auto',
+    height    :'80px',
     color     :'white',
-    padding   : "1rem"
+    padding   : "1rem",
+    overflow  : 'auto'
   }
 
   return (
