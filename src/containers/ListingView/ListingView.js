@@ -1,19 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect }          from 'react-redux';
 import { EventEmitter }     from 'fbemitter';
 
 import actions from '../../actions'
 
 // Components
-import Map      from '../../components/Map/Map';
-import Listing  from '../../components/Listing/Listing';
+import MapComponent from '../../components/MapComponent/MapComponent';
+import Listing      from '../../components/Listing/Listing';
 
-class SearchView extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
+class SearchView extends React.Component {
   render() {
     return (
       <div className="SearchView row">
@@ -27,7 +22,7 @@ class SearchView extends Component {
         </div>
         <div className="col-sm-8" style={{ padding: 0 }}>
 
-          <Map
+          <MapComponent
             {...this.props}
             emitter={this.emitter}
           />
@@ -50,18 +45,32 @@ class SearchView extends Component {
     this.emitter = new EventEmitter();
 
     this.emitter.addListener('MAP_MARKER_HOVERED', payload => {
+      console.log(`MAP_MARKER_HOVERED`)
+
       this.props.dispatch(
         actions.listing.setCurrentListing(payload.listing)
       );
     });
 
     this.emitter.addListener('MAP_MOVED', payload => {
+      console.log(`MAP_MOVED`)
+
+      this.props.dispatch(
+        actions.map.update(payload)
+      );
+    });
+
+    this.emitter.addListener('MAP_ZOOM_CHANGED', payload => {
+      console.log(`MAP_ZOOM_CHANGED`)
+
       this.props.dispatch(
         actions.map.update(payload)
       );
     });
 
     this.emitter.addListener('LISTING_ITEM_HOVERED', payload => {
+      console.log(`LISTING_ITEM_HOVERED`)
+
       this.props.dispatch(
         actions.listing.setCurrentListing(payload.listing)
       );

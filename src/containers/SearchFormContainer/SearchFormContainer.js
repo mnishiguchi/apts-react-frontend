@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect }          from 'react-redux';
 import { browserHistory }   from 'react-router';
 import { EventEmitter }     from 'fbemitter';
@@ -11,12 +11,7 @@ import SearchBar from './SearchBar/SearchBar';
 // Styles
 import './SearchFormContainer.css';
 
-class SearchFormContainer extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
+class SearchFormContainer extends React.Component {
   render() {
     return (
       <div className="SearchFormContainer">

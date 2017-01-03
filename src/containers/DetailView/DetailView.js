@@ -1,6 +1,6 @@
 import React, {Component}        from 'react';
 import { connect }               from 'react-redux';
-import { browserHistory, Link }  from 'react-router';
+import { Link }  from 'react-router';
 
 import actions from '../../actions'
 
@@ -84,7 +84,7 @@ class DetailView extends Component {
     if (!this.props.listings.length) { return null; }
 
     const listing = this.props.listings.filter(listing => {
-      id === listing.id
+      return id === listing.id
     })[0];
 
     return listing;
