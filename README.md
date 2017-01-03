@@ -42,7 +42,7 @@ Visit [localhost:3000](localhost:3000)
 
 ---
 
-## Notes
+## Some useful techniques
 
 #### Redirection
 
@@ -54,6 +54,18 @@ browserHistory.push('/some/path');
 #### How to pass props to {this.props.children}
 - [How to pass props to {this.props.children}](http://stackoverflow.com/questions/32370994/how-to-pass-props-to-this-props-children)
 
+#### Conversion between a LngLatBounds object and an array of LngLat
+- [https://www.mapbox.com/mapbox-gl-js/api/#LngLatBounds#toArray](https://www.mapbox.com/mapbox-gl-js/api/#LngLatBounds#toArray)
+
+```js
+aLngLatBounds.toArray()
+```
+
+- [https://www.mapbox.com/mapbox-gl-js/api/#LngLatBounds.convert](https://www.mapbox.com/mapbox-gl-js/api/#LngLatBounds.convert)
+
+```js
+mapboxgl.LngLatBounds.convert([[-73.9876, 40.7661], [-73.9397, 40.8002]])
+```
 
 #### Walkscore
 

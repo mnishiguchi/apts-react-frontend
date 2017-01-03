@@ -1,9 +1,9 @@
-import listingActions from './listing';
-import mapActions     from './map';
+import place from './place'
+import map     from './map'
 
 const actions = {
-  listing: listingActions,
-  map    : mapActions,
-};
+  place,
+  map,
+}
 
-export default actions;
+export default actions

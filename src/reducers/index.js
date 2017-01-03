@@ -1,14 +1,17 @@
-import { combineReducers }  from 'redux';
-import { routerReducer }    from 'react-router-redux';
+import { combineReducers }  from 'redux'
+
+// Automatically set routing changes into the state
+import { routerReducer }    from 'react-router-redux'
 
 // Reducers
-import listing              from './listing';
+import place          from './place'
+import map              from './map'
 
 /**
  * Here we specify all the combined state reducers.
  */
 export default combineReducers({
-  // Automatically set routing changes into the state
   routing: routerReducer,
-  listing,
-});
+  place,
+  map,
+})
