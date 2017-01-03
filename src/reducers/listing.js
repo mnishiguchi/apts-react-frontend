@@ -6,11 +6,13 @@ const initialState = {
   fetchError    : null,
   isFetching    : false,
   bounds        : [],
-  center        : [-77.2, 38.85],
-  zoom          : 8,
+  center        : [-95.7129, 37.0902],
+  zoom          : 3,
+  // center        : [-77.2, 38.85],
+  // zoom          : 8,
 };
 
-function listingReducer(state = initialState, action = {}) {
+function reducer(state = initialState, action = {}) {
 
   switch (action.type) {
 
@@ -89,4 +91,4 @@ function listingReducer(state = initialState, action = {}) {
   }
 }
 
-export default listingReducer
+export default reducer
