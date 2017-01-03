@@ -1,5 +1,5 @@
 import React, { PropTypes as T } from 'react'
-import ReactMapboxGl, { Layer, Feature, Popup, ZoomControl, ScaleControl } from "react-mapbox-gl"
+import ReactMapboxGl, { Layer, Feature, Popup } from "react-mapbox-gl"
 
 const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
 
@@ -12,8 +12,17 @@ class MapComponent extends React.Component {
 
   constructor(props) {
     super(props)
-
     this.state = {}
+  }
+
+  _renderMarkers = (places) => {
+    return places.map((place, index) => (
+      <Feature
+        key={place.id}
+        coordinates={[ place.longitude, place.latitude ]}
+        onClick={e => this._handleMarkerClick(e, place)}
+      />
+    ))
   }
 
   render() {
@@ -23,20 +32,24 @@ class MapComponent extends React.Component {
     } = this.props
 
     return (
-      <div>
-        <ReactMapboxGl
-          accessToken={accessToken}
-          style="mapbox://styles/mapbox/streets-v8"
-          containerStyle={{ width: '100%', height: '100vh' }}
-          center={center}
-          zoom={[zoom]}
-          onZoom={e => this._handleMapZoomChange(e)}
-          onMoveEnd={e => this._handleMapMove(e)}
+      <ReactMapboxGl
+        accessToken={accessToken}
+        style="mapbox://styles/mapbox/streets-v8"
+        containerStyle={{ width: '100%', height: '100vh' }}
+        center={center}
+        zoom={[zoom]}
+        onZoom={e => this._handleMapZoomChange(e)}
+        onMoveEnd={e => this._handleMapMove(e)}
+      >
+
+        <Layer
+          type="symbol"
+          id="marker"
+          layout={{ "icon-image": "marker-15" }}
         >
-
-
-        </ReactMapboxGl>
-      </div>
+          {this._renderMarkers(this.props.listings)}
+        </Layer>
+      </ReactMapboxGl>
     )
   }
 
@@ -72,6 +85,11 @@ class MapComponent extends React.Component {
   _handleMapZoomChange(map) {
     const payload = this._getMapData(map)
     this.props.emitter.emit( 'MAP_ZOOM_CHANGED', payload )
+  }
+
+  _handleMarkerClick(e, place) {
+    const payload = { listing: place }
+    this.props.emitter.emit( 'MARKER_CLICKED', payload )
   }
 
   _handleMapMove(map) {
