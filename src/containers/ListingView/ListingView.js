@@ -70,6 +70,16 @@ class ListingView extends React.Component {
       )
     })
 
+    this.emitter.addListener('MARKER_HOVERED', payload => {
+      console.log(`MARKER_HOVERED`)
+
+      const { listing } = payload
+
+      this.props.dispatch(
+        actions.listing.setCurrentListing(listing)
+      )
+    })
+
     this.emitter.addListener('MAP_ZOOM_CHANGED', payload => {
       console.log(`MAP_ZOOM_CHANGED`)
 
