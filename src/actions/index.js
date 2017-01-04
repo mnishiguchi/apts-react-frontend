@@ -1,8 +1,8 @@
-import listing from './listing'
+import place from './place'
 import map     from './map'
 
 const actions = {
-  listing,
+  place,
   map,
 }
 

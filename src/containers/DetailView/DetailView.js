@@ -1,23 +1,20 @@
 import React, {Component}        from 'react';
 import { connect }               from 'react-redux';
-import { Link }  from 'react-router';
+import { Link }                  from 'react-router';
 
 import actions from '../../actions'
-
-// Styles
-import './DetailView.css';
 
 class DetailView extends Component {
 
   constructor(props) {
     super(props);
 
-    this._listing = this._getListing();
+    this._place = this._getPlace();
   }
 
   render() {
     return (
-      <div className="DetailView">
+      <div className="DetailView" style={{color: '#7d87b9'}}>
         <div style={{ background:"#666", height:"300px", width:"100%" }}>
         </div>
         <br />
@@ -25,12 +22,8 @@ class DetailView extends Component {
         <div className="container">
           <p>
             {
-              (this._listing) ? [
-                this._listing.street,
-                this._listing.city,
-                this._listing.state,
-                this._listing.zip,
-              ].join(' ') : 'Error'
+              (this._place) ?
+              `${this._place.street} ${this._place.city} ${this._place.state} ${this._place.zip}` : 'Error'
             }
           </p>
           <p>
@@ -50,16 +43,13 @@ class DetailView extends Component {
   // ---
 
 
-  componentWillMount() {
-  }
-
   componentDidMount() {
     const { dispatch } = this.props;
 
-    // Load the listing if it has not already.
-    if ( !this._listing ) {
+    // Load the place if it has not already.
+    if ( !this._place ) {
       dispatch(
-        actions.listing.fetchListingById(this.props.params['id'])
+        actions.place.fetchListingById(this.props.params['id'])
       );
     }
   }
@@ -70,38 +60,43 @@ class DetailView extends Component {
   // ---
 
 
-  _getListing = () => {
-    const { params, currentListing } = this.props;
+  _getPlace = () => {
+    const { params, currentPlace } = this.props;
 
-    if (currentListing && currentListing.id === params.id) {
-      return currentListing;
+    if (currentPlace && currentPlace.id === params.id) {
+      return currentPlace;
     } else {
-      return this._getListingById(params.id);
+      return this._getPlaceById(params.id);
     }
   }
 
-  _getListingById = (id) => {
-    if (!this.props.listings.length) { return null; }
+  _getPlaceById = (id) => {
+    if (!this.props.places.length) { return null; }
 
-    const listing = this.props.listings.filter(listing => {
-      return id === listing.id
+    const place = this.props.places.filter(place => {
+      return id === place.id
     })[0];
 
-    return listing;
+    return place;
   }
 
 } // end class
 
+
+// ---
+// CONNECT TO STORE
+// ---
+
+
 const mapStateToProps = function(store) {
+  const { places, currentPlace } = store.place
+
   return {
-    listings      : store.listing['listings'],
-    currentListing: store.listing['currentListing'],
+    places,
+    currentPlace,
   };
 }
 
 const mapDispatchToProps = null;
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DetailView);
+export default connect( mapStateToProps, mapDispatchToProps )( DetailView );

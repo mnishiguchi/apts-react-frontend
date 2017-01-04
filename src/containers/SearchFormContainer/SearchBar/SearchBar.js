@@ -1,11 +1,10 @@
-import React       from 'react';
+import React from 'react';
 
 const SearchBar = (props) =>  {
   const { emitter } = props;
 
-  // The ref Callback Attribute
-  // https://facebook.github.io/react/docs/refs-and-the-dom.html
   let textInput = '';
+
   return (
     <div className="navbar-form navbar-left">
       <div className="form-group">

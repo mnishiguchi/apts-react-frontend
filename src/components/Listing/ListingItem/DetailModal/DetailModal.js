@@ -19,7 +19,7 @@ class DetailModal extends Component {
   }
 
   render() {
-    const { listing, children } = this.props;
+    const { place, children } = this.props;
 
     return (
       <div className="DetailModal">
@@ -33,7 +33,7 @@ class DetailModal extends Component {
         >
           <Modal.Header closeButton>
             <Modal.Title>
-              {listing.marketing_name}
+              {place.marketing_name}
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -46,10 +46,10 @@ class DetailModal extends Component {
             </div>
             <p>
               {[
-                listing.street,
-                listing.city,
-                listing.state,
-                listing.zip,
+                place.street,
+                place.city,
+                place.state,
+                place.zip,
               ].join(' ')}
             </p>
           </Modal.Body>
@@ -77,7 +77,7 @@ class DetailModal extends Component {
   }
 
   _redirectToListingPage = (e) => {
-    browserHistory.push(`/detail/${this.props.listing.id}`);
+    browserHistory.push(`/detail/${this.props.place.id}`);
   }
 
 } // end class
