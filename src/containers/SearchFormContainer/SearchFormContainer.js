@@ -1,15 +1,15 @@
-import React from 'react';
-import { connect }          from 'react-redux';
-import { browserHistory }   from 'react-router';
-import { EventEmitter }     from 'fbemitter';
+import React from 'react'
+import { connect }          from 'react-redux'
+import { browserHistory }   from 'react-router'
+import { EventEmitter }     from 'fbemitter'
 
-import listingActions  from '../../actions/listing'
+import actions  from '../../actions/place'
 
 // Components
-import SearchBar from './SearchBar/SearchBar';
+import SearchBar from './SearchBar/SearchBar'
 
 // Styles
-import './SearchFormContainer.css';
+import './SearchFormContainer.css'
 
 class SearchFormContainer extends React.Component {
   render() {
@@ -17,7 +17,7 @@ class SearchFormContainer extends React.Component {
       <div className="SearchFormContainer">
         <SearchBar {...this.props} emitter={this.emitter} />
       </div>
-    );
+    )
   }
 
 
@@ -30,24 +30,21 @@ class SearchFormContainer extends React.Component {
   // http://qiita.com/mizchi/items/6a3500e598ec36746509
   componentWillMount() {
     // Create a emitter for this container.
-    this.emitter = new EventEmitter();
+    this.emitter = new EventEmitter()
 
     // Register and listen for our custom events that will be emitted by children.
     this.emitter.addListener( 'SearchBar:submit', payload => {
-      const { dispatch } = this.props;
+      const { dispatch } = this.props
 
-      dispatch(listingActions.fetchListingsByKeyword(payload.q));
+      dispatch(actions.fetchPlacesByKeyword(payload.q))
 
       // Redirect to the search page.
-      browserHistory.push('/');
-    });
+      browserHistory.push('/')
+    })
   }
 }
 
-const mapStateToProps    = null;
-const mapDispatchToProps = null;
+const mapStateToProps    = null
+const mapDispatchToProps = null
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SearchFormContainer);
+export default connect( mapStateToProps, mapDispatchToProps )( SearchFormContainer )

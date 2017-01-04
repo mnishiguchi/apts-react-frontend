@@ -48,7 +48,7 @@ class ListingView extends React.Component {
       console.log(`MAP_MARKER_HOVERED`)
 
       this.props.dispatch(
-        actions.listing.setCurrentPlace(payload.listing)
+        actions.place.setCurrentPlace(payload.place)
       )
     })
 
@@ -63,20 +63,20 @@ class ListingView extends React.Component {
     this.emitter.addListener('MARKER_CLICKED', payload => {
       console.log(`MARKER_CLICKED`)
 
-      const { listing } = payload
+      const { place } = payload
 
       this.props.dispatch(
-        actions.listing.setCurrentPlace(listing)
+        actions.place.setCurrentPlace(place)
       )
     })
 
     this.emitter.addListener('MARKER_HOVERED', payload => {
       console.log(`MARKER_HOVERED`)
 
-      const { listing } = payload
+      const { place } = payload
 
       this.props.dispatch(
-        actions.listing.setCurrentPlace(listing)
+        actions.place.setCurrentPlace(place)
       )
     })
 
@@ -91,10 +91,10 @@ class ListingView extends React.Component {
     this.emitter.addListener('LISTING_ITEM_HOVERED', payload => {
       console.log(`LISTING_ITEM_HOVERED`)
 
-      const { listing } = payload
+      const { place } = payload
 
       this.props.dispatch(
-        actions.listing.setCurrentPlace(listing)
+        actions.place.setCurrentPlace(place)
       )
     })
   }
@@ -103,7 +103,7 @@ class ListingView extends React.Component {
     const { dispatch } = this.props
 
     dispatch(
-      actions.listing.fetchAllPlaces()
+      actions.place.fetchAllPlaces()
     )
   }
 
@@ -120,11 +120,11 @@ class ListingView extends React.Component {
 
 
 const mapStateToProps = function(store) {
-  const { listings, currentPlace } = store.listing
+  const { places, currentPlace } = store.place
   const { bounds, center, zoom } = store.map
 
   return {
-    listings,
+    places,
     currentPlace,
     bounds,
     center,

@@ -2,7 +2,8 @@ import React from 'react';
 
 const ListingPreview = (props) => {
   const { currentPlace } = props;
-  const listingPreviewStyle = {
+
+  const style = {
     position  :'relative',
     top       :0,
     left      :0,
@@ -18,7 +19,7 @@ const ListingPreview = (props) => {
     (currentPlace) ?
       <div
         className="ListingPreview"
-        style={listingPreviewStyle}>
+        style={style}>
         <p>
           {currentPlace.marketing_name}
         </p>

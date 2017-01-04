@@ -6,18 +6,10 @@ import ListingItem    from './ListingItem/ListingItem';
 
 const Listing = (props) => {
   const {
-    listings,
+    places,
     currentPlace,
     emitter
   } = props;
-
-  const listingNodes = listings.map( listing =>
-    <ListingItem
-      listing={listing}
-      key={listing.id}
-      emitter={emitter}
-    />
-  );
 
   return (
     <div
@@ -31,7 +23,15 @@ const Listing = (props) => {
         style={{overflowY: 'auto', maxHeight: '70vh'}}>
         <table className="table table-bordered">
           <tbody>
-            {listingNodes}
+            {
+              places.map( place => (
+                <ListingItem
+                  place={place}
+                  key={place.id}
+                  emitter={emitter}
+                />
+              ))
+            }
           </tbody>
         </table>
       </div>

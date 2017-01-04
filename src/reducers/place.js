@@ -1,19 +1,19 @@
 const initialState = {
-  listings      : [],
+  places      : [],
   currentPlace: {},
   fetchError    : null,
   isFetching    : false,
 }
 
-function listing(state = initialState, action = {}) {
-  const { listings, listing, error } = action
+function place(state = initialState, action = {}) {
+  const { places, place, error } = action
 
   switch (action.type) {
 
     case 'FETCH_ALL_PLACES_DONE':
       return {
         ...state,
-        listings,
+        places,
         currentPlace: null,
         fetchError    : null,
         isFetching    : false,
@@ -27,7 +27,7 @@ function listing(state = initialState, action = {}) {
     case 'FETCH_PLACES_BY_KEYWORD_DONE':
       return {
         ...state,
-        listings,
+        places,
         currentPlace: {},
         fetchError    : null,
         isFetching    : false,
@@ -46,11 +46,11 @@ function listing(state = initialState, action = {}) {
     case 'SET_CURRENT_PLACE':
       return {
         ...state,
-        currentPlace: listing
+        currentPlace: place
       }
     default:
       return state
   }
 }
 
-export default listing
+export default place

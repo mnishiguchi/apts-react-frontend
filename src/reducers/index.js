@@ -4,7 +4,7 @@ import { combineReducers }  from 'redux'
 import { routerReducer }    from 'react-router-redux'
 
 // Reducers
-import listing          from './listing'
+import place          from './place'
 import map              from './map'
 
 /**
@@ -12,6 +12,6 @@ import map              from './map'
  */
 export default combineReducers({
   routing: routerReducer,
-  listing,
+  place,
   map,
 })

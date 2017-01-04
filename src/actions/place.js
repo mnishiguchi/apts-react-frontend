@@ -2,11 +2,11 @@ import api from '../lib/requestsManager';
 
 const actions = {
 
-  setCurrentPlace: (listing) => {
+  setCurrentPlace: (place) => {
     return dispatch => {
       dispatch({
         type: 'SET_CURRENT_PLACE',
-        listing
+        place
       });
     };
   },
@@ -19,8 +19,8 @@ const actions = {
         api.fetchAllPlaces()
           .then(res =>
             dispatch({
-              type:     'FETCH_ALL_PLACES_DONE',
-              listings: res.data,
+              type:   'FETCH_ALL_PLACES_DONE',
+              places: res.data,
             })
           )
           .catch(error =>
@@ -42,7 +42,7 @@ const actions = {
           .then(res =>
             dispatch({
               type:     'FETCH_PLACES_BY_KEYWORD_DONE',
-              listings: res.data,
+              places: res.data,
             })
           )
           .catch(error =>
@@ -63,8 +63,8 @@ const actions = {
         api.fetchPlaceById()
           .then(res =>
             dispatch({
-              type:     'FETCH_PLACE_BY_ID_DONE',
-              listings: res.data,
+              type:   'FETCH_PLACE_BY_ID_DONE',
+              places: res.data,
             })
           )
           .catch(error =>

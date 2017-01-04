@@ -2,17 +2,10 @@ import React, { PropTypes as T } from 'react';
 import DetailModal from './DetailModal/DetailModal';
 
 const ListingItem = (props) => {
-  const { listing } = props;
-
-  const fullAddress = [
-    listing.street,
-    listing.city,
-    listing.state,
-    listing.zip,
-  ].join(' ');
+  const { place } = props;
 
   const onMouseOver = (event) => {
-    props.emitter.emit( 'LISTING_ITEM_HOVERED', {listing} );
+    props.emitter.emit( 'LISTING_ITEM_HOVERED', {place} );
   };
 
   return (
@@ -21,11 +14,11 @@ const ListingItem = (props) => {
       onMouseOver={onMouseOver}
     >
       <td>
-        <DetailModal listing={listing}>
-          {listing.marketing_name}
+        <DetailModal place={place}>
+          {place.marketing_name}
         </DetailModal>
         <p>
-          {fullAddress}
+          {`${place.street} ${place.city} ${place.state} ${place.zip}`}
         </p>
       </td>
     </tr>

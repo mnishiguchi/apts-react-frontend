@@ -12,6 +12,12 @@ class MapComponent extends React.Component {
     currentPlace: T.object,
   }
 
+
+  // ---
+  // TEMPLATE
+  // ---
+
+
   _renderMarkers = (places) => {
     return places.map((place, index) => (
       <Feature
@@ -45,7 +51,7 @@ class MapComponent extends React.Component {
     const {
       center,
       zoom,
-      listings,
+      places,
       currentPlace,
     } = this.props
 
@@ -65,7 +71,7 @@ class MapComponent extends React.Component {
           id="marker"
           layout={{ "icon-image": "marker-15" }}
         >
-          {this._renderMarkers(listings)}
+          {this._renderMarkers(places)}
         </Layer>
 
         {this._renderPopup(currentPlace)}
@@ -98,12 +104,12 @@ class MapComponent extends React.Component {
   }
 
   _handleMarkerClick(e, place) {
-    const payload = { listing: place }
+    const payload = { place: place }
     this.props.emitter.emit( 'MARKER_CLICKED', payload )
   }
 
   _handleMarkerHover(e, place) {
-    const payload = { listing: place }
+    const payload = { place: place }
     this.props.emitter.emit( 'MARKER_HOVERED', payload )
   }
 
