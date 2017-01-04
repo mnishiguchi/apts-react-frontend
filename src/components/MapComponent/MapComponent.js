@@ -59,6 +59,9 @@ class MapComponent extends React.Component {
         onZoom={e => this._handleMapZoomChange(e)}
         onMoveEnd={e => this._handleMapMove(e)}
       >
+        {/*
+          https://www.mapbox.com/mapbox-gl-style-spec/#layout-symbol-icon-image
+        */}
         <Layer
           type="symbol"
           id="marker"
@@ -71,18 +74,6 @@ class MapComponent extends React.Component {
       </ReactMapboxGl>
     )
   }
-
-
-  // ---
-  // LIFECYCLE HOOKS
-  // ---
-
-
-  componentDidMount() {}
-  componentWillReceiveProps(newProps) {}
-  componentWillUpdate() {}
-  componentDidUpdate() {}
-  componentWillUnmount() {}
 
 
   // ---
