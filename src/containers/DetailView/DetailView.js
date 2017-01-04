@@ -71,10 +71,10 @@ class DetailView extends Component {
 
 
   _getListing = () => {
-    const { params, currentListing } = this.props;
+    const { params, currentPlace } = this.props;
 
-    if (currentListing && currentListing.id === params.id) {
-      return currentListing;
+    if (currentPlace && currentPlace.id === params.id) {
+      return currentPlace;
     } else {
       return this._getListingById(params.id);
     }
@@ -95,7 +95,7 @@ class DetailView extends Component {
 const mapStateToProps = function(store) {
   return {
     listings      : store.listing['listings'],
-    currentListing: store.listing['currentListing'],
+    currentPlace: store.listing['currentPlace'],
   };
 }
 

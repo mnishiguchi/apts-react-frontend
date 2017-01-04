@@ -48,7 +48,7 @@ class ListingView extends React.Component {
       console.log(`MAP_MARKER_HOVERED`)
 
       this.props.dispatch(
-        actions.listing.setCurrentListing(payload.listing)
+        actions.listing.setCurrentPlace(payload.listing)
       )
     })
 
@@ -66,7 +66,7 @@ class ListingView extends React.Component {
       const { listing } = payload
 
       this.props.dispatch(
-        actions.listing.setCurrentListing(listing)
+        actions.listing.setCurrentPlace(listing)
       )
     })
 
@@ -76,7 +76,7 @@ class ListingView extends React.Component {
       const { listing } = payload
 
       this.props.dispatch(
-        actions.listing.setCurrentListing(listing)
+        actions.listing.setCurrentPlace(listing)
       )
     })
 
@@ -94,7 +94,7 @@ class ListingView extends React.Component {
       const { listing } = payload
 
       this.props.dispatch(
-        actions.listing.setCurrentListing(listing)
+        actions.listing.setCurrentPlace(listing)
       )
     })
   }
@@ -103,7 +103,7 @@ class ListingView extends React.Component {
     const { dispatch } = this.props
 
     dispatch(
-      actions.listing.fetchAllListings()
+      actions.listing.fetchAllPlaces()
     )
   }
 
@@ -120,12 +120,12 @@ class ListingView extends React.Component {
 
 
 const mapStateToProps = function(store) {
-  const { listings, currentListing } = store.listing
+  const { listings, currentPlace } = store.listing
   const { bounds, center, zoom } = store.map
 
   return {
     listings,
-    currentListing,
+    currentPlace,
     bounds,
     center,
     zoom,

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ListingPreview = (props) => {
-  const { currentListing } = props;
+  const { currentPlace } = props;
   const listingPreviewStyle = {
     position  :'relative',
     top       :0,
@@ -15,19 +15,19 @@ const ListingPreview = (props) => {
   }
 
   return (
-    (currentListing) ?
+    (currentPlace) ?
       <div
         className="ListingPreview"
         style={listingPreviewStyle}>
         <p>
-          {currentListing.marketing_name}
+          {currentPlace.marketing_name}
         </p>
         <p>
           {[
-            currentListing.street,
-            currentListing.city,
-            currentListing.state,
-            currentListing.zip,
+            currentPlace.street,
+            currentPlace.city,
+            currentPlace.state,
+            currentPlace.zip,
           ].join(' ')}
         </p>
       </div> : <div style={{display:'none'}}></div>

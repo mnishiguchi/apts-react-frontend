@@ -6,10 +6,10 @@ const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
 
 class MapComponent extends React.Component {
   static propTypes = {
-    bounds        : T.array.isRequired,
-    center        : T.array.isRequired,
-    zoom          : T.number.isRequired,
-    currentListing: T.object,
+    bounds      : T.array.isRequired,
+    center      : T.array.isRequired,
+    zoom        : T.number.isRequired,
+    currentPlace: T.object,
   }
 
   _renderMarkers = (places) => {
@@ -35,7 +35,7 @@ class MapComponent extends React.Component {
       >
         <div>
           <h4>{place.marketing_name}</h4>
-          <p>{this._fullAddressOfPlace(place)}</p>
+          <p>{`${place.street} ${place.city} ${place.state} ${place.zip}`}</p>
         </div>
       </Popup>
     )
@@ -46,7 +46,7 @@ class MapComponent extends React.Component {
       center,
       zoom,
       listings,
-      currentListing,
+      currentPlace,
     } = this.props
 
     return (
@@ -59,9 +59,7 @@ class MapComponent extends React.Component {
         onZoom={e => this._handleMapZoomChange(e)}
         onMoveEnd={e => this._handleMapMove(e)}
       >
-        {/*
-          https://www.mapbox.com/mapbox-gl-style-spec/#layout-symbol-icon-image
-        */}
+        {/* https://www.mapbox.com/mapbox-gl-style-spec/#layout-symbol-icon-image */}
         <Layer
           type="symbol"
           id="marker"
@@ -70,7 +68,7 @@ class MapComponent extends React.Component {
           {this._renderMarkers(listings)}
         </Layer>
 
-        {this._renderPopup(currentListing)}
+        {this._renderPopup(currentPlace)}
       </ReactMapboxGl>
     )
   }
@@ -81,18 +79,6 @@ class MapComponent extends React.Component {
   // ---
 
 
-  _fullAddressOfPlace = (place) => {
-    return [
-      place.street,
-      place.city,
-      place.state,
-      place.zip,
-    ].join(' ')
-  }
-
-  /**
-   * Prepares an object of map data that App component wants to know about.
-   */
   _getMapData(map) {
     return {
       bounds : map.getBounds().toArray(),

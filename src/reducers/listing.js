@@ -1,6 +1,6 @@
 const initialState = {
   listings      : [],
-  currentListing: {},
+  currentPlace: {},
   fetchError    : null,
   isFetching    : false,
 }
@@ -10,43 +10,43 @@ function listing(state = initialState, action = {}) {
 
   switch (action.type) {
 
-    case 'FETCH_ALL_LISTINGS_DONE':
+    case 'FETCH_ALL_PLACES_DONE':
       return {
         ...state,
         listings,
-        currentListing: null,
+        currentPlace: null,
         fetchError    : null,
         isFetching    : false,
       }
-    case 'FETCH_ALL_LISTINGS_FAIL':
+    case 'FETCH_ALL_PLACES_FAIL':
       return {
         ...state,
         fetchError    : error,
         isFetching    : false,
       }
-    case 'FETCH_LISTINGS_BY_KEYWORD_DONE':
+    case 'FETCH_PLACES_BY_KEYWORD_DONE':
       return {
         ...state,
         listings,
-        currentListing: {},
+        currentPlace: {},
         fetchError    : null,
         isFetching    : false,
       }
-    case 'FETCH_LISTINGS_BY_KEYWORD_FAIL':
+    case 'FETCH_PLACES_BY_KEYWORD_FAIL':
       return {
         ...state,
         fetchError    : error,
         isFetching    : false,
       }
-    case 'SET_IS_FETCHING_LISTINGS':
+    case 'SET_IS_FETCHING_PLACES':
       return {
         ...state,
         isFetching: true
       }
-    case 'SET_CURRENT_LISTING':
+    case 'SET_CURRENT_PLACE':
       return {
         ...state,
-        currentListing: listing
+        currentPlace: listing
       }
     default:
       return state

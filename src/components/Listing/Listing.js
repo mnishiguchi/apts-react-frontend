@@ -1,13 +1,13 @@
 import React from 'react';
 
 // Components
+import ListingPreview from './ListingPreview';
 import ListingItem    from './ListingItem/ListingItem';
-import ListingPreview from './ListingPreview/ListingPreview';
 
-const ListingTable = (props) => {
+const Listing = (props) => {
   const {
     listings,
-    currentListing,
+    currentPlace,
     emitter
   } = props;
 
@@ -21,10 +21,10 @@ const ListingTable = (props) => {
 
   return (
     <div
-      className="ListingTable"
+      className="Listing"
       style={{padding: '0 1.5rem'}}>
 
-      <ListingPreview currentListing={currentListing} />
+      <ListingPreview currentPlace={currentPlace} />
 
       <div
         className="table-responsive"
@@ -39,4 +39,4 @@ const ListingTable = (props) => {
   );
 }
 
-export default ListingTable;
+export default Listing;

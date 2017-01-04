@@ -1,9 +1,7 @@
 const initialState = {
   bounds        : [],
-  center        : [-95.7129, 37.0902],
-  zoom          : 3,
-  // center        : [-77.2, 38.85],
-  // zoom          : 8,
+  center        : [-95.7129, 37.0902], // [-77.2, 38.85]
+  zoom          : 3,                   // 8
 }
 
 function map(state = initialState, action = {}) {
