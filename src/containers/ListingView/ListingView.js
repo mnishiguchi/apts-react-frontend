@@ -112,19 +112,26 @@ class ListingView extends React.Component {
   }
 } // end class
 
+
+
+// ---
+// CONNECT TO STORE
+// ---
+
+
 const mapStateToProps = function(store) {
+  const { listings, currentListing } = store.listing
+  const { bounds, center, zoom } = store.map
+
   return {
-    listings      : store.listing['listings'],
-    currentListing: store.listing['currentListing'],
-    bounds        : store.listing['bounds'],
-    center        : store.listing['center'],
-    zoom          : store.listing['zoom'],
+    listings,
+    currentListing,
+    bounds,
+    center,
+    zoom,
   }
 }
 
 const mapDispatchToProps = null
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ListingView)
+export default connect( mapStateToProps, mapDispatchToProps )( ListingView )

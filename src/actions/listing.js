@@ -1,4 +1,4 @@
-import api       from '../lib/requestsManager';
+import api from '../lib/requestsManager';
 
 const actions = {
 
