@@ -5,7 +5,7 @@ import { routerReducer }    from 'react-router-redux'
 
 // Reducers
 import place          from './place'
-import map              from './map'
+import map            from './map'
 
 /**
  * Here we specify all the combined state reducers.

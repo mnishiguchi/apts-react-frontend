@@ -90,7 +90,7 @@ class MapComponent extends React.Component {
       bounds : map.getBounds().toArray(),
       center : [ map.getCenter().lng, map.getCenter().lat ],
       zoom   : map.getZoom(),
-    };
+    }
   }
 
   _handleMapMove(map) {

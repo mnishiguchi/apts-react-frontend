@@ -1,55 +1,59 @@
-const actions = {
+const actions = {}
 
-  update: ({bounds, center, zoom}) => {
-    return dispatch => {
-      dispatch({
-        type: 'UPDATE_MAP',
-        bounds,
-        center,
-        zoom,
-      });
-    };
-  },
-  updateBounds: (bounds) => {
-    return dispatch => {
-      dispatch({
-        type: 'UPDATE_MAP_BOUNDS',
-        bounds,
-      });
-    };
-  },
-  updateCenter: (center) => {
-    return dispatch => {
-      dispatch({
-        type: 'UPDATE_MAP_CENTER',
-        center,
-      });
-    };
-  },
-  updateLatitude: (latitude) => {
-    return dispatch => {
-      dispatch({
-        type: 'UPDATE_MAP_LATITUDE',
-        latitude,
-      });
-    };
-  },
-  updateLongitude: (longitude) => {
-    return dispatch => {
-      dispatch({
-        type: 'UPDATE_MAP_LONGITUDE',
-        longitude,
-      });
-    };
-  },
-  updateZoom: (zoom) => {
-    return dispatch => {
-      dispatch({
-        type: 'UPDATE_MAP_ZOOM',
-        zoom,
-      });
-    };
-  },
-};
+actions.update = ({bounds, center, zoom}) => {
+  return dispatch => {
+    dispatch({
+      type: 'UPDATE_MAP',
+      bounds,
+      center,
+      zoom,
+    })
+  }
+}
 
-export default actions;
+actions.updateBounds = (bounds) => {
+  return dispatch => {
+    dispatch({
+      type: 'UPDATE_MAP_BOUNDS',
+      bounds,
+    })
+  }
+}
+
+actions.updateCenter = (center) => {
+  return dispatch => {
+    dispatch({
+      type: 'UPDATE_MAP_CENTER',
+      center,
+    })
+  }
+}
+
+actions.updateLatitude = (latitude) => {
+  return dispatch => {
+    dispatch({
+      type: 'UPDATE_MAP_LATITUDE',
+      latitude,
+    })
+  }
+}
+
+actions.updateLongitude = (longitude) => {
+  return dispatch => {
+    dispatch({
+      type: 'UPDATE_MAP_LONGITUDE',
+      longitude,
+    })
+  }
+}
+
+actions.updateZoom = (zoom) => {
+  return dispatch => {
+    dispatch({
+      type: 'UPDATE_MAP_ZOOM',
+      zoom,
+    })
+  }
+}
+
+export default actions
