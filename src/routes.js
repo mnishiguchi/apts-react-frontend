@@ -6,12 +6,17 @@ import ListingView  from './containers/ListingView/ListingView'
 import DetailView   from './containers/DetailView/DetailView'
 import HelpView     from './containers/HelpView/HelpView'
 
+import MapContainer     from './containers/MapContainer/MapContainer'
+
 export default function configRoutes(store) {
   return (
-    <Route path="/" component={MainLayout} >
-      <IndexRoute              component={ListingView} />
-      <Route path="detail/:id" component={DetailView} />
-      <Route path="help"       component={HelpView} />
+    <Route component={MainLayout} >
+      <Route path="/" component={MapContainer}>
+        <IndexRoute              component={ListingView} />
+        <Route path="detail/:id" component={DetailView} />
+      </Route>
+
+      <Route path="help" component={HelpView} />
     </Route>
   )
 }

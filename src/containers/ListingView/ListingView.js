@@ -2,7 +2,8 @@ import React from 'react'
 import { connect }          from 'react-redux'
 import { EventEmitter }     from 'fbemitter'
 
-import actions from '../../actions'
+import mapActions   from '../../actions/map'
+import placeActions from '../../actions/place'
 
 // Components
 import MapComponent from '../../components/MapComponent/MapComponent'
@@ -46,17 +47,19 @@ class ListingView extends React.Component {
 
     this.emitter.addListener('MAP_MARKER_HOVERED', payload => {
       console.log(`MAP_MARKER_HOVERED`)
+      const { dispatch } = this.props
 
-      this.props.dispatch(
-        actions.place.setCurrentPlace(payload.place)
+      dispatch(
+        placeActions.setCurrentPlace(payload.place)
       )
     })
 
     this.emitter.addListener('MAP_MOVED', payload => {
       console.log(`MAP_MOVED`)
+      const { dispatch } = this.props
 
-      this.props.dispatch(
-        actions.map.update(payload)
+      dispatch(
+        mapActions.update(payload)
       )
     })
 
@@ -64,9 +67,10 @@ class ListingView extends React.Component {
       console.log(`MARKER_CLICKED`)
 
       const { place } = payload
+      const { dispatch } = this.props
 
-      this.props.dispatch(
-        actions.place.setCurrentPlace(place)
+      dispatch(
+        placeActions.setCurrentPlace(place)
       )
     })
 
@@ -74,17 +78,19 @@ class ListingView extends React.Component {
       console.log(`MARKER_HOVERED`)
 
       const { place } = payload
+      const { dispatch } = this.props
 
-      this.props.dispatch(
-        actions.place.setCurrentPlace(place)
+      dispatch(
+        placeActions.setCurrentPlace(place)
       )
     })
 
     this.emitter.addListener('MAP_ZOOM_CHANGED', payload => {
       console.log(`MAP_ZOOM_CHANGED`)
+      const { dispatch } = this.props
 
-      this.props.dispatch(
-        actions.map.update(payload)
+      dispatch(
+        mapActions.update(payload)
       )
     })
 
@@ -92,9 +98,10 @@ class ListingView extends React.Component {
       console.log(`LISTING_ITEM_HOVERED`)
 
       const { place } = payload
+      const { dispatch } = this.props
 
-      this.props.dispatch(
-        actions.place.setCurrentPlace(place)
+      dispatch(
+        placeActions.setCurrentPlace(place)
       )
     })
   }
@@ -103,7 +110,7 @@ class ListingView extends React.Component {
     const { dispatch } = this.props
 
     dispatch(
-      actions.place.fetchAllPlaces()
+      placeActions.fetchAllPlaces()
     )
   }
 

@@ -6,8 +6,11 @@ class MapContainer extends React.Component {
       <div className="MapContainer">
         <h1>
           Map container
-          {this.props.children}
         </h1>
+
+        <div style={{border: "4px solid red"}}>
+          {this.props.children}
+        </div>
       </div>
     )
   }
@@ -16,4 +19,4 @@ class MapContainer extends React.Component {
 const mapStateToProps    = null
 const mapDispatchToProps = null
 
-export default connect( mapStateToProps, mapDispatchToProps )( MapContainer )
+export default MapContainer
