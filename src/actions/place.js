@@ -1,4 +1,4 @@
-import api from '../lib/requestsManager'
+import api from '../lib/api'
 
 const actions = {}
 
@@ -57,13 +57,13 @@ actions.fetchPlacesByKeyword = (q) => {
   }
 }
 
-actions.fetchPlaceById = () => {
+actions.fetchPlaceById = (id) => {
   return (dispatch) => {
     dispatch({
       type: 'SET_IS_FETCHING_PLACES',
     })
     return (
-      api.fetchPlaceById()
+      api.fetchPlaceById(id)
         .then(res =>
           dispatch({
             type:   'FETCH_PLACE_BY_ID_DONE',

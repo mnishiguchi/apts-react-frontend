@@ -1,40 +1,47 @@
-import React, {Component}        from 'react';
-import { connect }               from 'react-redux';
-import { Link }                  from 'react-router';
+import React, {Component}        from 'react'
+import { connect }               from 'react-redux'
+import { Link }                  from 'react-router'
 
-import actions from '../../actions/place'
+import placeActions from '../../actions/place'
 
 class DetailView extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this._place = this._getPlace();
-  }
-
   render() {
-    return (
-      <div className="DetailView" style={{color: '#7d87b9'}}>
-        <div style={{ background:"#666", height:"300px", width:"100%" }}>
-        </div>
-        <br />
+    const { currentPlace } = this.props
 
+    return (
+      <div className="DetailView">
         <div className="container">
-          <p>
+
+          <h4>
             {
-              (this._place) ?
-              `${this._place.street} ${this._place.city} ${this._place.state} ${this._place.zip}` : 'Error'
+              (currentPlace) ? currentPlace.marketing_name || '' : 'Error'
             }
-          </p>
+          </h4>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            { (currentPlace) ? `
+                ${currentPlace.street || ''}
+                ${currentPlace.city || ''}
+                ${currentPlace.state || ''}
+                ${currentPlace.zip || ''}
+              ` : 'Error'
+            }
           </p>
 
           <Link to='/' className='btn btn-default'>Back to search</Link>
+
+          <hr></hr>
+
+          <div id="mapDest" style={{
+              position: 'relative',
+              height: 300,
+              overflow: 'hidden'
+            }}>
+
+              {/* map is embedded here */}
+          </div>
         </div>
-        <br />
       </div>
-    );
+    )
   }
 
 
@@ -44,42 +51,27 @@ class DetailView extends Component {
 
 
   componentDidMount() {
-    const { dispatch } = this.props;
+    const { dispatch, currentPlace } = this.props
 
     // Load the place if it has not already.
-    if ( !this._place ) {
+    if ( !currentPlace ) {
       dispatch(
-        actions.place.fetchListingById(this.props.params['id'])
-      );
+        placeActions.fetchPlaceById(this.props.params.id)
+      )
     }
+
+    this.props.positionMapComponent()
+
+    // Adjust the map's vertical positon because we change the height.
+    document.querySelector('.mapboxgl-map').style.marginTop = '-150px'
   }
 
+  componentWillUnmount() {
+    this.props.unpositionMapComponent()
 
-  // ---
-  // PRIVATE METHODS
-  // ---
-
-
-  _getPlace = () => {
-    const { params, currentPlace } = this.props;
-
-    if (currentPlace && currentPlace.id === params.id) {
-      return currentPlace;
-    } else {
-      return this._getPlaceById(params.id);
-    }
+    // Undo the adjustment for map's vertical position.
+    document.querySelector('.mapboxgl-map').style.marginTop = '0'
   }
-
-  _getPlaceById = (id) => {
-    if (!this.props.places.length) { return null; }
-
-    const place = this.props.places.filter(place => {
-      return id === place.id
-    })[0];
-
-    return place;
-  }
-
 } // end class
 
 
@@ -94,9 +86,9 @@ const mapStateToProps = function(store) {
   return {
     places,
     currentPlace,
-  };
+  }
 }
 
-const mapDispatchToProps = null;
+const mapDispatchToProps = null
 
-export default connect( mapStateToProps, mapDispatchToProps )( DetailView );
+export default connect( mapStateToProps, mapDispatchToProps )( DetailView )

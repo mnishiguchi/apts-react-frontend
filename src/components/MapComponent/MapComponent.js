@@ -1,4 +1,9 @@
 import React, { PropTypes as T } from 'react'
+import { connect }               from 'react-redux'
+
+import mapActions   from '../../actions/map'
+import placeActions from '../../actions/place'
+
 import ReactMapboxGl, { Layer, Feature, Popup } from "react-mapbox-gl"
 import _ from 'lodash'
 
@@ -12,6 +17,14 @@ class MapComponent extends React.Component {
     currentPlace: T.object,
   }
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      width:  this.props.width || '100%',
+      height: this.props.height || '100vh',
+    }
+  }
 
   // ---
   // TEMPLATE
@@ -55,11 +68,16 @@ class MapComponent extends React.Component {
       currentPlace,
     } = this.props
 
+    const {
+      width,
+      height
+    } = this.state
+
     return (
       <ReactMapboxGl
         accessToken={accessToken}
         style="mapbox://styles/mapbox/streets-v8"
-        containerStyle={{ width: '100%', height: '100vh' }}
+        containerStyle={{ width, height }}
         center={center}
         zoom={[zoom]}
         onZoom={e => this._handleMapZoomChange(e)}
@@ -94,25 +112,49 @@ class MapComponent extends React.Component {
   }
 
   _handleMapMove(map) {
-    const payload = this._getMapData(map)
-    this.props.emitter.emit( 'MAP_MOVED', payload )
+    const { dispatch } = this.props
+    dispatch(
+      mapActions.update(this._getMapData(map))
+    )
   }
 
   _handleMapZoomChange(map) {
-    const payload = this._getMapData(map)
-    this.props.emitter.emit( 'MAP_ZOOM_CHANGED', payload )
+    const { dispatch } = this.props
+    dispatch(
+      mapActions.update(this._getMapData(map))
+    )
   }
 
   _handleMarkerClick(e, place) {
-    const payload = { place: place }
-    this.props.emitter.emit( 'MARKER_CLICKED', payload )
+    const { dispatch } = this.props
+    dispatch(
+      placeActions.setCurrentPlace(place)
+    )
   }
 
   _handleMarkerHover(e, place) {
-    const payload = { place: place }
-    this.props.emitter.emit( 'MARKER_HOVERED', payload )
+    const { dispatch } = this.props
+    dispatch(
+      placeActions.setCurrentPlace(place)
+    )
   }
-
 } // end class
 
-export default MapComponent
+
+// ---
+// CONNECT TO STORE
+// ---
+
+
+const mapStateToProps = function(store) {
+  const { places, currentPlace } = store.place
+
+  return {
+    places,
+    currentPlace,
+  }
+}
+
+const mapDispatchToProps = null
+
+export default connect( mapStateToProps, mapDispatchToProps )( MapComponent )

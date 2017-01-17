@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { browserHistory }  from 'react-router';
+import React, { Component } from 'react'
+import { browserHistory }  from 'react-router'
 
 // https://react-bootstrap.github.io/components.html#modals
-import Modal       from 'react-bootstrap/lib/Modal';
-import Button      from 'react-bootstrap/lib/Button';
+import Modal       from 'react-bootstrap/lib/Modal'
+import Button      from 'react-bootstrap/lib/Button'
 
 // Styles
-import './DetailModal.css';
+import './DetailModal.css'
 
 class DetailModal extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       showModal: false,
@@ -19,7 +19,7 @@ class DetailModal extends Component {
   }
 
   render() {
-    const { place, children } = this.props;
+    const { place, children } = this.props
 
     return (
       <div className="DetailModal">
@@ -59,7 +59,7 @@ class DetailModal extends Component {
           </Modal.Footer>
         </Modal>
       </div>
-    );
+    )
   }
 
 
@@ -69,17 +69,17 @@ class DetailModal extends Component {
 
 
   _closeModal = () => {
-    this.setState({ showModal: false });
+    this.setState({ showModal: false })
   }
 
   _openModal = () => {
-    this.setState({ showModal: true });
+    this.setState({ showModal: true })
   }
 
   _redirectToListingPage = (e) => {
-    browserHistory.push(`/detail/${this.props.place.id}`);
+    browserHistory.push(`/detail/${this.props.place.id}`)
   }
 
 } // end class
 
-export default DetailModal;
+export default DetailModal

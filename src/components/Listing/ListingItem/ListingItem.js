@@ -1,5 +1,5 @@
 import React, { PropTypes as T } from 'react';
-import DetailModal from './DetailModal/DetailModal';
+import { Link } from 'react-router'
 
 const ListingItem = (props) => {
   const { place } = props;
@@ -14,9 +14,9 @@ const ListingItem = (props) => {
       onMouseOver={onMouseOver}
     >
       <td>
-        <DetailModal place={place}>
+        <Link to={`/detail/${place.id}`}>
           {place.marketing_name}
-        </DetailModal>
+        </Link>
         <p>
           {`${place.street} ${place.city} ${place.state} ${place.zip}`}
         </p>
