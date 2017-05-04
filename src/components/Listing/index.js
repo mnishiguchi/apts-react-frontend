@@ -1,30 +1,28 @@
-import React from 'react';
+import React from 'react'
+import { AutoSizer, List }      from 'react-virtualized';
 
-// Components
-import ListingPreview from './ListingPreview';
-import ListingItem    from './ListingItem/ListingItem';
+import ListingPreview from './ListingPreview'
+import ListingItem    from './ListingItem'
 
 const Listing = (props) => {
   const {
     places,
     currentPlace,
     emitter
-  } = props;
+  } = props
+
+  // console.info(places)
 
   return (
-    <div
-      className="Listing"
-      style={{padding: '0 1.5rem'}}>
+    <div className="Listing">
 
       <ListingPreview currentPlace={currentPlace} />
 
-      <div
-        className="table-responsive"
-        style={{overflowY: 'auto', maxHeight: '70vh'}}>
+      <div className="table-responsive" style={{overflowY: 'auto', maxHeight: '70vh'}}>
         <table className="table table-bordered">
           <tbody>
             {
-              places.map( place => (
+              places.map(place => (
                 <ListingItem
                   place={place}
                   key={place.id}
@@ -36,7 +34,7 @@ const Listing = (props) => {
         </table>
       </div>
     </div>
-  );
+  )
 }
 
-export default Listing;
+export default Listing

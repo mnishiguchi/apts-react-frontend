@@ -1,15 +1,20 @@
-import React                    from 'react';
-import ReactDOM                 from 'react-dom';
-import { browserHistory }       from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import React                    from 'react'
+import ReactDOM                 from 'react-dom'
+import { browserHistory }       from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
 
-import configureStore           from './store';
-import Root                     from './containers/Root';
+import configureStore           from './store'
+import Root                     from './containers/Root'
 
 require('dotenv').load({silent: true})
 
-const store   = configureStore(browserHistory);
-const history = syncHistoryWithStore(browserHistory, store);
+// Styles
+require('bootstrap/dist/css/bootstrap.css')
+require('mapbox-gl/dist/mapbox-gl.css')
+require('./styles.css')
+
+const store   = configureStore(browserHistory)
+const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
   <Root
@@ -17,4 +22,4 @@ ReactDOM.render(
     store={store}
   />,
   document.getElementById('root')
-);
+)

@@ -1,12 +1,5 @@
-import React from 'react';
-
-// Components
-import AppHeader  from '../../components/AppHeader/AppHeader';
-
-// Styles
-import 'bootstrap/dist/css/bootstrap.css';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import './MainLayout.css';
+import React     from 'react'
+import AppHeader from './AppHeader'
 
 const MainLayout = (props) =>  {
   return (
@@ -21,7 +14,7 @@ const MainLayout = (props) =>  {
       <footer className="AppFooter">
         <div className="container">
           <div className="contact-info">
-            Masatoshi Nishiguchi &middot;
+            Masatoshi Nishiguchi |
             <a href="http://www.mnishiguchi.com/">
               mnishiguchi.com
             </a>
@@ -29,7 +22,7 @@ const MainLayout = (props) =>  {
         </div>
       </footer>
     </div>
-  );
-};
+  )
+}
 
-export default MainLayout;
+export default MainLayout

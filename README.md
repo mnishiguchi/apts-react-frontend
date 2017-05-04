@@ -2,6 +2,14 @@
 
 In this app, I will build a Redfin-like React app.
 
+---
+
+## Demo
+- [load data and search](https://apts-react-frontend.surge.sh)
+- [map features](https://mnishiguchi-react-mapboxgl.surge.sh)
+
+---
+
 ## Get started
 
 ```
