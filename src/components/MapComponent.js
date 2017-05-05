@@ -1,23 +1,26 @@
-import React, { PropTypes as T } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ReactMapboxGl, {
   Layer,
   Feature,
   Popup,
   ScaleControl,
   ZoomControl,
-  GeoJSONLayer
+  // GeoJSONLayer
 } from "react-mapbox-gl"
 import _ from 'lodash'
 
 // Stored in .env file
 const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
 
+// Powered by alex3165/react-mapbox-gl
+// https://github.com/alex3165/react-mapbox-gl
 class MapComponent extends React.Component {
   static propTypes = {
-    bounds      : T.array.isRequired,
-    center      : T.array.isRequired,
-    zoom        : T.number.isRequired,
-    currentPlace: T.object,
+    bounds:       PropTypes.array.isRequired,
+    center:       PropTypes.array.isRequired,
+    zoom:         PropTypes.number.isRequired,
+    currentPlace: PropTypes.object,
   }
 
   render() {
@@ -57,9 +60,9 @@ class MapComponent extends React.Component {
                 onClick={map => this._handleMarkerClick(map, place)}
                 onHover={map => this._handleMarkerHover(map, place)}
                 properties={{
-                  'marker-symbol': 'castle'
                   // We can specify a symbol here for each marker.
                   // Available icons: https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites/basic-v8/_svg
+                  'marker-symbol': (index % 2) ? 'castle' : 'beer',
                 }}
               />
             ))
@@ -91,9 +94,9 @@ class MapComponent extends React.Component {
 
   _getMapData(map) {
     return {
-      bounds : map.getBounds().toArray(),
-      center : [ map.getCenter().lng, map.getCenter().lat ],
-      zoom   : map.getZoom(),
+      bounds: map.getBounds().toArray(),
+      center: [map.getCenter().lng, map.getCenter().lat],
+      zoom:   map.getZoom(),
     }
   }
 
@@ -116,7 +119,7 @@ class MapComponent extends React.Component {
     const payload = { place: place }
     this.props.emitter.emit( 'MARKER_HOVERED', payload )
   }
-  
+
 } // end class
 
 export default MapComponent

@@ -1,35 +1,37 @@
-import React, { PropTypes as T } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const ListingItem = (props) => {
-  const { place } = props
-
-  function onMouseOver(event) {
-    props.emitter.emit( 'LISTING_ITEM_HOVERED', {place} )
-  }
-
-  function onMouseLeave(event) {
-    props.emitter.emit( 'LISTING_ITEM_MOUSE_LEAVE', {place} )
-  }
-
+const ListingItem = ({ place, emitter }) => {
   return (
-    <tr
+    <div
       className="ListingItem"
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
+      style={{
+        borderBottom: '1px solid #999',
+        padding: '1rem 1rem',
+        width: '100%',
+        height: '60px',
+        overflowX: 'auto',
+        overflowY: 'hidden',
+      }}
     >
-      <td>
-        <p>
-          {`${place.street} ${place.city} ${place.state} ${place.zip}`}
-        </p>
-      </td>
-    </tr>
+      {`${place.street} ${place.city} ${place.state} ${place.zip}`}
+    </div>
   )
+
+  function onMouseOver(event) {
+    emitter.emit('LISTING_ITEM_HOVERED', { place })
+  }
+
+  function onMouseLeave(event) {
+    emitter.emit('LISTING_ITEM_MOUSE_LEAVE', { place })
+  }
 }
 
-// https://facebook.github.io/react/docs/reusable-components.html
-// https://github.com/airbnb/javascript/tree/master/react#ordering
 ListingItem.propTypes = {
-  emitter: T.object.isRequired
+  place: PropTypes.any.isRequired,
+  emitter: PropTypes.object.isRequired,
 }
 
 export default ListingItem

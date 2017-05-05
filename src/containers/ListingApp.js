@@ -7,10 +7,10 @@ import Listing      from '../components/Listing'
 
 import actions from '../actions'
 
-class ListingView extends React.Component {
+class ListingApp extends React.Component {
   render() {
     return (
-      <div className="ListingView">
+      <div className="ListingApp">
         <div className="row">
           <div className="col-sm-8" style={{ padding: 0 }}>
 
@@ -118,4 +118,4 @@ function mapStateToProps(store) {
 
 const mapDispatchToProps = null
 
-export default connect( mapStateToProps, mapDispatchToProps )( ListingView )
+export default connect( mapStateToProps, mapDispatchToProps )( ListingApp )
