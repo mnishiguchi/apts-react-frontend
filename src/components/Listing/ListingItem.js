@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ListingItem = ({ place, emitter }) => {
+/**
+ * A list item for Listing component.
+ */
+const ListingItem = ({ place, emitter, active, index }) => {
   return (
     <div
       className="ListingItem"
@@ -14,9 +17,11 @@ const ListingItem = ({ place, emitter }) => {
         height: '60px',
         overflowX: 'auto',
         overflowY: 'hidden',
+        background: active && '#53A5F7',
       }}
     >
-      {`${place.street} ${place.city} ${place.state} ${place.zip}`}
+      <p>{index}</p>
+      <p>{`${place.street} ${place.city} ${place.state} ${place.zip}`}</p>
     </div>
   )
 
@@ -30,7 +35,7 @@ const ListingItem = ({ place, emitter }) => {
 }
 
 ListingItem.propTypes = {
-  place: PropTypes.any.isRequired,
+  place:   PropTypes.any.isRequired,
   emitter: PropTypes.object.isRequired,
 }
 

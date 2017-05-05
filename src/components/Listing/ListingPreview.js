@@ -1,5 +1,8 @@
 import React from 'react'
 
+/**
+ * An information box that displays information on the currently selected place.
+ */
 const ListingPreview = ({ currentPlace }) => {
   return (
     currentPlace ? (
@@ -7,7 +10,7 @@ const ListingPreview = ({ currentPlace }) => {
         position: 'relative',
         top: 0,
         left: 0,
-        background: getRandomColor(),
+        background: '#666',
         width: '100%',
         height: '100px',
         color: 'white',
@@ -32,17 +35,17 @@ const ListingPreview = ({ currentPlace }) => {
   )
 }
 
-function getRandomColor() {
-  const letters = '0123456789ABCDEF'
-  const useHowManyLetters = 6
-
-  let color = ['#']
-  let letter
-  for (let i = 0; i < 6; i++) {
-    letter = letters[ Math.floor(Math.random() * useHowManyLetters) ]
-    color.push(letter)
-  }
-  return color.join('')
-}
+// function getRandomColor() {
+//   const letters = '0123456789ABCDEF'
+//   const useHowManyLetters = 6
+//
+//   let color = ['#']
+//   let letter
+//   for (let i = 0; i < 6; i++) {
+//     letter = letters[ Math.floor(Math.random() * useHowManyLetters) ]
+//     color.push(letter)
+//   }
+//   return color.join('')
+// }
 
 export default ListingPreview

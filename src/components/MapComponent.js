@@ -13,8 +13,10 @@ import _ from 'lodash'
 // Stored in .env file
 const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
 
-// Powered by alex3165/react-mapbox-gl
-// https://github.com/alex3165/react-mapbox-gl
+/**
+ * A map component powered by alex3165/react-mapbox-gl
+ * https://github.com/alex3165/react-mapbox-gl
+ */
 class MapComponent extends React.Component {
   static propTypes = {
     bounds:       PropTypes.array.isRequired,
