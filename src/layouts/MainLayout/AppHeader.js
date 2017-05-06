@@ -9,6 +9,14 @@ const AppHeader = (props) => {
       <NavLink to="/">
         <img src={logo_src} className="logo" alt="logo" />
       </NavLink>
+      <ul>
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/about">About</NavLink>
+        </li>
+      </ul>
     </div>
   )
 }

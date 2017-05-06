@@ -1,6 +1,7 @@
 body {
   width: 100%;
   height: 100%;
+  max-height: 100vh;
   overflow: auto;
 }
 
@@ -13,22 +14,40 @@ button,
   border-radius: 0;
 }
 
-.ListingApp {
-  padding: 0 2rem;
-}
+/* layouts */
 
-.AppHeader {
-  height: 52px;
-  padding: .3rem;
-  background-color: #333;
-}
 .AppHeader .logo {
   animation: Logo-spin infinite 20s linear;
-  height: 45px;
+  height: 50px;
 }
 @keyframes Logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.AppHeader {
+  height: 50px;
+  width: 100vw;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(220, 224, 224);
+}
+.AppHeader ul {
+  margin-right: 3rem;
+  float: right;
+}
+.AppHeader ul li {
+  display: inline-block;
+  width: auto;
+  height: 50px;
+  padding: 15px 10px;
+}
+.AppHeader ul li a {
+  color: #ddd;
+}
+.AppHeader ul li a:hover {
+  color: #fff;
 }
 
 footer {
@@ -57,4 +76,27 @@ footer a {
 footer a:hover {
   text-decoration: none;
   color: white;
+}
+
+/* ListingScreen */
+
+.ListingScreen {
+  display: flex;
+}
+.ListingScreen .left {
+  width: 100vw;
+}
+.ListingScreen .right {
+  visibility: hidden;
+}
+@media (min-width: 600px) {
+  .ListingScreen .left {
+    width: 60vw;
+    max-width: 1000px;
+  }
+  .ListingScreen .right {
+    width: 40vw;
+    max-width: 1000px;
+    visibility: visible;
+  }
 }

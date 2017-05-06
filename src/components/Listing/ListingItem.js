@@ -14,14 +14,20 @@ const ListingItem = ({ place, emitter, active, index }) => {
         borderBottom: '1px solid #999',
         padding: '1rem 1rem',
         width: '100%',
-        height: '60px',
+        height: '80px',
         overflowX: 'auto',
         overflowY: 'hidden',
         background: active && '#53A5F7',
       }}
     >
-      <p>{index}</p>
-      <p>{`${place.street} ${place.city} ${place.state} ${place.zip}`}</p>
+      <div style={{ display: 'flex' }}>
+        <div style={{ marginRight: '.5rem' }}>
+          <span className="badge">{index}</span>
+        </div>
+        <div style={{ flex: 1 }}>
+          {`${place.street} ${place.city} ${place.state} ${place.zip}`}
+        </div>
+      </div>
     </div>
   )
 

@@ -1,12 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ReactMapboxGl, {
-  Layer,
-  Feature,
-  Popup,
-  ScaleControl,
-  ZoomControl,
-} from "react-mapbox-gl"
+import ReactMapboxGl, { Layer, Feature, Popup, ScaleControl, ZoomControl } from "react-mapbox-gl"
 import _ from 'lodash'
 
 import universities from '../data/universities.json'
@@ -40,14 +34,21 @@ class MapComponent extends React.PureComponent {
       <ReactMapboxGl
         accessToken={accessToken}
         style="mapbox://styles/mapbox/streets-v8"
-        containerStyle={{ width: '100%', height: '80vh' }}
+        containerStyle={{ width: '100%', height: '90vh' }}
         center={center}
         zoom={[zoom]}
-        onZoom={map => this._handleMapZoomChange(map)}
-        onMoveEnd={map => this._handleMapMove(map)}
+        onZoom={this._onZoom.bind(this)}
+        onMoveEnd={this._onMoveEnd.bind(this)}
+        onStyleLoad={this._onStyleLoad.bind(this)}
       >
-        <ScaleControl/>
-        <ZoomControl/>
+
+        {/*
+          TODO: How to customize styles?
+          External stylesheet does not work because buttons are inline-styled.
+        */}
+        <ZoomControl />
+
+        <ScaleControl measurement="mi" position="bottomLeft" />
 
         {/*
           University marker layer
@@ -63,7 +64,7 @@ class MapComponent extends React.PureComponent {
               <Feature
                 key={index}
                 coordinates={[ university.longitude, university.latitude ]}
-                onHover={map => this._handleUniversityHover(map, university)}
+                onHover={this._onUniversityHover.bind(this)}
               />
             ))
           }
@@ -86,8 +87,8 @@ class MapComponent extends React.PureComponent {
               <Feature
                 key={place.id}
                 coordinates={[ place.longitude, place.latitude ]}
-                onClick={map => this._handleMarkerClick(map, place)}
-                onHover={map => this._handleMarkerHover(map, place)}
+                onClick={map => this._onMarkerClick(map, place)}
+                onHover={map => this._onMarkerHover(map, place)}
                 properties={{
                   // Used to dynamically determine marker-symbol
                   'marker-symbol': place.map.feature['marker-symbol'],
@@ -125,23 +126,68 @@ class MapComponent extends React.PureComponent {
     }
   }
 
-  _handleMapMove(map) {
+  // https://github.com/alex3165/react-mapbox-gl/blob/master/docs/API.md#reactmapboxgl
+  _onStyleLoad(map, event) {
+    // Store ref to the map instance so that we can use original mapbox-gl API through window.
+    window.map       = map
+    window.mapCanvas = document.querySelector('.mapboxgl-canvas')
+    window.mapDiv    = document.querySelector('.mapboxgl-map')
+
+    // Define a utility to resize the map so that we can dynamically resize the map.
+    window.resizeMap = function({width, height}) {
+      if (width && height) {
+        setMapWidth(width)
+        setMapHeight(height)
+        window.map.resize()
+      } else if (width) {
+        setMapWidth(width)
+        window.map.resize()
+      } else {
+        setMapHeight(height)
+        window.map.resize()
+      }
+    }
+
+    fitMap()
+
+    window.addEventListener('resize', () => {
+      fitMap()
+    })
+
+    // Fit the map in the viewport.
+    function fitMap() {
+      const navbarHeight = 50
+      window.resizeMap({ height: (window.innerHeight - navbarHeight) + 'px' })
+    }
+
+    function setMapWidth(width) {
+      window.mapCanvas.style.width = width
+      window.mapDiv.style.width    = width
+    }
+
+    function setMapHeight(height) {
+      window.mapCanvas.style.height = height
+      window.mapDiv.style.height    = height
+    }
+  }
+
+  _onMoveEnd(map) {
     this.props.emitter.emit('MAP_MOVED', this._getMapData(map))
   }
 
-  _handleMapZoomChange(map) {
+  _onZoom(map) {
     this.props.emitter.emit('MAP_ZOOM_CHANGED', this._getMapData(map))
   }
 
-  _handleMarkerClick(map, place) {
+  _onMarkerClick(map, place) {
     this.props.emitter.emit('MARKER_CLICKED', { place })
   }
 
-  _handleMarkerHover(map, place) {
+  _onMarkerHover(map, place) {
     this.props.emitter.emit('MARKER_HOVERED', { place })
   }
 
-  _handleUniversityHover(map, university) {
+  _onUniversityHover(map, university) {
     console.info('university hovered')
   }
 } // end class

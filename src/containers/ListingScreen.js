@@ -8,21 +8,19 @@ import Listing      from '../components/Listing'
 
 import actions from '../actions'
 
-class ListingApp extends React.Component {
+class ListingScreen extends React.Component {
   render() {
     return (
-      <div className="ListingApp">
-        <div className="row">
-          <div className="col-sm-8" style={{ padding: 0 }}>
+      <div className="ListingScreen">
+        <div className="left">
 
-            <MapComponent {...this.props} emitter={this.emitter} />
+          <MapComponent {...this.props} emitter={this.emitter} />
 
-          </div>
-          <div className="col-sm-4" style={{ padding: 0 }}>
+        </div>
+        <div className="right">
 
-            <Listing {...this.props} emitter={this.emitter} />
+          <Listing {...this.props} emitter={this.emitter} />
 
-          </div>
         </div>
       </div>
     )
@@ -41,10 +39,18 @@ class ListingApp extends React.Component {
     dispatch(
       actions.place.fetchAllPlaces()
     )
+
+    // Prevent scroll.
+    document.body.style.overflowX = 'hidden'
+    document.body.style.overflowY = 'hidden'
   }
 
   componentWillUnmount() {
     this.emitter.removeAllListeners()
+
+    // Undo the scroll prevention.
+    document.body.style.overflowX = ''
+    document.body.style.overflowY = ''
   }
 
   subscribeEvents() {
@@ -117,4 +123,4 @@ function mapStateToProps(store) {
   }
 }
 
-export default connect( mapStateToProps, null )( ListingApp )
+export default connect( mapStateToProps, null )( ListingScreen )

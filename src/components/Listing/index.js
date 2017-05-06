@@ -10,6 +10,8 @@ import ListingItem    from './ListingItem'
 class Listing extends React.Component {
   render() {
     const { places, currentPlace } = this.props
+    const navbarHeight = 50
+
     this._scrollToIndex = this._findIndex()
 
     // console.info(places)
@@ -28,7 +30,7 @@ class Listing extends React.Component {
           - If some other things occupy above or below the list, we must subtract it from height.
           Otherwise, some list elements will end up being hidden at the bottom.
           ## rowHeight
-          - Match it with the ListingItem component's height.
+          - Each ListingItem component's height.
           ## scrollToIndex
           - An array index of the item we want to scroll to, or -1.
         */}
@@ -38,10 +40,10 @@ class Listing extends React.Component {
               <List
                 ref={node => this.ListNode = node}
                 width={width}
-                height={642}
+                height={window.innerHeight - navbarHeight}
                 overscanRowCount={10}
                 rowCount={places.length}
-                rowHeight={60}
+                rowHeight={80}
                 rowRenderer={this._rowRenderer.bind(this)}
                 noRowsRenderer={this._noRowsRenderer.bind(this)}
                 scrollToIndex={this._scrollToIndex}
@@ -84,11 +86,6 @@ class Listing extends React.Component {
       </div>
     )
   }
-
-  // componentDidMount() {
-  //   // Set the list's height to the same as map's height.
-  //   document.querySelector('.ReactVirtualized__Grid').style.height = document.querySelector('.mapboxgl-map').style.height
-  // }
 }
 
 export default Listing
