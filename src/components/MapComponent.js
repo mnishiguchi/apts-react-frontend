@@ -6,7 +6,6 @@ import ReactMapboxGl, {
   Popup,
   ScaleControl,
   ZoomControl,
-  // GeoJSONLayer
 } from "react-mapbox-gl"
 import _ from 'lodash'
 
@@ -64,7 +63,7 @@ class MapComponent extends React.Component {
                 properties={{
                   // We can specify a symbol here for each marker.
                   // Available icons: https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites/basic-v8/_svg
-                  'marker-symbol': (index % 2) ? 'castle' : 'beer',
+                  'marker-symbol': place.map.feature['marker-symbol'],
                 }}
               />
             ))
@@ -89,10 +88,6 @@ class MapComponent extends React.Component {
       </ReactMapboxGl>
     )
   }
-
-  // ---
-  // PRIVATE METHODS
-  // ---
 
   _getMapData(map) {
     return {

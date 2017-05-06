@@ -1,6 +1,7 @@
 import React                from 'react'
 import { connect }          from 'react-redux'
 import { EventEmitter }     from 'fbemitter'
+import _                    from 'lodash'
 
 import MapComponent from '../components/MapComponent'
 import Listing      from '../components/Listing'
@@ -76,6 +77,9 @@ class ListingApp extends React.Component {
     this.emitter.addListener('MARKER_HOVERED', payload => {
       console.log(`MARKER_HOVERED`)
       // noop
+      _.debounce(() => {
+      }, 250)
+
     })
 
     this.emitter.addListener('MAP_ZOOM_CHANGED', payload => {

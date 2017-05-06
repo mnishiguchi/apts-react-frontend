@@ -22,7 +22,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:54.941Z",
-	"updated_at": "2016-12-06T16:38:54.941Z"
+	"updated_at": "2016-12-06T16:38:54.941Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "beer"
+		}
+	}
 }, {
 	"id": 46,
 	"marketing_name": "Four Quarters Habitat Apartments",
@@ -47,11 +52,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:55.267Z",
-	"updated_at": "2016-12-06T16:38:55.267Z"
+	"updated_at": "2016-12-06T16:38:55.267Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 121,
 	"marketing_name": "Wah Luck house Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=25\u0026city=7669",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=25&city=7669",
 	"description": "Wah Luck House in Washington, DC features 1  and 2 bedroom apartments with select utilities included in the rent, covered parking, on site laundry, 24 hour maintenance, and more.  We are close to shopping and public transportation and we have Section 8 housing available.  Call us today to learn more!",
 	"contact_email": "038237@aimco.com",
 	"contact_phone": null,
@@ -69,7 +79,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:16.282Z",
-	"updated_at": "2016-12-06T16:39:16.282Z"
+	"updated_at": "2016-12-06T16:39:16.282Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 47,
 	"marketing_name": "Park Towne Place Apartment Homes",
@@ -94,7 +109,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:55.539Z",
-	"updated_at": "2016-12-06T16:38:55.539Z"
+	"updated_at": "2016-12-06T16:38:55.539Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 48,
 	"marketing_name": "Village of Pennbrook Apartments",
@@ -119,7 +139,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:55.711Z",
-	"updated_at": "2016-12-06T16:38:55.711Z"
+	"updated_at": "2016-12-06T16:38:55.711Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 49,
 	"marketing_name": "Creekside Apartments",
@@ -144,7 +169,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:55.927Z",
-	"updated_at": "2016-12-06T16:38:55.927Z"
+	"updated_at": "2016-12-06T16:38:55.927Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 50,
 	"marketing_name": "The Sterling Apartment Homes",
@@ -169,7 +199,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:56.079Z",
-	"updated_at": "2016-12-06T16:38:56.079Z"
+	"updated_at": "2016-12-06T16:38:56.079Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 51,
 	"marketing_name": "865 Bellevue Apartments",
@@ -194,7 +229,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:56.605Z",
-	"updated_at": "2016-12-06T16:38:56.605Z"
+	"updated_at": "2016-12-06T16:38:56.605Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 52,
 	"marketing_name": "Burke Shire Commons Apartments",
@@ -219,11 +259,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:57.008Z",
-	"updated_at": "2016-12-06T16:38:57.008Z"
+	"updated_at": "2016-12-06T16:38:57.008Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 122,
 	"marketing_name": "University Square - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=59\u0026city=225",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=59&city=225",
 	"description": "University Square is a community for those aged 62 or better as well as for disabled or handicapped individuals.  Our pet friendly community includes all utilities in monthly rent and offers amenities such as an exercise room, resident activities, an on site market, and a 24 hour courtesy patrol.  Section 8 housing is available.  Call us to learn more!",
 	"contact_email": "038525@aimco.com",
 	"contact_phone": null,
@@ -241,7 +286,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:16.397Z",
-	"updated_at": "2016-12-06T16:39:16.397Z"
+	"updated_at": "2016-12-06T16:39:16.397Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 53,
 	"marketing_name": "Broadcast Center Apartments",
@@ -266,7 +316,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:57.351Z",
-	"updated_at": "2016-12-06T16:38:57.351Z"
+	"updated_at": "2016-12-06T16:38:57.351Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 54,
 	"marketing_name": "Canyon Terrace Apartments",
@@ -291,7 +346,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:57.734Z",
-	"updated_at": "2016-12-06T16:38:57.734Z"
+	"updated_at": "2016-12-06T16:38:57.734Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 55,
 	"marketing_name": "The Crescent at West Hollywood",
@@ -316,7 +376,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:58.027Z",
-	"updated_at": "2016-12-06T16:38:58.027Z"
+	"updated_at": "2016-12-06T16:38:58.027Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 56,
 	"marketing_name": "HillCreste Apartments",
@@ -341,7 +406,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:58.277Z",
-	"updated_at": "2016-12-06T16:38:58.277Z"
+	"updated_at": "2016-12-06T16:38:58.277Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 57,
 	"marketing_name": "Mariner's Cove Apartments",
@@ -366,7 +436,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:58.636Z",
-	"updated_at": "2016-12-06T16:38:58.636Z"
+	"updated_at": "2016-12-06T16:38:58.636Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 58,
 	"marketing_name": "Farmingdale Apartments",
@@ -391,11 +466,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:58.970Z",
-	"updated_at": "2016-12-06T16:38:58.970Z"
+	"updated_at": "2016-12-06T16:38:58.970Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 158,
 	"marketing_name": "Pleasant Hills Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=66\u0026city=7573",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=66&city=7573",
 	"description": "Pleasant Hill Apartments offer affordable 1 3 bedroom apartments near downtown Austin, TX.  Our community features a business center, a community room, a playground, on site laundry, barbecue and picnic areas, Section 8 housing, and much more; call us today for availability!",
 	"contact_email": "042676@aimco.com",
 	"contact_phone": null,
@@ -413,7 +493,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:23.142Z",
-	"updated_at": "2016-12-06T16:39:23.142Z"
+	"updated_at": "2016-12-06T16:39:23.142Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 59,
 	"marketing_name": "Springwoods at Lake Ridge Apartment Homes",
@@ -438,7 +523,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:38:59.385Z",
-	"updated_at": "2016-12-06T16:38:59.385Z"
+	"updated_at": "2016-12-06T16:38:59.385Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 60,
 	"marketing_name": "Windsor Park Apartment Homes",
@@ -463,7 +553,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:00.081Z",
-	"updated_at": "2016-12-06T16:39:00.081Z"
+	"updated_at": "2016-12-06T16:39:00.081Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 61,
 	"marketing_name": "Heritage Park Escondido Apartments for 55+",
@@ -488,7 +583,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:00.333Z",
-	"updated_at": "2016-12-06T16:39:00.333Z"
+	"updated_at": "2016-12-06T16:39:00.333Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 62,
 	"marketing_name": "Windrift Apartments",
@@ -513,7 +613,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:00.466Z",
-	"updated_at": "2016-12-06T16:39:00.466Z"
+	"updated_at": "2016-12-06T16:39:00.466Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 63,
 	"marketing_name": "Peachtree Park Apartments",
@@ -538,7 +643,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:00.639Z",
-	"updated_at": "2016-12-06T16:39:00.639Z"
+	"updated_at": "2016-12-06T16:39:00.639Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 64,
 	"marketing_name": "Woods of Williamsburg Apartments",
@@ -563,7 +673,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:01.197Z",
-	"updated_at": "2016-12-06T16:39:01.197Z"
+	"updated_at": "2016-12-06T16:39:01.197Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 65,
 	"marketing_name": "Latrobe Apartments",
@@ -588,7 +703,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:01.408Z",
-	"updated_at": "2016-12-06T16:39:01.408Z"
+	"updated_at": "2016-12-06T16:39:01.408Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 66,
 	"marketing_name": "Hidden Cove Apartments",
@@ -613,7 +733,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:01.778Z",
-	"updated_at": "2016-12-06T16:39:01.778Z"
+	"updated_at": "2016-12-06T16:39:01.778Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 67,
 	"marketing_name": "Shenandoah Crossing Apartment Homes",
@@ -638,7 +763,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:01.901Z",
-	"updated_at": "2016-12-06T16:39:01.901Z"
+	"updated_at": "2016-12-06T16:39:01.901Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 68,
 	"marketing_name": "Stonecreek Club Apartment Homes",
@@ -663,7 +793,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:02.134Z",
-	"updated_at": "2016-12-06T16:39:02.134Z"
+	"updated_at": "2016-12-06T16:39:02.134Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 69,
 	"marketing_name": "Bank and Boston Lofts Apartments",
@@ -688,7 +823,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:02.356Z",
-	"updated_at": "2016-12-06T16:39:02.356Z"
+	"updated_at": "2016-12-06T16:39:02.356Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 70,
 	"marketing_name": "Boulder Creek Apartments",
@@ -713,11 +853,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:02.624Z",
-	"updated_at": "2016-12-06T16:39:02.624Z"
+	"updated_at": "2016-12-06T16:39:02.624Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 159,
 	"marketing_name": "Whitefield Place Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=66\u0026city=8171",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=66&city=8171",
 	"description": "Whitefield Place Apartments offer 1 4 bedroom apartments with select utilities included in rent.  Our community is within walking distance of public transportation and features Section 8 housing, on site laundry, 24 hour maintenance, ample parking, a playground, and more!  Call us today for availability!",
 	"contact_email": "042677@aimco.com",
 	"contact_phone": null,
@@ -735,7 +880,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:23.315Z",
-	"updated_at": "2016-12-06T16:39:23.315Z"
+	"updated_at": "2016-12-06T16:39:23.315Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 71,
 	"marketing_name": "Hunt Club Apartments",
@@ -760,7 +910,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:02.843Z",
-	"updated_at": "2016-12-06T16:39:02.843Z"
+	"updated_at": "2016-12-06T16:39:02.843Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 72,
 	"marketing_name": "Hyde Park Tower Apartments",
@@ -785,7 +940,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:03.061Z",
-	"updated_at": "2016-12-06T16:39:03.061Z"
+	"updated_at": "2016-12-06T16:39:03.061Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 73,
 	"marketing_name": "Bay Parc Plaza Apartments",
@@ -810,7 +970,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:03.377Z",
-	"updated_at": "2016-12-06T16:39:03.377Z"
+	"updated_at": "2016-12-06T16:39:03.377Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 74,
 	"marketing_name": "Lincoln Place Apartment Homes",
@@ -835,7 +1000,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:03.703Z",
-	"updated_at": "2016-12-06T16:39:03.703Z"
+	"updated_at": "2016-12-06T16:39:03.703Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 75,
 	"marketing_name": "Waterford Village Apartments",
@@ -860,7 +1030,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:03.993Z",
-	"updated_at": "2016-12-06T16:39:03.993Z"
+	"updated_at": "2016-12-06T16:39:03.993Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 76,
 	"marketing_name": "Royal Crest Marlboro Apartment Homes",
@@ -885,11 +1060,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:04.131Z",
-	"updated_at": "2016-12-06T16:39:04.131Z"
+	"updated_at": "2016-12-06T16:39:04.131Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 160,
 	"marketing_name": "Washington Square West Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=59\u0026city=225",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=59&city=225",
 	"description": "Washington Square West Apartments are located in Center City Philadelphia, offering 1 4 bedroom apartments in a great central location.  We offer a community with secured entry, 24 hour maintenance, a friendly staff, and Section 8 housing.  Call us today for availability!",
 	"contact_email": "042691@aimco.com",
 	"contact_phone": null,
@@ -907,7 +1087,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:23.500Z",
-	"updated_at": "2016-12-06T16:39:23.500Z"
+	"updated_at": "2016-12-06T16:39:23.500Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 77,
 	"marketing_name": "Yacht Club at Brickell Apartments",
@@ -932,7 +1117,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:04.313Z",
-	"updated_at": "2016-12-06T16:39:04.313Z"
+	"updated_at": "2016-12-06T16:39:04.313Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 78,
 	"marketing_name": "Plantation Gardens Apartment Homes",
@@ -957,7 +1147,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:04.525Z",
-	"updated_at": "2016-12-06T16:39:04.525Z"
+	"updated_at": "2016-12-06T16:39:04.525Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 79,
 	"marketing_name": "Merrill House Apartments",
@@ -982,7 +1177,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:04.686Z",
-	"updated_at": "2016-12-06T16:39:04.686Z"
+	"updated_at": "2016-12-06T16:39:04.686Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 80,
 	"marketing_name": "Monterey Grove Apartments",
@@ -1007,7 +1207,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:05.068Z",
-	"updated_at": "2016-12-06T16:39:05.068Z"
+	"updated_at": "2016-12-06T16:39:05.068Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 81,
 	"marketing_name": "Pacific Bay Vistas",
@@ -1032,7 +1237,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:05.395Z",
-	"updated_at": "2016-12-06T16:39:05.395Z"
+	"updated_at": "2016-12-06T16:39:05.395Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 82,
 	"marketing_name": "Villa Del Sol Apartments",
@@ -1057,11 +1267,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:05.842Z",
-	"updated_at": "2016-12-06T16:39:05.842Z"
+	"updated_at": "2016-12-06T16:39:05.842Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 161,
 	"marketing_name": "Park Place - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=45\u0026city=8192",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=45&city=8192",
 	"description": "Park Place Apartments is a pet friendly community for those aged 62 and better, as well as handicapped or disabled individuals.  We are close to public transportation, and our community offers select utilities included in rent, equipped kitchens, a community room, and Section 8 housing.  Call us today for availability!",
 	"contact_email": "042850@aimco.com",
 	"contact_phone": null,
@@ -1079,7 +1294,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:23.948Z",
-	"updated_at": "2016-12-06T16:39:23.948Z"
+	"updated_at": "2016-12-06T16:39:23.948Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 83,
 	"marketing_name": "3400 Avenue of the Arts Apartments",
@@ -1104,7 +1324,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:06.065Z",
-	"updated_at": "2016-12-06T16:39:06.065Z"
+	"updated_at": "2016-12-06T16:39:06.065Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 84,
 	"marketing_name": "Pathfinder Village Apartments",
@@ -1129,7 +1354,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:06.537Z",
-	"updated_at": "2016-12-06T16:39:06.537Z"
+	"updated_at": "2016-12-06T16:39:06.537Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 85,
 	"marketing_name": "Scotchollow Apartment Homes",
@@ -1154,7 +1384,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:06.789Z",
-	"updated_at": "2016-12-06T16:39:06.789Z"
+	"updated_at": "2016-12-06T16:39:06.789Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 86,
 	"marketing_name": "707 Leahy Apartments",
@@ -1179,7 +1414,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:06.966Z",
-	"updated_at": "2016-12-06T16:39:06.966Z"
+	"updated_at": "2016-12-06T16:39:06.966Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 87,
 	"marketing_name": "Royal Crest Estates North Andover",
@@ -1204,7 +1444,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:07.121Z",
-	"updated_at": "2016-12-06T16:39:07.121Z"
+	"updated_at": "2016-12-06T16:39:07.121Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 88,
 	"marketing_name": "21 Fitzsimons Apartment Homes",
@@ -1229,11 +1474,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:07.352Z",
-	"updated_at": "2016-12-06T16:39:07.352Z"
+	"updated_at": "2016-12-06T16:39:07.352Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 167,
 	"marketing_name": "Tamarac Pines - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=66\u0026city=8235",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=66&city=8235",
 	"description": "Tamarac Pines I is a pet friendly community for Seniors 55 and better, as well as handicapped or disabled individuals.  Most utilities are included in rent, and our community offers on site laundry, 24 hour maintenance, elevators, a community room, Section 8 housing, and more!  Call us today for availability!",
 	"contact_email": "042947@aimco.com",
 	"contact_phone": null,
@@ -1251,7 +1501,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:24.644Z",
-	"updated_at": "2016-12-06T16:39:24.644Z"
+	"updated_at": "2016-12-06T16:39:24.644Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 89,
 	"marketing_name": "Royal Crest Estates Apartments",
@@ -1276,7 +1531,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:07.538Z",
-	"updated_at": "2016-12-06T16:39:07.538Z"
+	"updated_at": "2016-12-06T16:39:07.538Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 90,
 	"marketing_name": "Wexford Village Apartment Homes",
@@ -1301,7 +1561,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:07.706Z",
-	"updated_at": "2016-12-06T16:39:07.706Z"
+	"updated_at": "2016-12-06T16:39:07.706Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 91,
 	"marketing_name": "Royal Crest Warwick Apartment Homes",
@@ -1326,7 +1591,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:07.817Z",
-	"updated_at": "2016-12-06T16:39:07.817Z"
+	"updated_at": "2016-12-06T16:39:07.817Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 92,
 	"marketing_name": "Island Club Apartments",
@@ -1351,7 +1621,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:08.030Z",
-	"updated_at": "2016-12-06T16:39:08.030Z"
+	"updated_at": "2016-12-06T16:39:08.030Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 93,
 	"marketing_name": "The Palazzo Communities",
@@ -1376,10 +1651,15 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:08.248Z",
-	"updated_at": "2016-12-06T16:39:08.248Z"
+	"updated_at": "2016-12-06T16:39:08.248Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 94,
-	"marketing_name": "Township at Highlands Apartments \u0026 Townhomes",
+	"marketing_name": "Township at Highlands Apartments & Townhomes",
 	"website": "http://www.thetownshipathighlands.com",
 	"description": "Township at Highlands Apartments and Townhomes in Centennial, CO 80122 features washer/dryer in unit, private fenced patio/balcony, fireplace and central A/C.  Two story townhomes, which are smoke free, have vaulted ceilings, basements and attached garages.  Pet friendly community with on site recycling, 24 hour fitness center, swimming pool and cabana with BBQ and picnic area.  Just a few minutes from the C 470 highway, Park Meadows Mall, I 25, Denver Tech Center, and Littleton. Guarantors welcome.",
 	"contact_email": "042932@aimco.com",
@@ -1401,11 +1681,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:08.740Z",
-	"updated_at": "2016-12-06T16:39:08.740Z"
+	"updated_at": "2016-12-06T16:39:08.740Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 182,
 	"marketing_name": "Crevenna Oaks and Summit Oaks Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=71\u0026city=8174",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=71&city=8174",
 	"description": "Crevenna and Summit Oaks Apartments   Townhomes are located in Burke, VA. We offer 2 bedroom apartments and 2  and 3 bedroom townhomes.",
 	"contact_email": "043190@aimco.com",
 	"contact_phone": null,
@@ -1423,7 +1708,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:27.631Z",
-	"updated_at": "2016-12-06T16:39:27.631Z"
+	"updated_at": "2016-12-06T16:39:27.631Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 95,
 	"marketing_name": "Pacifica Park Apartments",
@@ -1448,7 +1738,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:09.093Z",
-	"updated_at": "2016-12-06T16:39:09.093Z"
+	"updated_at": "2016-12-06T16:39:09.093Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 96,
 	"marketing_name": "The Bluffs at Pacifica Apartments",
@@ -1473,7 +1768,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:09.154Z",
-	"updated_at": "2016-12-06T16:39:09.154Z"
+	"updated_at": "2016-12-06T16:39:09.154Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 97,
 	"marketing_name": "Foxchase Apartments",
@@ -1498,10 +1798,15 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:09.289Z",
-	"updated_at": "2016-12-06T16:39:09.289Z"
+	"updated_at": "2016-12-06T16:39:09.289Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 98,
-	"marketing_name": "Elm Creek Apartments \u0026 Townhomes",
+	"marketing_name": "Elm Creek Apartments & Townhomes",
 	"website": "http://www.elmcreekapthomes.com",
 	"description": "Elm Creek Apartments and Townhomes in Elmhurst, Illinois 60126 is a smoke free community. Our luxury apartments and  townhomes are beautifully appointed with spacious living areas, washer/dryer and a private patio or balcony. Remodeled homes feature gourmet kitchens with ceramic tile flooring, marble style countertops, cherry wood cabinets, private balconies and stainless steel appliances. Townhomes feature granite countertops, stainless steel appliances, wood flooring and private garages. Our pet friendly, controlled access community includes amenities such as a year round pool and Jacuzzi spa, sauna, new 24 hour fitness center and dog park. We also offer garage parking, car wash, concierge service, a convenience store, on site recycling and a business center. Guarantors welcome!",
 	"contact_email": "038626@aimco.com",
@@ -1523,7 +1828,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:09.402Z",
-	"updated_at": "2016-12-06T16:39:09.402Z"
+	"updated_at": "2016-12-06T16:39:09.402Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 99,
 	"marketing_name": "Parkway Apartments",
@@ -1548,7 +1858,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:09.573Z",
-	"updated_at": "2016-12-06T16:39:09.573Z"
+	"updated_at": "2016-12-06T16:39:09.573Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 100,
 	"marketing_name": "100 Forest Place",
@@ -1573,11 +1888,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:09.662Z",
-	"updated_at": "2016-12-06T16:39:09.662Z"
+	"updated_at": "2016-12-06T16:39:09.662Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 162,
 	"marketing_name": "Terry Manor - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=21\u0026city=8191",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=21&city=8191",
 	"description": "Terry Manor features pet friendly apartments for Seniors 62 or better, as well as handicapped or disabled individuals.  Our community is close to public transportation and offers some utilities included in rent, on site laundry, a computer room, shuffleboard, a community room, a putting green, a gated parking lot, a resident services coordinator, and Section 8 housing.  Call us for availability today!",
 	"contact_email": "042898@aimco.com",
 	"contact_phone": null,
@@ -1595,7 +1915,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:24.035Z",
-	"updated_at": "2016-12-06T16:39:24.035Z"
+	"updated_at": "2016-12-06T16:39:24.035Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 101,
 	"marketing_name": "The Residences at Vinings Mountain",
@@ -1620,7 +1945,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:09.883Z",
-	"updated_at": "2016-12-06T16:39:09.883Z"
+	"updated_at": "2016-12-06T16:39:09.883Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 102,
 	"marketing_name": "Chestnut Hill Village Apartments",
@@ -1645,7 +1975,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:10.175Z",
-	"updated_at": "2016-12-06T16:39:10.175Z"
+	"updated_at": "2016-12-06T16:39:10.175Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 103,
 	"marketing_name": "Twin Lake Towers Apartments",
@@ -1670,7 +2005,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:10.530Z",
-	"updated_at": "2016-12-06T16:39:10.530Z"
+	"updated_at": "2016-12-06T16:39:10.530Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 104,
 	"marketing_name": "Heritage Park Livermore for Seniors",
@@ -1695,7 +2035,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:10.635Z",
-	"updated_at": "2016-12-06T16:39:10.635Z"
+	"updated_at": "2016-12-06T16:39:10.635Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 105,
 	"marketing_name": "The Tempo Apartments",
@@ -1720,7 +2065,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:10.774Z",
-	"updated_at": "2016-12-06T16:39:10.774Z"
+	"updated_at": "2016-12-06T16:39:10.774Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 106,
 	"marketing_name": "Indian Oaks Apartments",
@@ -1745,7 +2095,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:10.963Z",
-	"updated_at": "2016-12-06T16:39:10.963Z"
+	"updated_at": "2016-12-06T16:39:10.963Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 107,
 	"marketing_name": "Bay Ridge at Nashua Apartments",
@@ -1770,7 +2125,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:11.161Z",
-	"updated_at": "2016-12-06T16:39:11.161Z"
+	"updated_at": "2016-12-06T16:39:11.161Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 108,
 	"marketing_name": "Villas of Pasadena Apartment Homes",
@@ -1795,7 +2155,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:11.425Z",
-	"updated_at": "2016-12-06T16:39:11.425Z"
+	"updated_at": "2016-12-06T16:39:11.425Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 109,
 	"marketing_name": "Hillmeade Apartment Homes",
@@ -1820,7 +2185,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:11.682Z",
-	"updated_at": "2016-12-06T16:39:11.682Z"
+	"updated_at": "2016-12-06T16:39:11.682Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 110,
 	"marketing_name": "Calhoun Beach Club Apartments",
@@ -1845,7 +2215,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:11.959Z",
-	"updated_at": "2016-12-06T16:39:11.959Z"
+	"updated_at": "2016-12-06T16:39:11.959Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 111,
 	"marketing_name": "2900 on First Apartments",
@@ -1870,7 +2245,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:13.242Z",
-	"updated_at": "2016-12-06T16:39:13.242Z"
+	"updated_at": "2016-12-06T16:39:13.242Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 112,
 	"marketing_name": "Horizons West Apartments",
@@ -1895,11 +2275,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:13.470Z",
-	"updated_at": "2016-12-06T16:39:13.470Z"
+	"updated_at": "2016-12-06T16:39:13.470Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 163,
 	"marketing_name": "Woodland Hills - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=42\u0026city=8190",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=42&city=8190",
 	"description": "Woodland Hills is a pet friendly community for Seniors 62 and better, as well as handicapped or disabled individuals.  We offer 24 hour maintenance, a picnic area, on site laundry, select utilities included in rent, Section 8 housing, and a community room.  Call today for availability!",
 	"contact_email": "042900@aimco.com",
 	"contact_phone": null,
@@ -1917,7 +2302,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:24.215Z",
-	"updated_at": "2016-12-06T16:39:24.215Z"
+	"updated_at": "2016-12-06T16:39:24.215Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 113,
 	"marketing_name": "Vantage Pointe Apartments",
@@ -1942,7 +2332,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:13.671Z",
-	"updated_at": "2016-12-06T16:39:13.671Z"
+	"updated_at": "2016-12-06T16:39:13.671Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 114,
 	"marketing_name": "The River Club Apartments",
@@ -1967,7 +2362,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:13.796Z",
-	"updated_at": "2016-12-06T16:39:13.796Z"
+	"updated_at": "2016-12-06T16:39:13.796Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 115,
 	"marketing_name": "Aimco Apartments - Upper East Side",
@@ -1992,7 +2392,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:13.990Z",
-	"updated_at": "2016-12-06T16:39:13.990Z"
+	"updated_at": "2016-12-06T16:39:13.990Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 116,
 	"marketing_name": "Post Ridge Apartments",
@@ -2017,7 +2422,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:14.222Z",
-	"updated_at": "2016-12-06T16:39:14.222Z"
+	"updated_at": "2016-12-06T16:39:14.222Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 117,
 	"marketing_name": "Georgetown Apartment Homes",
@@ -2042,7 +2452,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:14.563Z",
-	"updated_at": "2016-12-06T16:39:14.563Z"
+	"updated_at": "2016-12-06T16:39:14.563Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 118,
 	"marketing_name": "Savannah Trace Apartments",
@@ -2067,7 +2482,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:14.889Z",
-	"updated_at": "2016-12-06T16:39:14.889Z"
+	"updated_at": "2016-12-06T16:39:14.889Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 119,
 	"marketing_name": "Willow Bend Apartments",
@@ -2092,7 +2512,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:15.222Z",
-	"updated_at": "2016-12-06T16:39:15.222Z"
+	"updated_at": "2016-12-06T16:39:15.222Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 120,
 	"marketing_name": "Yorktown Apartments",
@@ -2117,7 +2542,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:15.548Z",
-	"updated_at": "2016-12-06T16:39:15.548Z"
+	"updated_at": "2016-12-06T16:39:15.548Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 123,
 	"marketing_name": "Meadow Creek Apartments",
@@ -2142,7 +2572,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:16.461Z",
-	"updated_at": "2016-12-06T16:39:16.461Z"
+	"updated_at": "2016-12-06T16:39:16.461Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 124,
 	"marketing_name": "Heritage Village Anaheim for Seniors",
@@ -2167,7 +2602,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:16.724Z",
-	"updated_at": "2016-12-06T16:39:16.724Z"
+	"updated_at": "2016-12-06T16:39:16.724Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 125,
 	"marketing_name": "Cedar Rim Apartments",
@@ -2192,7 +2632,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:16.802Z",
-	"updated_at": "2016-12-06T16:39:16.802Z"
+	"updated_at": "2016-12-06T16:39:16.802Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 126,
 	"marketing_name": "Malibu Canyon Apartments",
@@ -2217,7 +2662,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:16.878Z",
-	"updated_at": "2016-12-06T16:39:16.878Z"
+	"updated_at": "2016-12-06T16:39:16.878Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 127,
 	"marketing_name": "Villas at Park La Brea Apartments",
@@ -2242,7 +2692,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:17.007Z",
-	"updated_at": "2016-12-06T16:39:17.007Z"
+	"updated_at": "2016-12-06T16:39:17.007Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 128,
 	"marketing_name": "The Riverloft Apartment Homes",
@@ -2267,11 +2722,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:17.180Z",
-	"updated_at": "2016-12-06T16:39:17.180Z"
+	"updated_at": "2016-12-06T16:39:17.180Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 164,
 	"marketing_name": "Plummer Village - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=21\u0026city=14",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=21&city=14",
 	"description": "Plummer Village is a pet friendly community for Seniors 62 and better, as well as handicapped and disabled individuals.  Our community offers a community van, 24 hour maintenance, resident activities, free parking, on site laundry, a personal garden, and more!  Call us for availability today!",
 	"contact_email": "042901@aimco.com",
 	"contact_phone": null,
@@ -2289,7 +2749,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:24.416Z",
-	"updated_at": "2016-12-06T16:39:24.416Z"
+	"updated_at": "2016-12-06T16:39:24.416Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 129,
 	"marketing_name": "Chestnut Hall Apartments",
@@ -2311,7 +2776,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:17.601Z",
-	"updated_at": "2016-12-06T16:39:17.601Z"
+	"updated_at": "2016-12-06T16:39:17.601Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 130,
 	"marketing_name": "Waterways Village Apartments",
@@ -2336,7 +2806,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:17.997Z",
-	"updated_at": "2016-12-06T16:39:17.997Z"
+	"updated_at": "2016-12-06T16:39:17.997Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 131,
 	"marketing_name": "Flamingo South Beach Center Tower",
@@ -2361,7 +2836,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:18.361Z",
-	"updated_at": "2016-12-06T16:39:18.361Z"
+	"updated_at": "2016-12-06T16:39:18.361Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 132,
 	"marketing_name": "Lakeside Apartments",
@@ -2386,7 +2866,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:19.020Z",
-	"updated_at": "2016-12-06T16:39:19.020Z"
+	"updated_at": "2016-12-06T16:39:19.020Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 133,
 	"marketing_name": "Hunter's Chase Apartments",
@@ -2411,7 +2896,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:19.218Z",
-	"updated_at": "2016-12-06T16:39:19.218Z"
+	"updated_at": "2016-12-06T16:39:19.218Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 134,
 	"marketing_name": "Chimneys of Cradlerock",
@@ -2436,11 +2926,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:19.436Z",
-	"updated_at": "2016-12-06T16:39:19.436Z"
+	"updated_at": "2016-12-06T16:39:19.436Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 165,
 	"marketing_name": "South Bay Villa Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=21\u0026city=14",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=21&city=14",
 	"description": "South Bay Villa Apartments are in a beautiful park like area near public transportation.  Our community offers on site laundry, a playground, central air, cable/internet ready apartments, equipped kitchens, patios, and more.  Call us today for availability!",
 	"contact_email": "042902@aimco.com",
 	"contact_phone": null,
@@ -2458,7 +2953,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:24.457Z",
-	"updated_at": "2016-12-06T16:39:24.457Z"
+	"updated_at": "2016-12-06T16:39:24.457Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 135,
 	"marketing_name": "Steeplechase Apartments",
@@ -2483,7 +2983,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:19.568Z",
-	"updated_at": "2016-12-06T16:39:19.568Z"
+	"updated_at": "2016-12-06T16:39:19.568Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 136,
 	"marketing_name": "Westchester Tower Apartment Homes",
@@ -2508,7 +3013,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:19.674Z",
-	"updated_at": "2016-12-06T16:39:19.674Z"
+	"updated_at": "2016-12-06T16:39:19.674Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 137,
 	"marketing_name": "Flamingo South Beach North and South Towers",
@@ -2533,7 +3043,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:19.807Z",
-	"updated_at": "2016-12-06T16:39:19.807Z"
+	"updated_at": "2016-12-06T16:39:19.807Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 138,
 	"marketing_name": "Reflections at Virginia Beach",
@@ -2558,7 +3073,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:20.238Z",
-	"updated_at": "2016-12-06T16:39:20.238Z"
+	"updated_at": "2016-12-06T16:39:20.238Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 139,
 	"marketing_name": "Maple Bay Townhomes",
@@ -2583,7 +3103,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:20.434Z",
-	"updated_at": "2016-12-06T16:39:20.434Z"
+	"updated_at": "2016-12-06T16:39:20.434Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 140,
 	"marketing_name": "Bayberry Hill Estates Apartments",
@@ -2608,7 +3133,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:20.498Z",
-	"updated_at": "2016-12-06T16:39:20.498Z"
+	"updated_at": "2016-12-06T16:39:20.498Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 141,
 	"marketing_name": "Rosewood Apartments",
@@ -2633,7 +3163,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:20.637Z",
-	"updated_at": "2016-12-06T16:39:20.637Z"
+	"updated_at": "2016-12-06T16:39:20.637Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 142,
 	"marketing_name": "Key Towers Apartments",
@@ -2658,7 +3193,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:20.715Z",
-	"updated_at": "2016-12-06T16:39:20.715Z"
+	"updated_at": "2016-12-06T16:39:20.715Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 143,
 	"marketing_name": "Waverly Apartments",
@@ -2683,11 +3223,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:20.897Z",
-	"updated_at": "2016-12-06T16:39:20.897Z"
+	"updated_at": "2016-12-06T16:39:20.897Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 144,
 	"marketing_name": "City Line Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=71\u0026city=7635",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=71&city=7635",
 	"description": "City Line Apartments offer 1  and 2 bedroom apartments with fully equipped kitchens, central air, assigned parking, 24 hour maintenance, on site laundry, Section 8 housing, and much more!  Call us for availability today!",
 	"contact_email": "041838@aimco.com",
 	"contact_phone": null,
@@ -2705,7 +3250,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:20.985Z",
-	"updated_at": "2016-12-06T16:39:20.985Z"
+	"updated_at": "2016-12-06T16:39:20.985Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 145,
 	"marketing_name": "Preserve at Marin Apartment Homes",
@@ -2730,7 +3280,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:21.110Z",
-	"updated_at": "2016-12-06T16:39:21.110Z"
+	"updated_at": "2016-12-06T16:39:21.110Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 146,
 	"marketing_name": "Evanston Place Apartments",
@@ -2755,7 +3310,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:21.235Z",
-	"updated_at": "2016-12-06T16:39:21.235Z"
+	"updated_at": "2016-12-06T16:39:21.235Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 147,
 	"marketing_name": "Aimco Apartments - Upper West Side",
@@ -2780,11 +3340,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:21.592Z",
-	"updated_at": "2016-12-06T16:39:21.592Z"
+	"updated_at": "2016-12-06T16:39:21.592Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 166,
 	"marketing_name": "Copperwood - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=66\u0026city=8235",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=66&city=8235",
 	"description": "Copperwood Apartments is a pet friendly community for Seniors 62 or better, as well as handicapped or disabled individuals 18 or older.  Our community includes select utilities in rent, Section 8 housing, on site laundry, 24 hour maintenance, and more!   Waitlist closing effective July 1, 2015",
 	"contact_email": "042934@aimco.com",
 	"contact_phone": null,
@@ -2802,7 +3367,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:24.560Z",
-	"updated_at": "2016-12-06T16:39:24.560Z"
+	"updated_at": "2016-12-06T16:39:24.560Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 148,
 	"marketing_name": "Ravensworth Towers",
@@ -2827,7 +3397,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:21.705Z",
-	"updated_at": "2016-12-06T16:39:21.705Z"
+	"updated_at": "2016-12-06T16:39:21.705Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 149,
 	"marketing_name": "Lodge on the Chattahoochee",
@@ -2852,7 +3427,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:21.856Z",
-	"updated_at": "2016-12-06T16:39:21.856Z"
+	"updated_at": "2016-12-06T16:39:21.856Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 150,
 	"marketing_name": "Hunters Glen Apartments",
@@ -2877,11 +3457,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:21.971Z",
-	"updated_at": "2016-12-06T16:39:21.971Z"
+	"updated_at": "2016-12-06T16:39:21.971Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 151,
 	"marketing_name": "Loring Towers Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=43\u0026city=8182",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=43&city=8182",
 	"description": "Loring Towers Apartments include all utilities in rent and a great location near public transportation.  We also offer Section 8 housing, a community room and barbecue area, storage units, and on site laundry.",
 	"contact_email": "042522@aimco.com",
 	"contact_phone": null,
@@ -2899,7 +3484,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:22.046Z",
-	"updated_at": "2016-12-06T16:39:22.046Z"
+	"updated_at": "2016-12-06T16:39:22.046Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 152,
 	"marketing_name": "Biltmore Towers - A Senior Community",
@@ -2921,11 +3511,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:22.112Z",
-	"updated_at": "2016-12-06T16:39:22.112Z"
+	"updated_at": "2016-12-06T16:39:22.112Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 153,
 	"marketing_name": "Northpoint Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=32\u0026city=7600",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=32&city=7600",
 	"description": "Northpoint Apartments features 1 4 bedroom apartments in Chicago, IL.  Our community offers Section 8 housing, a great location near the community center, on site laundry, assigned parking, and a computer lab.  Call us for availability today!",
 	"contact_email": "042562@aimco.com",
 	"contact_phone": null,
@@ -2943,11 +3538,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:22.166Z",
-	"updated_at": "2016-12-06T16:39:22.166Z"
+	"updated_at": "2016-12-06T16:39:22.166Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 154,
 	"marketing_name": "Country Club Heights Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=32\u0026city=8213",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=32&city=8213",
 	"description": "Country Club Heights Apartments offer apartments and townhomes in a convenient location.  Our community features utilities included in rent, on site laundry, 24 hour maintenance, a swimming pool, a playground, and Section 8 housing.  Call us today for availability!",
 	"contact_email": "042563@aimco.com",
 	"contact_phone": null,
@@ -2965,11 +3565,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:22.315Z",
-	"updated_at": "2016-12-06T16:39:22.315Z"
+	"updated_at": "2016-12-06T16:39:22.315Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 155,
 	"marketing_name": "Winter Garden - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=45\u0026city=8192",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=45&city=8192",
 	"description": "Winter Garden features pet friendly 1  and 2 bedroom apartments for Seniors 62 or better, as well as individuals that are handicapped or disabled.  Our gated community offers assigned parking, resident activities, select utilities included in rent, nearby public transportation, 24 hour maintenance, and much more!  Call us today for availability!",
 	"contact_email": "042579@aimco.com",
 	"contact_phone": null,
@@ -2987,11 +3592,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:22.465Z",
-	"updated_at": "2016-12-06T16:39:22.465Z"
+	"updated_at": "2016-12-06T16:39:22.465Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 156,
 	"marketing_name": "The Parkways Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=32\u0026city=7586",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=32&city=7586",
 	"description": "The Parkways Apartments are found on a park like area just minutes from Lake Michigan.  Our community offers 24 hour maintenance, on site laundry, a computer lab, and an after school program for our residents.  Call us today for availability!",
 	"contact_email": "042593@aimco.com",
 	"contact_phone": null,
@@ -3009,11 +3619,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:22.577Z",
-	"updated_at": "2016-12-06T16:39:22.577Z"
+	"updated_at": "2016-12-06T16:39:22.577Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 157,
 	"marketing_name": "Arvada House",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=22\u0026city=8212",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=22&city=8212",
 	"description": "Arvada House in Arvada, Colorado offers pet friendly 1 bedroom apartments for Seniors 62 and better, as well as handicapped or disabled individuals.  All utilities are included in rent and our community features Section 8 housing, a gazebo with a barbecue grill, a fenced in dog run, on site laundry, and a library on site.",
 	"contact_email": "042617@aimco.com",
 	"contact_phone": null,
@@ -3031,11 +3646,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:23.051Z",
-	"updated_at": "2016-12-06T16:39:23.051Z"
+	"updated_at": "2016-12-06T16:39:23.051Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 168,
 	"marketing_name": "Van Nuys - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=21\u0026city=8186",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=21&city=8186",
 	"description": "Van Nuys is a pet friendly community offering studio, 1  and 2 bedroom apartments for Seniors 62 and better, as well as handicapped or disabled individuals.  Our community is near several senior centers and includes 24 hour maintenance, a recreation room, on site laundry, fully equipped kitchens in the units and more!  Call us today for availability!",
 	"contact_email": "043166@aimco.com",
 	"contact_phone": null,
@@ -3053,7 +3673,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:24.778Z",
-	"updated_at": "2016-12-06T16:39:24.778Z"
+	"updated_at": "2016-12-06T16:39:24.778Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 169,
 	"marketing_name": "Loring Towers Apartments",
@@ -3075,11 +3700,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:24.900Z",
-	"updated_at": "2016-12-06T16:39:24.900Z"
+	"updated_at": "2016-12-06T16:39:24.900Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 170,
 	"marketing_name": "New Baltimore - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=42\u0026city=7608",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=42&city=7608",
 	"description": "New Baltimore is a pet friendly community for Seniors aged 62 or better, as well as handicapped or disabled individuals.  Our community hosts resident activities, a library, a computer lab, a movie room, Section 8 housing, and more!  Call today for availability!",
 	"contact_email": "042987@aimco.com",
 	"contact_phone": null,
@@ -3097,11 +3727,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:25.098Z",
-	"updated_at": "2016-12-06T16:39:25.098Z"
+	"updated_at": "2016-12-06T16:39:25.098Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 171,
 	"marketing_name": "All Hallows Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=21\u0026city=8170",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=21&city=8170",
 	"description": "All Hallows Apartments offer apartments and townhomes in San Francisco near public transportation, shopping, and schools.  Our community features Section 8 housing, a computer lab, on site laundry, a playground, and on site maintenance.  Call us for availability today!",
 	"contact_email": "042988@aimco.com",
 	"contact_phone": null,
@@ -3119,11 +3754,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:25.238Z",
-	"updated_at": "2016-12-06T16:39:25.238Z"
+	"updated_at": "2016-12-06T16:39:25.238Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 172,
 	"marketing_name": "La Salle Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=21\u0026city=8170",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=21&city=8170",
 	"description": "La Salle Apartments offer apartments and townhomes near Candlestick Park in San Francisco.  Our community features Section 8 housing, on site laundry, a computer learning center, and more!  Call us today for availability!",
 	"contact_email": "042990@aimco.com",
 	"contact_phone": null,
@@ -3141,11 +3781,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:25.574Z",
-	"updated_at": "2016-12-06T16:39:25.574Z"
+	"updated_at": "2016-12-06T16:39:25.574Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 173,
 	"marketing_name": "Shoreview Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=21\u0026city=8170",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=21&city=8170",
 	"description": "Shoreview Apartments offer 1 4 bedroom apartments and townhomes with great views of San Francisco.  Our community provides Section 8 housing, garages in some units, a computer center, on site laundry, an after school program, and a community outreach center.  Call us today for availability!",
 	"contact_email": "042991@aimco.com",
 	"contact_phone": null,
@@ -3163,7 +3808,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:25.823Z",
-	"updated_at": "2016-12-06T16:39:25.823Z"
+	"updated_at": "2016-12-06T16:39:25.823Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 174,
 	"marketing_name": "San Juan del Centro Apartments",
@@ -3185,11 +3835,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:25.999Z",
-	"updated_at": "2016-12-06T16:39:25.999Z"
+	"updated_at": "2016-12-06T16:39:25.999Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 175,
 	"marketing_name": "Carriage House - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=71\u0026city=8224",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=71&city=8224",
 	"description": "Carriage House features 1  and 2 bedroom apartments for Seniors aged 62 or better, as well as handicapped or disabled individuals.  We are located near public transportation and shopping, and our community offers Section 8 housing, on site laundry, resident activities, a Resident Council, 24 hour maintenance, and more!  Call us for availability today!",
 	"contact_email": "043062@aimco.com",
 	"contact_phone": null,
@@ -3207,11 +3862,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:26.240Z",
-	"updated_at": "2016-12-06T16:39:26.240Z"
+	"updated_at": "2016-12-06T16:39:26.240Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 176,
 	"marketing_name": "Fountain Place - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=33\u0026city=8180",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=33&city=8180",
 	"description": "Fountain Place Apartments is a pet friendly Senior community for those 55  as well as handicapped or disabled individuals.  Our community includes many utilities in rent, secured entry, an on site beauty salon, on site laundry, free monthly health screenings, and much more.  Call us for availability today!",
 	"contact_email": "043138@aimco.com",
 	"contact_phone": null,
@@ -3229,11 +3889,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:26.485Z",
-	"updated_at": "2016-12-06T16:39:26.485Z"
+	"updated_at": "2016-12-06T16:39:26.485Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 177,
 	"marketing_name": "Riverwoods - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=32\u0026city=8179",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=32&city=8179",
 	"description": "Riverwoods is a pet friendly community for Seniors 62  as well as handicapped or disabled individuals.  Our community includes select utilities in rent, resident activities, Section 8 housing, 24 hour maintenance, on site laundry, a picnic area, and more.  Call us today for availability!",
 	"contact_email": "043142@aimco.com",
 	"contact_phone": null,
@@ -3251,7 +3916,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:26.757Z",
-	"updated_at": "2016-12-06T16:39:26.757Z"
+	"updated_at": "2016-12-06T16:39:26.757Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 178,
 	"marketing_name": "Tompkins Terrace Apartments",
@@ -3273,11 +3943,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:26.839Z",
-	"updated_at": "2016-12-06T16:39:26.839Z"
+	"updated_at": "2016-12-06T16:39:26.839Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 179,
 	"marketing_name": "La Vista Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=21\u0026city=8177",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=21&city=8177",
 	"description": "La Vista Apartments offer apartments and townhomes in Concord, CA.  Select utilities are included in rent, on site laundry facilities, 24 hour maintenance, ample parking, Section 8 housing, and more!  Call us today for availability!",
 	"contact_email": "043150@aimco.com",
 	"contact_phone": null,
@@ -3295,11 +3970,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:27.143Z",
-	"updated_at": "2016-12-06T16:39:27.143Z"
+	"updated_at": "2016-12-06T16:39:27.143Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 180,
 	"marketing_name": "Butternut Creek Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=42\u0026city=8176",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=42&city=8176",
 	"description": "Butternut Creek Apartments offer newly renovated apartments and townhomes in Charlotte, MI.  Our community features Section 8 housing, free internet, washer/dryer hookups in the townhomes, on site laundry, and a great location near public transportation.  Call us today for availability!",
 	"contact_email": "043165@aimco.com",
 	"contact_phone": null,
@@ -3317,11 +3997,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:27.244Z",
-	"updated_at": "2016-12-06T16:39:27.244Z"
+	"updated_at": "2016-12-06T16:39:27.244Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 181,
 	"marketing_name": "Panorama Park Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=21\u0026city=8175",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=21&city=8175",
 	"description": "Panorama Park Apartments in Bakersfield, CA offer 2  and 3 bedroom apartments in a gated community.  We feature a community room, a computer room, on site laundry, free WiFi, and much more.  Call us today for availability!",
 	"contact_email": "043178@aimco.com",
 	"contact_phone": null,
@@ -3339,11 +4024,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:27.476Z",
-	"updated_at": "2016-12-06T16:39:27.476Z"
+	"updated_at": "2016-12-06T16:39:27.476Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 183,
 	"marketing_name": "Walnut Hills - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=56\u0026city=8173",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=56&city=8173",
 	"description": "Walnut Hills is a pet friendly community for those aged 62 or better, as well as handicapped or disabled individuals.  Our community is in a great location and offers amenities including fully equipped kitchens, a theater room, arts and crafts activities, a courtesy patrol, on site laundry, and water included in rent.  Call today for availability!",
 	"contact_email": "043199@aimco.com",
 	"contact_phone": null,
@@ -3361,11 +4051,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:27.865Z",
-	"updated_at": "2016-12-06T16:39:27.865Z"
+	"updated_at": "2016-12-06T16:39:27.865Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 184,
 	"marketing_name": "Beacon Hill Townhomes",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=42\u0026city=8172",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=42&city=8172",
 	"description": "Beacon Hill Townhomes in Hillsdale, MI feature a playground, clubhouse, free wi fi and a student tutoring program.  Homes feature central air, dishwasher, washer/dryer hookups and fully equipped kitchens.",
 	"contact_email": "043212@aimco.com",
 	"contact_phone": null,
@@ -3383,11 +4078,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:28.052Z",
-	"updated_at": "2016-12-06T16:39:28.052Z"
+	"updated_at": "2016-12-06T16:39:28.052Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 185,
 	"marketing_name": "Hopkins Village Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=40\u0026city=7575",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=40&city=7575",
 	"description": "Hopkins Village, a senior community, features on site laundry, monthly activities and a community room.  Pet friendly, close to shopping, dining and public transportation.",
 	"contact_email": "043217@aimco.com",
 	"contact_phone": null,
@@ -3405,11 +4105,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:28.324Z",
-	"updated_at": "2016-12-06T16:39:28.324Z"
+	"updated_at": "2016-12-06T16:39:28.324Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 186,
 	"marketing_name": "Kirkwood House Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=40\u0026city=7575",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=40&city=7575",
 	"description": "Kirkwood House, a senior community, is located in Baltimore, MD with controlled access entry, energy efficient windows, assigned parking and patio and picnic areas.",
 	"contact_email": "043220@aimco.com",
 	"contact_phone": null,
@@ -3427,11 +4132,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:28.690Z",
-	"updated_at": "2016-12-06T16:39:28.690Z"
+	"updated_at": "2016-12-06T16:39:28.690Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 187,
 	"marketing_name": "Ingram Square Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=66\u0026city=8171",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=66&city=8171",
 	"description": "No application fee. Water, sewer   trash included in rent. Conveniently located near shopping. One block from Via bus line stop.",
 	"contact_email": "043222@aimco.com",
 	"contact_phone": null,
@@ -3449,7 +4159,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:28.928Z",
-	"updated_at": "2016-12-06T16:39:28.928Z"
+	"updated_at": "2016-12-06T16:39:28.928Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 188,
 	"marketing_name": "The Milan Apartments",
@@ -3474,7 +4189,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:29.343Z",
-	"updated_at": "2016-12-06T16:39:29.343Z"
+	"updated_at": "2016-12-06T16:39:29.343Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 189,
 	"marketing_name": "Broadway Lofts",
@@ -3499,7 +4219,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:29.617Z",
-	"updated_at": "2016-12-06T16:39:29.617Z"
+	"updated_at": "2016-12-06T16:39:29.617Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 190,
 	"marketing_name": "Ocean House on Prospect Apartment Homes",
@@ -3524,7 +4249,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:30.198Z",
-	"updated_at": "2016-12-06T16:39:30.198Z"
+	"updated_at": "2016-12-06T16:39:30.198Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 191,
 	"marketing_name": "1045 on the Park Apartment Homes",
@@ -3549,7 +4279,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:30.333Z",
-	"updated_at": "2016-12-06T16:39:30.333Z"
+	"updated_at": "2016-12-06T16:39:30.333Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 192,
 	"marketing_name": "Charlesbank Apartment Homes",
@@ -3574,7 +4309,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:30.405Z",
-	"updated_at": "2016-12-06T16:39:30.405Z"
+	"updated_at": "2016-12-06T16:39:30.405Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 193,
 	"marketing_name": "One Canal Apartment Homes",
@@ -3599,7 +4339,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:30.599Z",
-	"updated_at": "2016-12-06T16:39:30.599Z"
+	"updated_at": "2016-12-06T16:39:30.599Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 194,
 	"marketing_name": "Tremont Apartment Homes",
@@ -3624,7 +4369,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:30.953Z",
-	"updated_at": "2016-12-06T16:39:30.953Z"
+	"updated_at": "2016-12-06T16:39:30.953Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 195,
 	"marketing_name": "Saybrook Pointe Apartment Homes",
@@ -3649,7 +4399,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:31.347Z",
-	"updated_at": "2016-12-06T16:39:31.347Z"
+	"updated_at": "2016-12-06T16:39:31.347Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 196,
 	"marketing_name": "Eastpointe Apartment Homes",
@@ -3674,7 +4429,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:31.514Z",
-	"updated_at": "2016-12-06T16:39:31.514Z"
+	"updated_at": "2016-12-06T16:39:31.514Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 197,
 	"marketing_name": "Park Towne Place Premier Apt Homes",
@@ -3699,7 +4459,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:31.743Z",
-	"updated_at": "2016-12-06T16:39:31.743Z"
+	"updated_at": "2016-12-06T16:39:31.743Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 198,
 	"marketing_name": "Axiom Apartment Homes",
@@ -3724,7 +4489,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:32.345Z",
-	"updated_at": "2016-12-06T16:39:32.345Z"
+	"updated_at": "2016-12-06T16:39:32.345Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 199,
 	"marketing_name": "Mezzo Apartment Homes",
@@ -3749,7 +4519,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:32.583Z",
-	"updated_at": "2016-12-06T16:39:32.583Z"
+	"updated_at": "2016-12-06T16:39:32.583Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 200,
 	"marketing_name": "Vivo Apartment Homes",
@@ -3774,7 +4549,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:32.855Z",
-	"updated_at": "2016-12-06T16:39:32.855Z"
+	"updated_at": "2016-12-06T16:39:32.855Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 201,
 	"marketing_name": "Indigo Apartment Homes",
@@ -3799,11 +4579,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:33.157Z",
-	"updated_at": "2016-12-06T16:39:33.157Z"
+	"updated_at": "2016-12-06T16:39:33.157Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 202,
 	"marketing_name": "San Jose Apartments",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=66\u0026city=8171",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=66&city=8171",
 	"description": "San Jose Apartments in San Antonio, TX offer 1 3 bedroom cable/internet ready apartments with fully equipped kitchens and ceiling fans.  Our community features Section 8 housing, 24 hour maintenance, on site laundry, barbecue and picnic areas, and more!  Call for availability today!",
 	"contact_email": "043063@aimco.com",
 	"contact_phone": null,
@@ -3821,11 +4606,16 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:33.544Z",
-	"updated_at": "2016-12-06T16:39:33.544Z"
+	"updated_at": "2016-12-06T16:39:33.544Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 203,
 	"marketing_name": "Round Barn Manor - A Senior Community",
-	"website": "http://www.aimco.com/apartments/subsidized/search?state=32\u0026city=8181",
+	"website": "http://www.aimco.com/apartments/subsidized/search?state=32&city=8181",
 	"description": "Round Barn Manor is a pet friendly community for Seniors aged 62  as well as handicapped or disabled individuals.  Our community offers select utilities included in rent, a great location near public transportation, on site laundry, a resident garden, elevators, and much more!  Call today for availability!",
 	"contact_email": "043117@aimco.com",
 	"contact_phone": null,
@@ -3843,7 +4633,12 @@
 	},
 	"feed_id": 9,
 	"created_at": "2016-12-06T16:39:33.785Z",
-	"updated_at": "2016-12-06T16:39:33.785Z"
+	"updated_at": "2016-12-06T16:39:33.785Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 204,
 	"marketing_name": "Hilltop Village Apartments",
@@ -3862,7 +4657,12 @@
 	"amenities": null,
 	"feed_id": 10,
 	"created_at": "2016-12-06T16:39:33.924Z",
-	"updated_at": "2016-12-06T16:39:33.924Z"
+	"updated_at": "2016-12-06T16:39:33.924Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 205,
 	"marketing_name": "Sierra Vista I Apartments",
@@ -3881,7 +4681,12 @@
 	"amenities": null,
 	"feed_id": 10,
 	"created_at": "2016-12-06T16:39:33.989Z",
-	"updated_at": "2016-12-06T16:39:33.989Z"
+	"updated_at": "2016-12-06T16:39:33.989Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 206,
 	"marketing_name": "Sierra Vista II Apartments",
@@ -3900,7 +4705,12 @@
 	"amenities": null,
 	"feed_id": 10,
 	"created_at": "2016-12-06T16:39:34.100Z",
-	"updated_at": "2016-12-06T16:39:34.100Z"
+	"updated_at": "2016-12-06T16:39:34.100Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 207,
 	"marketing_name": "Sierra Park Apartments",
@@ -3919,7 +4729,12 @@
 	"amenities": null,
 	"feed_id": 10,
 	"created_at": "2016-12-06T16:39:34.315Z",
-	"updated_at": "2016-12-06T16:39:34.315Z"
+	"updated_at": "2016-12-06T16:39:34.315Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 208,
 	"marketing_name": "Parkside Apartments",
@@ -3938,7 +4753,12 @@
 	"amenities": null,
 	"feed_id": 10,
 	"created_at": "2016-12-06T16:39:34.447Z",
-	"updated_at": "2016-12-06T16:39:34.447Z"
+	"updated_at": "2016-12-06T16:39:34.447Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 209,
 	"marketing_name": "Country Place",
@@ -3957,7 +4777,12 @@
 	"amenities": null,
 	"feed_id": 10,
 	"created_at": "2016-12-06T16:39:34.603Z",
-	"updated_at": "2016-12-06T16:39:34.603Z"
+	"updated_at": "2016-12-06T16:39:34.603Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 210,
 	"marketing_name": "The Park on Whitehurst Apartments",
@@ -3976,7 +4801,12 @@
 	"amenities": null,
 	"feed_id": 10,
 	"created_at": "2016-12-06T16:39:34.695Z",
-	"updated_at": "2016-12-06T16:39:34.695Z"
+	"updated_at": "2016-12-06T16:39:34.695Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 217,
 	"marketing_name": "Country Place II",
@@ -3995,7 +4825,12 @@
 	"amenities": null,
 	"feed_id": 10,
 	"created_at": "2016-12-06T16:39:35.884Z",
-	"updated_at": "2016-12-06T16:39:35.884Z"
+	"updated_at": "2016-12-06T16:39:35.884Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }, {
 	"id": 218,
 	"marketing_name": "Dakota Ranch Apartments",
@@ -4014,5 +4849,10 @@
 	"amenities": null,
 	"feed_id": 10,
 	"created_at": "2016-12-06T16:39:36.108Z",
-	"updated_at": "2016-12-06T16:39:36.108Z"
+	"updated_at": "2016-12-06T16:39:36.108Z",
+	"map": {
+		"feature": {
+			"marker-symbol": "castle"
+		}
+	}
 }]

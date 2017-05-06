@@ -12,6 +12,7 @@ class Listing extends React.Component {
     const { places, currentPlace } = this.props
     this._scrollToIndex = this._findIndex()
 
+    // console.info(places)
     console.info(places.length + ' places')
     console.info(this._scrollToIndex)
 
@@ -28,6 +29,8 @@ class Listing extends React.Component {
           Otherwise, some list elements will end up being hidden at the bottom.
           ## rowHeight
           - Match it with the ListingItem component's height.
+          ## scrollToIndex
+          - An array index of the item we want to scroll to, or -1.
         */}
         <AutoSizer disableHeight>
           {
