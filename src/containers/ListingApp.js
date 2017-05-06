@@ -77,9 +77,6 @@ class ListingApp extends React.Component {
     this.emitter.addListener('MARKER_HOVERED', payload => {
       console.log(`MARKER_HOVERED`)
       // noop
-      _.debounce(() => {
-      }, 250)
-
     })
 
     this.emitter.addListener('MAP_ZOOM_CHANGED', payload => {
@@ -120,6 +117,4 @@ function mapStateToProps(store) {
   }
 }
 
-const mapDispatchToProps = null
-
-export default connect( mapStateToProps, mapDispatchToProps )( ListingApp )
+export default connect( mapStateToProps, null )( ListingApp )

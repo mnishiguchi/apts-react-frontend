@@ -1,5 +1,4 @@
 const actions = {
-
   update: ({bounds, center, zoom}) => {
     return dispatch => {
       dispatch({

@@ -1,6 +1,5 @@
 // import api from '../lib/requestsManager'
-
-import places from '../places_1.json'
+import places from '../data/places_1.json'
 
 const actions = {
   setCurrentPlace: (place) => {

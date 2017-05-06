@@ -9,6 +9,8 @@ import ReactMapboxGl, {
 } from "react-mapbox-gl"
 import _ from 'lodash'
 
+import universities from '../data/universities.json'
+
 // Stored in .env file
 const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
 
@@ -16,7 +18,7 @@ const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
  * A map component powered by alex3165/react-mapbox-gl
  * https://github.com/alex3165/react-mapbox-gl
  */
-class MapComponent extends React.Component {
+class MapComponent extends React.PureComponent {
   static propTypes = {
     bounds:       PropTypes.array.isRequired,
     center:       PropTypes.array.isRequired,
@@ -32,6 +34,8 @@ class MapComponent extends React.Component {
       currentPlace,
     } = this.props
 
+    // console.info(universities)
+
     return (
       <ReactMapboxGl
         accessToken={accessToken}
@@ -45,11 +49,35 @@ class MapComponent extends React.Component {
         <ScaleControl/>
         <ZoomControl/>
 
-        {/* https://www.mapbox.com/mapbox-gl-style-spec/#layout-symbol-icon-image */}
+        {/*
+          University marker layer
+        */}
         <Layer
-          type="symbol"
-          id="marker"
+          type="symbol" id="university"
           layout={{
+            "icon-image": "school-11"
+          }}
+        >
+          {
+            universities.map((university, index) => (
+              <Feature
+                key={index}
+                coordinates={[ university.longitude, university.latitude ]}
+                onHover={map => this._handleUniversityHover(map, university)}
+              />
+            ))
+          }
+        </Layer>
+
+        {/*
+          Apartment marker layer
+          https://www.mapbox.com/mapbox-gl-style-spec/#layout-symbol-icon-image
+        */}
+        <Layer
+          type="symbol" id="marker"
+          layout={{
+            // We can specify a symbol here for each marker.
+            // Available icons: https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites/basic-v8/_svg
             "icon-image": "{marker-symbol}-15"
           }}
         >
@@ -61,8 +89,7 @@ class MapComponent extends React.Component {
                 onClick={map => this._handleMarkerClick(map, place)}
                 onHover={map => this._handleMarkerHover(map, place)}
                 properties={{
-                  // We can specify a symbol here for each marker.
-                  // Available icons: https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites/basic-v8/_svg
+                  // Used to dynamically determine marker-symbol
                   'marker-symbol': place.map.feature['marker-symbol'],
                 }}
               />
@@ -71,6 +98,7 @@ class MapComponent extends React.Component {
         </Layer>
 
         {
+          // Popups for apartments
           // https://www.mapbox.com/mapbox-gl-js/api/#Popup
           currentPlace && (
             <Popup
@@ -98,25 +126,24 @@ class MapComponent extends React.Component {
   }
 
   _handleMapMove(map) {
-    const payload = this._getMapData(map)
-    this.props.emitter.emit( 'MAP_MOVED', payload )
+    this.props.emitter.emit('MAP_MOVED', this._getMapData(map))
   }
 
   _handleMapZoomChange(map) {
-    const payload = this._getMapData(map)
-    this.props.emitter.emit( 'MAP_ZOOM_CHANGED', payload )
+    this.props.emitter.emit('MAP_ZOOM_CHANGED', this._getMapData(map))
   }
 
   _handleMarkerClick(map, place) {
-    const payload = { place: place }
-    this.props.emitter.emit( 'MARKER_CLICKED', payload )
+    this.props.emitter.emit('MARKER_CLICKED', { place })
   }
 
   _handleMarkerHover(map, place) {
-    const payload = { place: place }
-    this.props.emitter.emit( 'MARKER_HOVERED', payload )
+    this.props.emitter.emit('MARKER_HOVERED', { place })
   }
 
+  _handleUniversityHover(map, university) {
+    console.info('university hovered')
+  }
 } // end class
 
 export default MapComponent
