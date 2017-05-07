@@ -9,34 +9,36 @@ import universities from '../data/universities.json'
 const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
 
 /**
- * A map component powered by alex3165/react-mapbox-gl
+ * A reusable map component powered by alex3165/react-mapbox-gl
  * https://github.com/alex3165/react-mapbox-gl
  */
 class MapComponent extends React.PureComponent {
   render() {
     const {
       center,
-      zoom,
-      places,
+      containerStyle,
       currentPlace,
-      onMapZoom,
-      onMapMoveEnd,
-      onMarkerClick,
-      onMarkerHover,
+      places,
+      zoom,
     } = this.props
 
-    // console.info(universities)
+    const onMapMoveEnd  = this.props.onMapMoveEnd  || (() => {})
+    const onMapZoom     = this.props.onMapZoom     || (() => {})
+    const onMarkerClick = this.props.onMarkerClick || (() => {})
+    const onMarkerHover = this.props.onMarkerHover || (() => {})
+    const onStyleLoad   = this.props.onStyleLoad   || (() => {})
 
+    // TODO: How to add cluster?
     return (
       <ReactMapboxGl
         accessToken={accessToken}
         style="mapbox://styles/mapbox/streets-v8"
-        containerStyle={{ width: '100%', height: '90vh' }}
+        containerStyle={{ width: '100%', height: '90vh', ...containerStyle }}
         center={center}
         zoom={[zoom]}
         onZoom={onMapZoom}
         onMoveEnd={onMapMoveEnd}
-        onStyleLoad={this._onStyleLoad.bind(this)}
+        onStyleLoad={onStyleLoad}
       >
 
         {/*
@@ -77,7 +79,7 @@ class MapComponent extends React.PureComponent {
           }}
         >
           {
-            places.map((place, index) => (
+            places && places.map((place, index) => (
               <Feature
                 key={place.id}
                 coordinates={[ place.longitude, place.latitude ]}
@@ -95,11 +97,11 @@ class MapComponent extends React.PureComponent {
         {
           // Popups for apartments
           // https://www.mapbox.com/mapbox-gl-js/api/#Popup
-          currentPlace && (
+          !!(currentPlace) && (
             <Popup
               key={currentPlace.id}
               coordinates={[ currentPlace.longitude, currentPlace.latitude ]}
-              offset={[20, -50]}
+              offset={[ 20, -50 ]}
             >
               <div>
                 <h4>{currentPlace.marketing_name}</h4>
@@ -111,66 +113,18 @@ class MapComponent extends React.PureComponent {
       </ReactMapboxGl>
     )
   }
-
-  _getMapData(map) {
-    return {
-      bounds: map.getBounds().toArray(),
-      center: [map.getCenter().lng, map.getCenter().lat],
-      zoom:   map.getZoom(),
-    }
-  }
-
-  // https://github.com/alex3165/react-mapbox-gl/blob/master/docs/API.md#reactmapboxgl
-  _onStyleLoad(map, event) {
-    // Store ref to the map instance so that we can use original mapbox-gl API through window.
-    window.map       = map
-    window.mapCanvas = document.querySelector('.mapboxgl-canvas')
-    window.mapDiv    = document.querySelector('.mapboxgl-map')
-
-    // Define a utility to resize the map so that we can dynamically resize the map.
-    window.resizeMap = function({width, height}) {
-      if (width && height) {
-        setMapWidth(width)
-        setMapHeight(height)
-        window.map.resize()
-      } else if (width) {
-        setMapWidth(width)
-        window.map.resize()
-      } else {
-        setMapHeight(height)
-        window.map.resize()
-      }
-    }
-
-    fitMap()
-
-    window.addEventListener('resize', () => {
-      fitMap()
-    })
-
-    // Fit the map in the viewport.
-    function fitMap() {
-      const navbarHeight = 50
-      window.resizeMap({ height: (window.innerHeight - navbarHeight) + 'px' })
-    }
-
-    function setMapWidth(width) {
-      window.mapCanvas.style.width = width
-      window.mapDiv.style.width    = width
-    }
-
-    function setMapHeight(height) {
-      window.mapCanvas.style.height = height
-      window.mapDiv.style.height    = height
-    }
-  }
 } // end class
 
 MapComponent.propTypes = {
-  bounds:       PropTypes.array,
-  center:       PropTypes.array,
-  zoom:         PropTypes.number,
-  currentPlace: PropTypes.object,
+  bounds:        PropTypes.array,
+  center:        PropTypes.array,
+  currentPlace:  PropTypes.object,
+  onMapZoom:     PropTypes.func,
+  onMapMoveEnd:  PropTypes.func,
+  onMarkerClick: PropTypes.func,
+  onMarkerHover: PropTypes.func,
+  onStyleLoad:   PropTypes.func,
+  zoom:          PropTypes.number,
 }
 
 export default MapComponent

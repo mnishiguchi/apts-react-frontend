@@ -12,8 +12,6 @@ class Listing extends React.Component {
     const {
       places,
       currentPlace,
-      onListingItemHover,
-      onListingItemMouseLeave,
     } = this.props
     const navbarHeight = 50
 
@@ -73,6 +71,7 @@ class Listing extends React.Component {
   _rowRenderer({ index, key, style }) {
     const {
       places,
+      onListingItemClick,
       onListingItemHover,
       onListingItemMouseLeave,
     } = this.props
@@ -82,6 +81,7 @@ class Listing extends React.Component {
         <ListingItem
           onMouseOver={onListingItemHover}
           onMouseLeave={onListingItemMouseLeave}
+          onClick={onListingItemClick}
           place={places[index]}
           active={index === this._scrollToIndex}
           index={index}
