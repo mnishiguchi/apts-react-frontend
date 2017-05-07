@@ -4,12 +4,14 @@ import PropTypes from 'prop-types'
 /**
  * A list item for Listing component.
  */
-const ListingItem = ({ place, emitter, active, index }) => {
+const ListingItem = (props) => {
+  const { place, onMouseOver, onMouseLeave, active, index } = props
+
   return (
     <div
       className="ListingItem"
-      onMouseOver={onMouseOver}
-      onMouseLeave={onMouseLeave}
+      onMouseOver={e => onMouseOver(place)}
+      onMouseLeave={e => onMouseLeave(place)}
       style={{
         borderBottom: '1px solid #999',
         padding: '1rem 1rem',
@@ -30,19 +32,14 @@ const ListingItem = ({ place, emitter, active, index }) => {
       </div>
     </div>
   )
-
-  function onMouseOver(event) {
-    emitter.emit('LISTING_ITEM_HOVERED', { place })
-  }
-
-  function onMouseLeave(event) {
-    emitter.emit('LISTING_ITEM_MOUSE_LEAVE', { place })
-  }
 }
 
 ListingItem.propTypes = {
-  place:   PropTypes.any.isRequired,
-  emitter: PropTypes.object.isRequired,
+  active:       PropTypes.any,
+  index:        PropTypes.any,
+  onMouseLeave: PropTypes.func,
+  onMouseOver:  PropTypes.func,
+  place:        PropTypes.any,
 }
 
 export default ListingItem

@@ -13,19 +13,16 @@ const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
  * https://github.com/alex3165/react-mapbox-gl
  */
 class MapComponent extends React.PureComponent {
-  static propTypes = {
-    bounds:       PropTypes.array.isRequired,
-    center:       PropTypes.array.isRequired,
-    zoom:         PropTypes.number.isRequired,
-    currentPlace: PropTypes.object,
-  }
-
   render() {
     const {
       center,
       zoom,
       places,
       currentPlace,
+      onMapZoom,
+      onMapMoveEnd,
+      onMarkerClick,
+      onMarkerHover,
     } = this.props
 
     // console.info(universities)
@@ -37,8 +34,8 @@ class MapComponent extends React.PureComponent {
         containerStyle={{ width: '100%', height: '90vh' }}
         center={center}
         zoom={[zoom]}
-        onZoom={this._onZoom.bind(this)}
-        onMoveEnd={this._onMoveEnd.bind(this)}
+        onZoom={onMapZoom}
+        onMoveEnd={onMapMoveEnd}
         onStyleLoad={this._onStyleLoad.bind(this)}
       >
 
@@ -55,16 +52,13 @@ class MapComponent extends React.PureComponent {
         */}
         <Layer
           type="symbol" id="university"
-          layout={{
-            "icon-image": "school-11"
-          }}
+          layout={{ "icon-image": "school-11" }}
         >
           {
             universities.map((university, index) => (
               <Feature
                 key={index}
                 coordinates={[ university.longitude, university.latitude ]}
-                onHover={this._onUniversityHover.bind(this)}
               />
             ))
           }
@@ -87,8 +81,8 @@ class MapComponent extends React.PureComponent {
               <Feature
                 key={place.id}
                 coordinates={[ place.longitude, place.latitude ]}
-                onClick={map => this._onMarkerClick(map, place)}
-                onHover={map => this._onMarkerHover(map, place)}
+                onClick={map => onMarkerClick(map, place)}
+                onHover={map => onMarkerHover(map, place)}
                 properties={{
                   // Used to dynamically determine marker-symbol
                   'marker-symbol': place.map.feature['marker-symbol'],
@@ -170,26 +164,13 @@ class MapComponent extends React.PureComponent {
       window.mapDiv.style.height    = height
     }
   }
-
-  _onMoveEnd(map) {
-    this.props.emitter.emit('MAP_MOVED', this._getMapData(map))
-  }
-
-  _onZoom(map) {
-    this.props.emitter.emit('MAP_ZOOM_CHANGED', this._getMapData(map))
-  }
-
-  _onMarkerClick(map, place) {
-    this.props.emitter.emit('MARKER_CLICKED', { place })
-  }
-
-  _onMarkerHover(map, place) {
-    this.props.emitter.emit('MARKER_HOVERED', { place })
-  }
-
-  _onUniversityHover(map, university) {
-    console.info('university hovered')
-  }
 } // end class
+
+MapComponent.propTypes = {
+  bounds:       PropTypes.array,
+  center:       PropTypes.array,
+  zoom:         PropTypes.number,
+  currentPlace: PropTypes.object,
+}
 
 export default MapComponent

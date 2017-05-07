@@ -1,7 +1,6 @@
-import React                from 'react'
-import { connect }          from 'react-redux'
-import { EventEmitter }     from 'fbemitter'
-import _                    from 'lodash'
+import React            from 'react'
+import { connect }      from 'react-redux'
+import _                from 'lodash'
 
 import MapComponent from '../components/MapComponent'
 import Listing      from '../components/Listing'
@@ -14,12 +13,22 @@ class ListingScreen extends React.Component {
       <div className="ListingScreen">
         <div className="left">
 
-          <MapComponent {...this.props} emitter={this.emitter} />
+          <MapComponent
+            {...this.props}
+            onMapZoom={this.onMapZoom.bind(this)}
+            onMapMoveEnd={this.onMapMoveEnd.bind(this)}
+            onMarkerClick={this.onMarkerClick.bind(this)}
+            onMarkerHover={this.onMarkerHover.bind(this)}
+          />
 
         </div>
         <div className="right">
 
-          <Listing {...this.props} emitter={this.emitter} />
+          <Listing
+            {...this.props}
+            onListingItemHover={this.onListingItemHover.bind(this)}
+            onListingItemMouseLeave={this.onListingItemMouseLeave.bind(this)}
+          />
 
         </div>
       </div>
@@ -27,86 +36,61 @@ class ListingScreen extends React.Component {
   }
 
   componentWillMount() {
-    // Create a emitter for this container.
-    this.emitter = new EventEmitter()
-
-    this.subscribeEvents()
+    this.props.dispatch(
+      actions.place.fetchAllPlaces()
+    )
   }
 
   componentDidMount() {
-    const { dispatch } = this.props
-
-    dispatch(
-      actions.place.fetchAllPlaces()
-    )
-
     // Prevent scroll.
     document.body.style.overflowX = 'hidden'
     document.body.style.overflowY = 'hidden'
   }
 
   componentWillUnmount() {
-    this.emitter.removeAllListeners()
-
     // Undo the scroll prevention.
     document.body.style.overflowX = ''
     document.body.style.overflowY = ''
   }
 
-  subscribeEvents() {
-    this.emitter.addListener('MAP_MARKER_HOVERED', payload => {
-      console.log(`MAP_MARKER_HOVERED`)
+  //---
+  // EVENT HANDLERS
+  //---
 
-      this.props.dispatch(
-        actions.place.setCurrentPlace(payload.place)
-      )
-    })
+  onMapMoveEnd(map) {
+    console.log(`onMoveEnd`)
+    // NOOP
+  }
 
-    this.emitter.addListener('MAP_MOVED', payload => {
-      console.log(`MAP_MOVED`)
+  onMapZoom(map) {
+    console.log(`onZoom`)
+    // NOOP
+  }
 
-      this.props.dispatch(
-        actions.map.update(payload)
-      )
-    })
+  onMarkerClick(map, place) {
+    console.log(`onMarkerClick`)
 
-    this.emitter.addListener('MARKER_CLICKED', payload => {
-      console.log(`MARKER_CLICKED`)
+    this.props.dispatch(
+      actions.place.setCurrentPlace(place)
+    )
+  }
 
-      const { place } = payload
+  onMarkerHover(map, place) {
+    console.log(`onMarkerHover`)
+    // NOOP
+  }
 
-      this.props.dispatch(
-        actions.place.setCurrentPlace(place)
-      )
-    })
+  onListingItemHover(place) {
+    console.log(`onListingItemHover`)
 
-    this.emitter.addListener('MARKER_HOVERED', payload => {
-      console.log(`MARKER_HOVERED`)
-      // noop
-    })
+    this.props.dispatch(
+      actions.place.setCurrentPlace(place)
+    )
+  }
 
-    this.emitter.addListener('MAP_ZOOM_CHANGED', payload => {
-      console.log(`MAP_ZOOM_CHANGED`)
-
-      this.props.dispatch(
-        actions.map.update(payload)
-      )
-    })
-
-    this.emitter.addListener('LISTING_ITEM_HOVERED', payload => {
-      console.log(`LISTING_ITEM_HOVERED`)
-
-      const { place } = payload
-
-      this.props.dispatch(
-        actions.place.setCurrentPlace(place)
-      )
-    })
-
-    this.emitter.addListener('LISTING_ITEM_MOUSE_LEAVE', payload => {
-      console.log(`LISTING_ITEM_MOUSE_LEAVE`)
-      // noop
-    })
+  onListingItemMouseLeave(place) {
+    console.log(`onListingItemMouseLeave`)
+    // NOOP
   }
 } // end class
 
@@ -123,4 +107,8 @@ function mapStateToProps(store) {
   }
 }
 
-export default connect( mapStateToProps, null )( ListingScreen )
+function mapDispatchToProps(dispatch) {
+  return { dispatch }
+}
+
+export default connect( mapStateToProps, mapDispatchToProps )( ListingScreen )

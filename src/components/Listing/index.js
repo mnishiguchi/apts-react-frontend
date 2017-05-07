@@ -1,15 +1,20 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { AutoSizer, List } from 'react-virtualized'
 
-import ListingPreview from './ListingPreview'
-import ListingItem    from './ListingItem'
+import ListingItem from './ListingItem'
 
 /**
  * A list of places.
  */
 class Listing extends React.Component {
   render() {
-    const { places, currentPlace } = this.props
+    const {
+      places,
+      currentPlace,
+      onListingItemHover,
+      onListingItemMouseLeave,
+    } = this.props
     const navbarHeight = 50
 
     this._scrollToIndex = this._findIndex()
@@ -20,10 +25,6 @@ class Listing extends React.Component {
 
     return (
       <div className="Listing">
-        {/*
-          <ListingPreview currentPlace={currentPlace} />
-        */}
-
         {/*
           ## height
           - Set it to the expected height of the list.
@@ -59,18 +60,28 @@ class Listing extends React.Component {
    * @return {integer} A list index of the currently selected place, or -1.
    */
   _findIndex() {
-    const { places, currentPlace } = this.props
+    const {
+      places,
+      currentPlace,
+    } = this.props
+
     return places.findIndex(place => {
       return (place && place.id) === (currentPlace && currentPlace.id)
     })
   }
 
   _rowRenderer({ index, key, style }) {
-    const { emitter, places } = this.props
+    const {
+      places,
+      onListingItemHover,
+      onListingItemMouseLeave,
+    } = this.props
+
     return (
       <div key={key} style={style}>
         <ListingItem
-          emitter={emitter}
+          onMouseOver={onListingItemHover}
+          onMouseLeave={onListingItemMouseLeave}
           place={places[index]}
           active={index === this._scrollToIndex}
           index={index}
@@ -82,10 +93,17 @@ class Listing extends React.Component {
   _noRowsRenderer() {
     return (
       <div className="no-rows">
-        No rows
+        No places
       </div>
     )
   }
+}
+
+Listing.propTypes = {
+  places:                  PropTypes.array,
+  currentPlace:            PropTypes.any,
+  onListingItemHover:      PropTypes.func,
+  onListingItemMouseLeave: PropTypes.func,
 }
 
 export default Listing
