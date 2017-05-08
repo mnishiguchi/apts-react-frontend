@@ -21,18 +21,15 @@ class ListingScreen extends React.Component {
     super(props)
 
     this.state = {
-      mode: LIST_MODE,
+      mode:       LIST_MODE,
     }
   }
 
   render() {
     return (
       <div className="ListingScreen">
-        {/*
-          <div className="left" style={{ visibility: this.state.mode === MAP_MODE ? 'visible' : 'hidden' }}>
-        */}
-        <div className="left">
 
+        <div className="left" style={{ zIndex: this.state.mode === MAP_MODE ? '10' : '1' }}>
           <MapComponent
             {...this.props}
             onMapMoveEnd={this.onMapMoveEnd.bind(this)}
@@ -41,41 +38,37 @@ class ListingScreen extends React.Component {
             onMarkerHover={this.onMarkerHover.bind(this)}
             onStyleLoad={this.onStyleLoad.bind(this)}
           />
-
         </div>
-        {/*
-          <div className="right" style={{ visibility: this.state.mode === LIST_MODE ? 'visible' : 'hidden' }}>
-        */}
-        <div className="right">
 
+        <div className="right" style={{ zIndex: this.state.mode === LIST_MODE ? '10' : '1' }}>
           <Listing
             {...this.props}
             onListingItemClick={this.onListingItemClick.bind(this)}
             onListingItemHover={this.onListingItemHover.bind(this)}
             onListingItemMouseLeave={this.onListingItemMouseLeave.bind(this)}
           />
-
         </div>
 
-        {/*
-          <button
-            style={{
-              position: 'absolute',
-              top: '9px',
-              left: '60px',
-              zIndex: 1234,
-              background: 'white',
-              borderRadius: '0',
-            }}
-            onClick={e => {
-              this.setState((prevState, props) => {
-                return { mode: prevState.mode === MAP_MODE ? LIST_MODE : MAP_MODE }
-              })
-            }}
-          >
-            { this.state.mode === MAP_MODE ? 'LIST' : 'MAP' }
-          </button>
-        */}
+        <button
+          className="toggle"
+          style={{
+            position:     'fixed',
+            bottom:       '9px',
+            right:        '20px',
+            zIndex:       '1234',
+            color:        'white',
+            background:   'rgba(0,0,0,.6)',
+            padding:      '5px',
+            borderRadius: '50%',
+          }}
+          onClick={e => {
+            this.setState((prevState, props) => {
+              return { mode: prevState.mode === MAP_MODE ? LIST_MODE : MAP_MODE }
+            })
+          }}
+        >
+          { this.state.mode === MAP_MODE ? 'LIST' : 'MAP' }
+        </button>
       </div>
     )
   }
@@ -84,6 +77,21 @@ class ListingScreen extends React.Component {
     // Prevent scroll.
     document.body.style.overflowX = 'hidden'
     document.body.style.overflowY = 'hidden'
+
+    setToggleButton()
+
+    window.addEventListener('resize', () => {
+      setToggleButton()
+    })
+
+    // Set toggle for mobile, hide it for larger devices.
+    function setToggleButton() {
+      if (document.body.clientWidth < 600) {
+        document.querySelector('.toggle').style.visibility = 'visible'
+      } else {
+        document.querySelector('.toggle').style.visibility = 'hidden'
+      }
+    }
   }
 
   componentWillUnmount() {
@@ -158,7 +166,9 @@ class ListingScreen extends React.Component {
     fitMap()
 
     // Map fitting on resize.
-    window.addEventListener('resize', fitMap)
+    window.addEventListener('resize', () => {
+      fitMap()
+    })
 
     // Fit the map appropriately for this page.
     function fitMap() {

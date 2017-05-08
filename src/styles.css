@@ -84,22 +84,32 @@ footer a:hover {
 /* ListingScreen */
 
 .ListingScreen {
-  display: flex;
+  position: relative;
+  display: block;
 }
 .ListingScreen .left {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
+  max-width: 1000px;
 }
 .ListingScreen .right {
-  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  max-width: 1000px;
+  background-color: white;
 }
 @media (min-width: 600px) {
+  .ListingScreen {
+    display: flex;
+  }
   .ListingScreen .left {
     width: 60vw;
-    max-width: 1000px;
   }
   .ListingScreen .right {
     width: 40vw;
-    max-width: 1000px;
-    visibility: visible;
   }
 }
