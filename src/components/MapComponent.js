@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ReactMapboxGl, { Layer, Feature, Popup, ScaleControl, ZoomControl } from "react-mapbox-gl"
+import ReactMapboxGl, { Layer, Feature, Popup, ScaleControl, ZoomControl, GeoJSONLayer } from "react-mapbox-gl"
 import _ from 'lodash'
 
 import universities from '../data/universities.json'
+import geojson from '../data/geojson.json'
 
 // Stored in .env file
 const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
@@ -71,7 +72,7 @@ class MapComponent extends React.PureComponent {
           https://www.mapbox.com/mapbox-gl-style-spec/#layout-symbol-icon-image
         */}
         <Layer
-          type="symbol" id="marker"
+          type="symbol" id="apartment-symbol"
           layout={{
             // We can specify a symbol here for each marker.
             // Available icons: https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites/basic-v8/_svg
@@ -93,6 +94,21 @@ class MapComponent extends React.PureComponent {
             ))
           }
         </Layer>
+
+        {/*
+          Example geojson layer
+          https://github.com/alex3165/react-mapbox-gl/blob/master/example/src/geojson-example.js
+          https://raw.githubusercontent.com/alex3165/react-mapbox-gl/master/example/src/geojson.json
+        */}
+        <GeoJSONLayer
+          data={geojson}
+          circleLayout={{ visibility: "visible" }}
+          symbolLayout={{
+            "text-field":  "{place}",
+            "text-font":   ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            "text-offset": [0, 0.6],
+            "text-anchor": "top"
+        }}/>
 
         {
           // Popups for apartments
