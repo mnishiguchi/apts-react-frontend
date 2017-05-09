@@ -54,7 +54,8 @@ class MapComponent extends React.PureComponent {
           University marker layer
         */}
         <Layer
-          type="symbol" id="university"
+          id="university"
+          type="symbol"
           layout={{ "icon-image": "school-11" }}
         >
           {
@@ -68,11 +69,37 @@ class MapComponent extends React.PureComponent {
         </Layer>
 
         {/*
-          Apartment marker layer
+          Circles for apartment
+          https://www.mapbox.com/mapbox-gl-js/example/multiple-geometries/
+        */}
+        <Layer
+          id="apartment-highlight"
+          type="circle"
+          paint={{
+            "circle-radius": 15,
+            "circle-color":  "#B42222"
+          }}
+        >
+          {
+            places && places.map((place, index) => (
+              <Feature
+                key={place.id}
+                coordinates={[ place.longitude, place.latitude ]}
+                properties={{
+                  'id': place.id,
+                }}
+              />
+            ))
+          }
+        </Layer>
+
+        {/*
+          Icons for apartments
           https://www.mapbox.com/mapbox-gl-style-spec/#layout-symbol-icon-image
         */}
         <Layer
-          type="symbol" id="apartment-symbol"
+          id="apartment-symbol"
+          type="symbol"
           layout={{
             // We can specify a symbol here for each marker.
             // Available icons: https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites/basic-v8/_svg
@@ -89,26 +116,12 @@ class MapComponent extends React.PureComponent {
                 properties={{
                   // Used to dynamically determine marker-symbol
                   'marker-symbol': place.map.feature['marker-symbol'],
+                  'id':            place.id,
                 }}
               />
             ))
           }
         </Layer>
-
-        {/*
-          Example geojson layer
-          https://github.com/alex3165/react-mapbox-gl/blob/master/example/src/geojson-example.js
-          https://raw.githubusercontent.com/alex3165/react-mapbox-gl/master/example/src/geojson.json
-        */}
-        <GeoJSONLayer
-          data={geojson}
-          circleLayout={{ visibility: "visible" }}
-          symbolLayout={{
-            "text-field":  "{place}",
-            "text-font":   ["Open Sans Semibold", "Arial Unicode MS Bold"],
-            "text-offset": [0, 0.6],
-            "text-anchor": "top"
-        }}/>
 
         {
           // Popups for apartments
