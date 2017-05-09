@@ -48,3 +48,18 @@ export function onStyleLoadMixin(map) {
     window.mapDiv.style.height    = height
   }
 }
+
+/**
+ * NOTE: This function mutates the places array.
+ * @param {array} places
+ * @param {any}   placeId
+ */
+export function setSpecialIconForCurrentPlace(places, placeId) {
+  const defaultIconName = 'castle-11'
+  const specialIconName = 'castle-15'
+
+  return places.map(place => {
+    place.map.feature['marker-symbol'] = (place.id === placeId) ? specialIconName : defaultIconName
+    return place
+  })
+}

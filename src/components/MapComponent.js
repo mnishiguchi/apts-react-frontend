@@ -32,7 +32,7 @@ class MapComponent extends React.PureComponent {
     return (
       <ReactMapboxGl
         accessToken={accessToken}
-        style="mapbox://styles/mapbox/streets-v8"
+        style="mapbox://styles/mapbox/streets-v9"
         containerStyle={{ width: '100%', height: '90vh', ...containerStyle }}
         center={center}
         zoom={[zoom]}
@@ -54,7 +54,7 @@ class MapComponent extends React.PureComponent {
         <Layer
           id="university"
           type="symbol"
-          layout={{ "icon-image": "school-11" }}
+          layout={{ "icon-image": "college-11" }}
         >
           {
             universities.map((university, index) => (
@@ -101,7 +101,7 @@ class MapComponent extends React.PureComponent {
           layout={{
             // We can specify a symbol here for each marker.
             // Available icons: https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites/basic-v8/_svg
-            "icon-image": "{marker-symbol}-15"
+            "icon-image": "{marker-symbol}"
           }}
         >
           {

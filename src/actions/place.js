@@ -1,6 +1,9 @@
 // import api from '../lib/requestsManager'
 import places from '../data/places_1.json'
 
+// To experiment in console.
+window.places = places
+
 const actions = {
   setCurrentPlace: (place) => {
     return dispatch => {

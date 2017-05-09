@@ -6,7 +6,7 @@ import _                    from 'lodash'
 import actions              from '../actions'
 import Listing              from '../components/Listing'
 import MapComponent         from '../components/MapComponent'
-import { onStyleLoadMixin } from '../lib/mapboxglUtils'
+import { onStyleLoadMixin, setSpecialIconForCurrentPlace } from '../lib/mapboxglUtils'
 
 // Define constants for toggling modes.
 const LIST_MODE = 0
@@ -121,6 +121,9 @@ class ListingScreen extends React.Component {
   onMarkerClick(map, place) {
     console.log(`onMarkerClick`)
 
+    const { places } = this.props
+    setSpecialIconForCurrentPlace(places, place.id)
+
     this.props.dispatch(
       actions.place.setCurrentPlace(place)
     )
@@ -133,6 +136,9 @@ class ListingScreen extends React.Component {
 
   onListingItemHover(place) {
     console.log(`onListingItemHover`)
+
+    const { places } = this.props
+    setSpecialIconForCurrentPlace(places, place.id)
 
     this.props.dispatch(
       actions.place.setCurrentPlace(place)
