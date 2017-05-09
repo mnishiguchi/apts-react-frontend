@@ -21,7 +21,7 @@ class ListingScreen extends React.Component {
     super(props)
 
     this.state = {
-      mode:       LIST_MODE,
+      mode: LIST_MODE,
     }
   }
 
@@ -112,7 +112,7 @@ class ListingScreen extends React.Component {
   onMapZoom(map) {
     console.log(`onZoom`)
 
-    const zoom = window.getMapData().zoom
+    const zoom = map.getZoom()
     this.props.dispatch(
       actions.map.updateZoom(zoom)
     )

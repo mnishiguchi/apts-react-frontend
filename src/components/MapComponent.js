@@ -29,7 +29,6 @@ class MapComponent extends React.PureComponent {
     const onMarkerHover = this.props.onMarkerHover || (() => {})
     const onStyleLoad   = this.props.onStyleLoad   || (() => {})
 
-    // TODO: How to add cluster?
     return (
       <ReactMapboxGl
         accessToken={accessToken}
@@ -43,7 +42,6 @@ class MapComponent extends React.PureComponent {
       >
 
         {/*
-          TODO: How to customize styles?
           External stylesheet does not work because buttons are inline-styled.
         */}
         <ZoomControl />
@@ -73,10 +71,10 @@ class MapComponent extends React.PureComponent {
           https://www.mapbox.com/mapbox-gl-js/example/multiple-geometries/
         */}
         <Layer
-          id="apartment-highlight"
+          id="apartment-circle"
           type="circle"
           paint={{
-            "circle-radius": 15,
+            "circle-radius": 3,
             "circle-color":  "#B42222"
           }}
         >
@@ -132,13 +130,36 @@ class MapComponent extends React.PureComponent {
               coordinates={[ currentPlace.longitude, currentPlace.latitude ]}
               offset={[ 20, -50 ]}
             >
+              <p>{currentPlace.marketing_name}</p>
+            </Popup>
+          )
+        }
+
+        {
+          // Information window for a currently-selected place
+          !!(currentPlace) && (
+            <div
+              className="info-window"
+              style={{
+                position:   'fixed',
+                bottom:     '0',
+                left:       '0',
+                zIndex:     '1234',
+                width:      'inherit',
+                height:     'auto',
+                padding:    '1rem',
+                background: 'rgba(0,0,0,.5)',
+                color:      'white',
+              }}
+            >
               <div>
                 <h4>{currentPlace.marketing_name}</h4>
                 <p>{`${currentPlace.street} ${currentPlace.city} ${currentPlace.state} ${currentPlace.zip}`}</p>
               </div>
-            </Popup>
+            </div>
           )
         }
+
       </ReactMapboxGl>
     )
   }
