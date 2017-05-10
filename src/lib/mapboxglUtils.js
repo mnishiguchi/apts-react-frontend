@@ -55,11 +55,45 @@ export function onStyleLoadMixin(map) {
  * @param {any}   placeId
  */
 export function setSpecialIconForCurrentPlace(places, placeId) {
-  const defaultIconName = 'castle-11'
-  const specialIconName = 'castle-15'
+  const defaultIconName = 'castle'
+  const specialIconName = 'bar'
 
   return places.map(place => {
-    place.map.feature['marker-symbol'] = (place.id === placeId) ? specialIconName : defaultIconName
+    place.map['icon'] = (place.id === placeId) ? specialIconName : defaultIconName
     return place
   })
+}
+
+/**
+ * Build a geojson object based on places array.
+ * Example geojson: https://www.mapbox.com/mapbox-gl-js/example/geojson-markers/
+ * --
+ * If there is an existing source in the map, we can obtain the source by just calling:
+ *   map.getSource('source_id')._data
+ * @param  {array<object>} places
+ * @return {object}
+ */
+export function buildGeojson(places) {
+  let features = places.map(place => {
+    return {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ place.longitude, place.latitude ]
+      },
+      // Prepare information that can be used for manipulating a layer later on.
+      properties: {
+        ...place,
+        "icon": "castle"
+      },
+    }
+  })
+
+  return {
+    "type": "geojson",
+    "data": {
+      "type": "FeatureCollection",
+      "features": features
+    }
+  }
 }
