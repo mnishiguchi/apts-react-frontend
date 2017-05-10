@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ReactMapboxGl, { Layer, Feature, Popup, ScaleControl, ZoomControl, GeoJSONLayer } from "react-mapbox-gl"
+import ReactMapboxGl, { Layer, Feature, Popup, ScaleControl, ZoomControl } from "react-mapbox-gl"
 import _ from 'lodash'
 
-import universities from '../data/universities.json'
-import geojson from '../data/geojson.json'
+// import universities from '../data/universities.json'
+// import geojson from '../data/geojson.json'
+
+import { buildGeojson } from '../lib/mapboxglUtils'
 
 // Stored in .env file
 const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
@@ -49,33 +51,15 @@ class MapComponent extends React.PureComponent {
         <ScaleControl measurement="mi" position="bottomLeft" />
 
         {/*
-          University marker layer
-        */}
-        <Layer
-          id="university"
-          type="symbol"
-          layout={{ "icon-image": "college-11" }}
-        >
-          {
-            universities.map((university, index) => (
-              <Feature
-                key={index}
-                coordinates={[ university.longitude, university.latitude ]}
-              />
-            ))
-          }
-        </Layer>
-
-        {/*
-          Circles for apartment
+          Circles (dots) for place
           https://www.mapbox.com/mapbox-gl-js/example/multiple-geometries/
         */}
         <Layer
-          id="apartment-circle"
+          id="place-circle"
           type="circle"
           paint={{
             "circle-radius": 3,
-            "circle-color":  "#B42222"
+            "circle-color":  "#f28cb1"
           }}
         >
           {
@@ -92,16 +76,16 @@ class MapComponent extends React.PureComponent {
         </Layer>
 
         {/*
-          Icons for apartments
+          Icons for places
           https://www.mapbox.com/mapbox-gl-style-spec/#layout-symbol-icon-image
         */}
         <Layer
-          id="apartment-symbol"
+          id="place-symbol"
           type="symbol"
           layout={{
             // We can specify a symbol here for each marker.
             // Available icons: https://github.com/mapbox/mapbox-gl-styles/tree/master/sprites/basic-v8/_svg
-            "icon-image": "{marker-symbol}"
+            "icon-image": "{icon}-15"
           }}
         >
           {
@@ -112,9 +96,9 @@ class MapComponent extends React.PureComponent {
                 onClick={map => onMarkerClick(map, place)}
                 onHover={map => onMarkerHover(map, place)}
                 properties={{
-                  // Used to dynamically determine marker-symbol
-                  'marker-symbol': place.map.feature['marker-symbol'],
-                  'id':            place.id,
+                  // Used to dynamically determine icon
+                  'icon': place.map['icon'],
+                  'id':   place.id,
                 }}
               />
             ))
@@ -122,7 +106,7 @@ class MapComponent extends React.PureComponent {
         </Layer>
 
         {
-          // Popups for apartments
+          // Popups for places
           // https://www.mapbox.com/mapbox-gl-js/api/#Popup
           !!(currentPlace) && (
             <Popup
@@ -159,7 +143,6 @@ class MapComponent extends React.PureComponent {
             </div>
           )
         }
-
       </ReactMapboxGl>
     )
   }
